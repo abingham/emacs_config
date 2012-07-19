@@ -1,0 +1,5 @@
+style: glob
+
+eproject/.git/*
+auto-save-list/*
+.*~

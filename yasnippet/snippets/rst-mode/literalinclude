@@ -1,0 +1,3 @@
+# name: Literal include
+# --
+.. literalinclude:: ${1:Filename}$0

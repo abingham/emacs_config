@@ -1,0 +1,6 @@
+* function for deletion of elements
+* make it work in situations where comma isn't the separator (eg. lisp-mode)
+* back and forward swap functions that don't use tranpose-subr and
+  therefore don't have some of it's oddities
+* (optionally?) move comments with elements when transposing multi-line
+  elements

@@ -1,0 +1,4 @@
+# name: pitem
+# --
+\pause \item ${1:text}
+$0
