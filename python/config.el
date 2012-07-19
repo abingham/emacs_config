@@ -1,8 +1,9 @@
 ; mode-specific stuff
-(add-to-list 'load-path (concat (file-name-directory load-file-name) "/python-mode"))
-(setq interpreter-mode-alist (cons '("python" . python-mode)
-                                   interpreter-mode-alist))
-(autoload 'python-mode "python-mode" "Python editing mode." t)
+(add-to-list 'load-path (concat (file-name-directory load-file-name) "/gallina"))
+;(setq interpreter-mode-alist (cons '("python" . python-mode)
+;                                   interpreter-mode-alist))
+;(autoload 'python-mode "python-mode" "Python editing mode." t)
+(require 'python)
 
 ; mode-independent stuff
 (add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
