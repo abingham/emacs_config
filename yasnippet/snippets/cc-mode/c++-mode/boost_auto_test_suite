@@ -1,4 +1,5 @@
 #name: BOOST_AUTO_TEST_SUITE
+#key: BATS
 # --
 BOOST_AUTO_TEST_SUITE( $1 )
 $0
