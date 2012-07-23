@@ -120,7 +120,7 @@
 	  "rst"
 	  "uniquify"
 	  "w3m"
-	  ;"yasnippet"
+	  "yasnippet"
 	  )
 ))
 
