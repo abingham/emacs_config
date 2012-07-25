@@ -1,12 +1,6 @@
 ; -*- lisp -*-
 
 ;; (setq debug-on-error t)
-
-					; We can optionally load a minimal config
-(setq minimal-config (member "-min" command-line-args))
-(setq command-line-args (delete "-min" command-line-args))
-
-
 					; allow loading code from
 					; ./elisp
 (add-to-list 'load-path 
@@ -67,40 +61,31 @@
 
 ;; --- mode configurations and such ---
 (setq config_packages
-      (if minimal-config
-					; minimal config
-	  '("anything"
-	    "cpp"
-	    "python"
-	    "rst"
-	    "uniquify")
-					; full config
-	
-	'("anything"
-	  ;"autopair"
-	  ;"bookmarks"
-	  "cleanup"
-	  "cpp"
-	  "ctags"
- 	  "elemental"
-	  ; "eproject"
-	  ; "flymake"
-	  "git"
-	  ;"go"
-	  "hg"
-	  "ido"
-	  "multiterm"
-	  "p4"
-	  "prosjekt"
-	  "python"
-	  "rst"
-	  "smart-tab"
-	  "traad"
-	  "uniquify"
-	  "w3m"
-	  "yasnippet"
-	  )
-))
+      '("anything"
+	; "autopair"
+	; "bookmarks"
+	"cleanup"
+	"cpp"
+	"ctags"
+	"elemental"
+	; "eproject"
+	; "flymake"
+	"git"
+	; "go"
+	"hg"
+	"ido"
+	"multiterm"
+	"p4"
+	"prosjekt"
+	"python"
+	"rst"
+	"smart-tab"
+	"traad"
+	"uniquify"
+	"w3m"
+	"yasnippet"
+	)
+      )
 
 (mapc (lambda (dir)
 	(add-to-list 'load-path (concat (file-name-directory load-file-name) "/" dir))
