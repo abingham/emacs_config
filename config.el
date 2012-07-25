@@ -118,6 +118,8 @@
 	  "prosjekt"
 	  "python"
 	  "rst"
+	  "smart-tab"
+	  "traad"
 	  "uniquify"
 	  "w3m"
 	  "yasnippet"
