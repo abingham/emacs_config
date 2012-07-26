@@ -62,6 +62,7 @@
 ;; --- mode configurations and such ---
 (setq config_packages
       '("anything"
+	"autocomplete"
 	; "autopair"
 	; "bookmarks"
 	"cleanup"
@@ -79,7 +80,7 @@
 	"prosjekt"
 	"python"
 	"rst"
-	"smart-tab"
+	; "smart-tab"
 	"traad"
 	"uniquify"
 	"w3m"
