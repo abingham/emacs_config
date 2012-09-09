@@ -68,6 +68,7 @@
 	"cleanup"
 	"cpp"
 	"ctags"
+	"dart"
 	"elemental"
 	; "eproject"
 	; "flymake"
