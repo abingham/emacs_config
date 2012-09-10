@@ -25,12 +25,12 @@
   (let ((entry (assoc sym ac-traad-cache)))
     (if entry (cadr entry))))
 
-(ac-define-source traad
-  '((depends traad)
-    (candidates . ac-traad-candidates)
-    (document . ac-traad-documentation)
-    (symbol . "s")
-    (requires . 0)))
+;(ac-define-source traad
+;  '((depends traad)
+;    (candidates . ac-traad-candidates)
+;    (document . ac-traad-documentation)
+;    (symbol . "s")
+;    (requires . 0)))
 
 (defun ac-traad-setup ()
   ;(setq ac-sources (append '(ac-source-traad) ac-sources)))
