@@ -66,6 +66,7 @@
 	; "autopair"
 	; "bookmarks"
 	"cleanup"
+        "codesearch"
 	"cpp"
 	"ctags"
 	"dart"
@@ -84,7 +85,7 @@
 	; "smart-tab"
 	"traad"
 	"uniquify"
-	"w3m"
+	; "w3m"
 	"yasnippet"
 	)
       )
