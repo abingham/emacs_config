@@ -2,7 +2,7 @@
 
 (load "traad.el")
 
-(require 'auto-complete)
+; (require 'auto-complete)
 
 (defun ac-traad-find ()
   (require 'thingatpt)
