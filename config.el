@@ -75,6 +75,7 @@
 	; "flymake"
 	"git"
 	; "go"
+	"gtags"
 	"hg"
 	"ido"
 	"multiterm"
