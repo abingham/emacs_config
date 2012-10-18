@@ -64,7 +64,7 @@
       '("anything"
 	;"autocomplete"
 	; "autopair"
-	; "bookmarks"
+	"bookmarks"
 	"cleanup"
         "codesearch"
 	"cpp"
