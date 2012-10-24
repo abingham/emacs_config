@@ -59,6 +59,8 @@
 (require 'tramp)
 (setq tramp-default-method "ssh")
 
+(fset 'yes-or-no-p 'y-or-n-p)           ; easy answer to stupid question
+
 ;; --- mode configurations and such ---
 (setq config_packages
       '("anything"
