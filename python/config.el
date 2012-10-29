@@ -86,6 +86,7 @@
   ;(local-set-key "\M-b" 'backward-word)
                                      ; make paren matches visible
   (show-paren-mode 1)
+  (highlight-indentation-mode 1)
   )
 
                                         ; add my customization

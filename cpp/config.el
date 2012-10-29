@@ -15,6 +15,7 @@
   (delete-selection-mode 1) ; Maybe on by default on windows and off by default on solaris?
   (setq c-basic-offset 2)
   (show-paren-mode 1)
+  (highlight-indentation-mode 1)
   ;; (c-set-offset 'topmost-intro '-)
   ;; (c-set-offset 'inline-open '-)
 )
