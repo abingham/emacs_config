@@ -137,7 +137,8 @@ Replaces three keystroke sequence C-u 0 C-l."
 (let* ((this_dir (file-name-directory load-file-name))
       (local_config (concat this_dir "local_config")))
   ; (add-to-list 'load-path this_dir)
-  (load local_config))
+  (if (file-exists-p local_config)
+      (load local_config)))
 
   ;; (condition-case nil
   ;;     (load local_config)
