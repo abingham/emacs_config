@@ -79,6 +79,7 @@
 	; "go"
 	;"gtags"
 	"hg"
+        "highlight_indentation"
 	"ido"
 	"multiterm"
 	"p4"
