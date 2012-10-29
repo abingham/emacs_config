@@ -1,6 +1,4 @@
-(add-to-list 'load-path "~/projects/traad/elisp")
-
-(load "traad.el")
+(load "traad/elisp/traad")
 
 ; (require 'auto-complete)
 

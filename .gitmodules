@@ -1,3 +1,6 @@
 [submodule "highlight_indentation/Highlight-Indentation-for-Emacs"]
 	path = highlight_indentation/Highlight-Indentation-for-Emacs
 	url = https://github.com/antonj/Highlight-Indentation-for-Emacs.git
+[submodule "traad/traad"]
+	path = traad/traad
+	url = https://github.com/abingham/traad.git
