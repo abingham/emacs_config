@@ -4,3 +4,6 @@
 [submodule "traad/traad"]
 	path = traad/traad
 	url = https://github.com/abingham/traad.git
+[submodule "prosjekt/prosjekt"]
+	path = prosjekt/prosjekt
+	url = https://github.com/abingham/prosjekt.git
