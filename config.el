@@ -137,11 +137,11 @@ Replaces three keystroke sequence C-u 0 C-l."
 
 ; Load any local settings.
 (let* ((this_dir (file-name-directory load-file-name))
-      (local_config (concat this_dir "local_config")))
+      (local_config (concat this_dir "local_config.el")))
   ; (add-to-list 'load-path this_dir)
   (if (file-exists-p local_config)
-      (load local_config)))
-
+      (load local_config)
+      (message (format "no local config %s" local_config))))
   ;; (condition-case nil
   ;;     (load local_config)
   ;;   (error (message ")))
