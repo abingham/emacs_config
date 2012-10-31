@@ -69,6 +69,7 @@
 	; "autopair"
 	"bookmarks"
 	"cleanup"
+	"clojure-mode"
         "codesearch"
 	"cpp"
 	;"ctags"
