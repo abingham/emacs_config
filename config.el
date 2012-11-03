@@ -40,7 +40,6 @@
 (column-number-mode 1)
 (line-number-mode 1)
 (setq visible-bell t)
-(global-linum-mode 1)
 
 ;; Compilation stuff
 (setq-default display-buffer-reuse-frames t)
