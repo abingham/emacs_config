@@ -36,3 +36,6 @@
 
 (add-hook 'python-mode-hook 'ac-traad-setup)
 
+(global-set-key [(ctrl x) (t) (r)] 'traad-rename)
+(global-set-key [(ctrl x) (t) (u)] 'traad-undo)
+(global-set-key [(ctrl x) (t) (d)] 'traad-redo)
