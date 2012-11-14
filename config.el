@@ -73,6 +73,7 @@
 	"cpp"
 	;"ctags"
 	"dart"
+	"dirtree"
 	"elemental"
 	; "eproject"
 	; "flymake"
@@ -89,7 +90,9 @@
 	"rst"
 	; "smart-tab"
 	"traad"
+	;"tree_mode"
 	"uniquify"
+	;"windata"
 	; "w3m"
 	"yasnippet"
 	)
