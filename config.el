@@ -82,6 +82,7 @@
 	;"gtags"
 	"hg"
         "highlight_indentation"
+	"html"
 	"ido"
 	"multiterm"
 	"p4"
