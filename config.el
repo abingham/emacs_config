@@ -13,7 +13,7 @@
       '("anything"
 	;"autocomplete"
 	; "autopair"
-	"bookmarks"
+	"bmarks"
 	"cleanup"
 	;"clojure-mode"
         "codesearch"

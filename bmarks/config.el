@@ -2,13 +2,13 @@
 (defun simple-bookmark-set ()
   "set the simple bookmark"
   (interactive)
-  (bookmark-set "__simple_bookmark__"))
+  (bookmark-set "abingham_bookmark"))
 
 ;;;###autoload
 (defun simple-bookmark-jump ()
   "Jump to the simple bookmark"
   (interactive)
-  (bookmark-jump "__simple_bookmark__")
+  (bookmark-jump "abingham_bookmark")
   ; (bookmark-delete "temporary_poppable")
   )
 
