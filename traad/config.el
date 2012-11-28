@@ -38,4 +38,6 @@
 
 (global-set-key [(ctrl x) (t) (r)] 'traad-rename)
 (global-set-key [(ctrl x) (t) (u)] 'traad-undo)
-(global-set-key [(ctrl x) (t) (d)] 'traad-redo)
+(global-set-key [(ctrl x) (t) (d)] 'traad-get-definition)
+(global-set-key [(ctrl x) (t) (o)] 'traad-display-doc)
+(global-set-key [(ctrl x) (t) (c)] 'traad-display-calltip)

@@ -1,5 +1,6 @@
 (load "prosjekt/prosjekt/prosjekt.el")
 (require 'anything-prosjekt)
+(require 'dirtree-prosjekt)
 
 (add-to-list 'anything-sources 'anything-c-source-prosjekt-files t)
 (add-to-list 'anything-sources 'anything-c-source-prosjekt-projects t)
