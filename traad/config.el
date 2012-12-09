@@ -41,3 +41,4 @@
 (global-set-key [(ctrl x) (t) (d)] 'traad-get-definition)
 (global-set-key [(ctrl x) (t) (o)] 'traad-display-doc)
 (global-set-key [(ctrl x) (t) (c)] 'traad-display-calltip)
+(global-set-key [(ctrl x) (t) (f)] 'traad-findit)
