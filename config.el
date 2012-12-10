@@ -11,7 +11,7 @@
 ;; --- mode configurations and such ---
 (setq config_packages
       '("anything"
-	;"autocomplete"
+	"autocomplete"
 	; "autopair"
 	"bmarks"
 	"cleanup"

@@ -2,26 +2,26 @@
 
 ; (require 'auto-complete)
 
-(defun ac-traad-find ()
-  (require 'thingatpt)
-  (let ((symbol (car-safe (bounds-of-thing-at-point 'symbol))))
-    (if (null symbol)
-        (if (string= "." (buffer-substring (- (point) 1) (point)))
-            (point)
-          nil)
-      symbol)))
+;(defun ac-traad-find ()
+;  (require 'thingatpt)
+;  (let ((symbol (car-safe (bounds-of-thing-at-point 'symbol))))
+;    (if (null symbol)
+;        (if (string= "." (buffer-substring (- (point) 1) (point)))
+;            (point)
+;          nil)
+;      symbol)))
 
-(defvar ac-traad-cache nil)
+; (defvar ac-traad-cache nil)
 
-(defun ac-traad-candidates ()
-  (let* ((real-point (ac-traad-find))
-	 (pt (if real-point real-point (point))))
-    (setq ac-traad-cache (traad-code-assist pt))
-    (mapcar 'car ac-traad-cache)))
+;(defun ac-traad-candidates ()
+;  (let* ((real-point (ac-traad-find))
+;	 (pt (if real-point real-poin; (point))))
+;    (setq ac-traad-cache (traad-code-assist pt))
+;    (mapcar 'car ac-traad-cache)))
 
-(defun ac-traad-documentation (sym)
-  (let ((entry (assoc sym ac-traad-cache)))
-    (if entry (cadr entry))))
+;(defun ac-traad-documentation (sym)
+;  (let ((entry (assoc sym ac-traad-cache)))
+;    (if entry (cadr entry))))
 
 ;(ac-define-source traad
 ;  '((depends traad)
@@ -30,9 +30,9 @@
 ;    (symbol . "s")
 ;    (requires . 0)))
 
-(defun ac-traad-setup ()
+;(defun ac-traad-setup ()
   ;(setq ac-sources (append '(ac-source-traad) ac-sources)))
-  (setq ac-sources '(ac-source-traad)))
+  ;(setq ac-sources '(ac-source-traad)))
 
 (add-hook 'python-mode-hook 'ac-traad-setup)
 
