@@ -1,41 +1,43 @@
 (load "traad/elisp/traad")
 
-; (require 'auto-complete)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Autocomplete stuff
+(require 'auto-complete)
 
-;(defun ac-traad-find ()
-;  (require 'thingatpt)
-;  (let ((symbol (car-safe (bounds-of-thing-at-point 'symbol))))
-;    (if (null symbol)
-;        (if (string= "." (buffer-substring (- (point) 1) (point)))
-;            (point)
-;          nil)
-;      symbol)))
+(defvar ac-traad-cache nil
+  "Hold the results of the last traad-code-assist.")
 
-; (defvar ac-traad-cache nil)
+(defun ac-traad-candidates ()
+  "Get the list of completions at point."
+  (if (traad-running?)
+      (progn
+	(setq ac-traad-cache (traad-code-assist (point)))
+	(mapcar 'car ac-traad-cache))
+    (setq ac-traad-cache nil)))
 
-;(defun ac-traad-candidates ()
-;  (let* ((real-point (ac-traad-find))
-;	 (pt (if real-point real-poin; (point))))
-;    (setq ac-traad-cache (traad-code-assist pt))
-;    (mapcar 'car ac-traad-cache)))
+(defun ac-traad-documentation (sym)
+  "Look up symbol documentation in the cache."
+    (let ((entry (assoc sym ac-traad-cache)))
+      (if entry (cadr entry))))
 
-;(defun ac-traad-documentation (sym)
-;  (let ((entry (assoc sym ac-traad-cache)))
-;    (if entry (cadr entry))))
+;; The autocomplete source for traad
+(ac-define-source traad
+  '((depends traad)
+    (candidates . ac-traad-candidates)
+    (cache)
+    (document . ac-traad-documentation)
+    (symbol . "s")
+    (requires . 0)))
 
-;(ac-define-source traad
-;  '((depends traad)
-;    (candidates . ac-traad-candidates)
-;    (document . ac-traad-documentation)
-;    (symbol . "s")
-;    (requires . 0)))
+(defun ac-traad-setup ()
+  "Add ac-source-traad to autocomplete list."
+  (setq ac-sources (append '(ac-source-traad) ac-sources)))
 
-;(defun ac-traad-setup ()
-  ;(setq ac-sources (append '(ac-source-traad) ac-sources)))
-  ;(setq ac-sources '(ac-source-traad)))
-
+;; Insert the traad source in python mode.
 (add-hook 'python-mode-hook 'ac-traad-setup)
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Useful keybindings
 (global-set-key [(ctrl x) (t) (r)] 'traad-rename)
 (global-set-key [(ctrl x) (t) (u)] 'traad-undo)
 (global-set-key [(ctrl x) (t) (d)] 'traad-get-definition)
