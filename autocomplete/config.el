@@ -5,7 +5,9 @@
 
 (require 'auto-complete-config)
 (ac-config-default)
+
+(setq ac-auto-start nil)
 (global-auto-complete-mode t)
 (setq ac-quick-help-delay 0.3)
-(define-key ac-completing-map (kbd "M-TAB") 'ac-complete)
+(global-set-key "\M-/" 'auto-complete)
 
