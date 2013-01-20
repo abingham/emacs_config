@@ -131,7 +131,6 @@ Replaces three keystroke sequence C-u 0 C-l."
 (add-hook 'compilation-mode-hook 'my-compilation-mode-hook)
 
 ;; Misc. other stuff
-(setq c-basic-offset 2)
 (require 'cl)
 (require 'rtf-mode)
 (require 'open-next-line)

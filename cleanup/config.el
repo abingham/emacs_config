@@ -8,7 +8,9 @@
             ".*\.py"
             "SConstruct"
             "SConscript"
-            ".*\.rst"))
+            ".*\.rst"
+	    ".*\.js"
+	    ".*\.jinja2"))
 
 ;;;###autoload
 (defun cleanup-buffer ()
