@@ -1,10 +1,7 @@
-(require 'git)
-(require 'git-blame)
+; (require 'git)
+; (require 'git-blame)
 
-(setq git-show-uptodate nil)
+; (setq git-show-uptodate nil)
 
-; (require 'magit)
-
-; (setq load-path (cons "~/.emacs.d/git-emacs" load-path))
-; (add-to-list 'load-path "~/.emacs.d/git-emacs")
-; (require 'git-emacs)
+(add-to-list 'load-path "~/.emacs.d/git/magit-1.2.0")
+(require 'magit)
