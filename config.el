@@ -1,57 +1,16 @@
-; -*- lisp -*-
+;; Initialize the package system, get any missing packages, etc.
+(require 'required-packages)
 
-;; (setq debug-on-error t)
-					; allow loading code from
-					; ./elisp
-(add-to-list 'load-path 
-	     (concat 
-	      (file-name-directory load-file-name) 
-	      "/elisp"))
-
-;; --- mode configurations and such ---
-(setq config_packages
-      '("anything"
-	"autocomplete"
-	; "autopair"
-	"bmarks"
-	"cleanup"
-	;"clojure-mode"
-        "codesearch"
-	"cpp"
-	;"ctags"
-	"dart"
-	"dirtree"
-	"elemental"
-	; "eproject"
-	; "flymake"
-	"git"
-	; "go"
-	;"gtags"
-	"hg"
-	"html"
-	"ido"
-	"multiterm"
-	"p4"
-	"prosjekt"
-	"python"
-	"rst"
-	; "smart-tab"
-	"traad"
-	;"tree_mode"
-	"uniquify"
-	;"windata"
-	; "w3m"
-	"yasnippet"
-	)
-      )
+;; Do specific package configuration
+(require 'configure-packages)
 
 (mapc (lambda (dir)
 	(add-to-list 'load-path (concat (file-name-directory load-file-name) "/" dir))
 	(load (concat dir "/config")))
       config_packages)
 
-
-;; various utility functions (mostly bound to keys above
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; The rest...
 
 (defun line-to-top-of-window ()
   "Scroll current line to top of window. \
@@ -86,9 +45,9 @@ Replaces three keystroke sequence C-u 0 C-l."
         (message (number-to-string (count-matches "\\sw+"))))))
 
 ;; Key bindings
-(global-set-key [(ctrl x) (i)]    'windmove-up)
-(global-set-key [(ctrl x) (m)]  'windmove-down)
-(global-set-key [(ctrl x) (j)]  'windmove-left)
+(global-set-key [(ctrl x) (i)] 'windmove-up)
+(global-set-key [(ctrl x) (m)] 'windmove-down)
+(global-set-key [(ctrl x) (j)] 'windmove-left)
 (global-set-key [(ctrl x) (l)] 'windmove-right)
 (global-set-key "\C-x\C-m" 'execute-extended-command)
 (global-set-key "\C-w" 'backward-kill-word) 
@@ -133,8 +92,8 @@ Replaces three keystroke sequence C-u 0 C-l."
 (require 'cl)
 (require 'rtf-mode)
 (require 'open-next-line)
-(require 'tramp)
-(setq tramp-default-method "ssh")
+; (require 'tramp)
+; (setq tramp-default-method "ssh")
 
 (fset 'yes-or-no-p 'y-or-n-p)           ; easy answer to stupid question
 
