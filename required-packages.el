@@ -15,6 +15,7 @@
     python-pylint
     p4
     tree-mode
+    xml-rpc
     yasnippet)
   "A list of packages to ensure are installed at launch.")
 
