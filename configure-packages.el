@@ -13,6 +13,7 @@
         "codesearch"
 	"cpp"
 	"dirtree"
+        "flymake"
 	"git"
 	"hg"
  	"html"

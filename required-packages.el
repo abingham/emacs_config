@@ -7,6 +7,8 @@
   '(ahg
     anything 
     auto-complete 
+    flymake
+    flymake-python-pyflakes
     fuzzy-match
     magit
     multi-term
