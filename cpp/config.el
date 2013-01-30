@@ -33,8 +33,8 @@
 
 (defun my-flymake-cc-load ()
   (dolist (ext '("\\.c$" "\\.h$" "\\.cc$" "\\.cpp$" "\\.hh$" "\\.hpp$"))
-    (flymake-easy-load 'flymake-cc-command
-		       my-flymake-err-line-patterns
+    (flymake-easy-load 'my-flymake-cc-command
+		       flymake-err-line-patterns
 		       'inplace
 		       ext
 		       "^W")))
