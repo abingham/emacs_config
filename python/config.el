@@ -8,6 +8,7 @@
 (add-to-list 'auto-mode-alist '("\\wscript\\'" . python-mode))
 (setq python-indent-offset 4)
 
-(setq flymake-python-pyflakes-executable "/usr/local/bin/pyflakes3")
+; TODO: Check if flymake_python.sh exists. If so, use it, otherwise fall back to pyflakes or whatever.
+(setq flymake-python-pyflakes-executable "~/bin/flymake_python.sh")
 (add-hook 'python-mode-hook 'flymake-python-pyflakes-load)
 (add-hook 'python-mode-hook (lambda () (show-paren-mode t)))
