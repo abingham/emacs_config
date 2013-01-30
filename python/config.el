@@ -8,7 +8,15 @@
 (add-to-list 'auto-mode-alist '("\\wscript\\'" . python-mode))
 (setq python-indent-offset 4)
 
-; TODO: Check if flymake_python.sh exists. If so, use it, otherwise fall back to pyflakes or whatever.
-(setq flymake-python-pyflakes-executable "~/bin/flymake_python.sh")
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; flymake
+
+; Find a suitable executable
+(let* ((candidates '("~/bin/flymake_python.sh" "pyflakes3" "epylint" "pep8"))
+       (available (remove-if-not 'file-exists-p candidates)))
+  (if available
+      (setq flymake-python-pyflakes-executable "~/bin/flymake_python.sh")
+    (warn "No python flymake executables available.")))
+
 (add-hook 'python-mode-hook 'flymake-python-pyflakes-load)
 (add-hook 'python-mode-hook (lambda () (show-paren-mode t)))
