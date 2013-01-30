@@ -4,11 +4,6 @@
 ;; Do specific package configuration
 (require 'configure-packages)
 
-(mapc (lambda (dir)
-	(add-to-list 'load-path (concat (file-name-directory load-file-name) "/" dir))
-	(load (concat dir "/config")))
-      config_packages)
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; The rest...
 
