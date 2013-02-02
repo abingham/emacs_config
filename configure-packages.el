@@ -18,6 +18,7 @@
 	"hg"
  	"html"
 	"ido"
+	"javascript"
 	"multiterm"
 	"p4"
 	"prosjekt"
@@ -25,6 +26,7 @@
 	"rst"
 	"traad"
 	"uniquify"
+	"visual_basic"
 	"yasnippet"
 	)
       )

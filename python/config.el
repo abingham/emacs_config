@@ -13,7 +13,7 @@
 
 ; Find a suitable executable
 (let* ((candidates '("~/bin/flymake_python.sh" "pyflakes3" "epylint" "pep8"))
-       (available (remove-if-not 'file-exists-p candidates)))
+       (available (remove-if-not 'executable-find candidates)))
   (if available
       (setq flymake-python-pyflakes-executable "~/bin/flymake_python.sh")
     (warn "No python flymake executables available.")))
