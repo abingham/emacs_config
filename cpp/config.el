@@ -1,4 +1,4 @@
-(require 'flymake-easy)
+; (require 'flymake-easy)
 
 (setq auto-mode-alist (cons '("\\.h\\'" . c++-mode) auto-mode-alist))
 (setq auto-mode-alist (cons '("\\.ipp\\'" . c++-mode) auto-mode-alist))
@@ -24,21 +24,21 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; flymake
-(defvar my-flymake-cc-compiler "g++"
-  "C++ compiler to use for syntax checking.")
+;; (defvar my-flymake-cc-compiler "g++"
+;;   "C++ compiler to use for syntax checking.")
 
-(defun my-flymake-cc-command (filename)
-  "Construct a command that flymake can use to syntax-check FILENAME."
-  (list my-flymake-cc-compiler "-Wall" "-W" "-fsyntax-only" filename))
+;; (defun my-flymake-cc-command (filename)
+;;   "Construct a command that flymake can use to syntax-check FILENAME."
+;;   (list my-flymake-cc-compiler "-Wall" "-W" "-fsyntax-only" filename))
 
-(defun my-flymake-cc-load ()
-  (dolist (ext '("\\.c$" "\\.h$" "\\.cc$" "\\.cpp$" "\\.hh$" "\\.hpp$"))
-    (flymake-easy-load 'my-flymake-cc-command
-		       flymake-err-line-patterns
-		       'inplace
-		       ext
-		       "^W")))
+;; (defun my-flymake-cc-load ()
+;;   (dolist (ext '("\\.c$" "\\.h$" "\\.cc$" "\\.cpp$" "\\.hh$" "\\.hpp$"))
+;;     (flymake-easy-load 'my-flymake-cc-command
+;; 		       flymake-err-line-patterns
+;; 		       'inplace
+;; 		       ext
+;; 		       "^W")))
  
-(add-hook 'c-mode-hook 'my-flymake-cc-load)
-(add-hook 'c++-mode-hook 'my-flymake-cc-load)
+;; (add-hook 'c-mode-hook 'my-flymake-cc-load)
+;; (add-hook 'c++-mode-hook 'my-flymake-cc-load)
 
