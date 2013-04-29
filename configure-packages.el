@@ -21,6 +21,7 @@
 	"javascript"
 	"multiterm"
 	"p4"
+	"php"
 	"prosjekt"
 	"python"
 	"rst"
