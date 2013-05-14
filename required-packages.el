@@ -7,6 +7,7 @@
   '(ahg
     anything 
     auto-complete 
+    clojure-mode
     flymake
     flymake-python-pyflakes
     fuzzy-match
