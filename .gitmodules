@@ -7,6 +7,3 @@
 [submodule "prosjekt/prosjekt"]
 	path = prosjekt/prosjekt
 	url = https://github.com/abingham/prosjekt.git
-[submodule "clojure/clojure-mode"]
-	path = clojure/clojure-mode
-	url = https://github.com/technomancy/clojure-mode.git
