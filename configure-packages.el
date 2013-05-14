@@ -25,6 +25,7 @@
 	"prosjekt"
 	"python"
 	"rst"
+        "slime"
 	"traad"
 	"uniquify"
 	"visual_basic"
