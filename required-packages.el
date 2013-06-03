@@ -3,6 +3,7 @@
 
 (package-initialize)
 
+
 (defvar required-packages
   '(ahg
     anything 
@@ -19,7 +20,16 @@
     p4
     tree-mode
     xml-rpc
-    yasnippet)
+    yasnippet
+
+    ; clojure stuff
+    starter-kit
+    starter-kit-lisp
+    starter-kit-bindings
+    starter-kit-eshell
+    clojure-mode
+    clojure-test-mode
+    nrepl)
   "A list of packages to ensure are installed at launch.")
 
 (defun required-packages-installed-p ()
