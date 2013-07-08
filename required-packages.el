@@ -38,7 +38,7 @@
 (unless (required-packages-installed-p)
   (setq package-archives 
 	'(("gnu" . "http://elpa.gnu.org/packages/")
-	  ("marmalade" . "http://marmalade-repo.org/packages/")
+	  ;("marmalade" . "http://marmalade-repo.org/packages/")
 	  ("melpa" . "http://melpa.milkbox.net/packages/")))
   ;;check for new packages (package versions)
   (message "%s" "Missing packages detected. Refreshing its package database...")

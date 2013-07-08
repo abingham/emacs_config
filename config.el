@@ -49,6 +49,7 @@ Replaces three keystroke sequence C-u 0 C-l."
 (global-set-key "\C-x\C-k" 'kill-region)
 (global-set-key "\C-x\C-j" 'copy-region-as-kill)
 (global-set-key "\C-x\C-n" 'compile)
+(global-set-key "\C-cn" 'compilation-mode)
 (defun up-slightly () (interactive) (scroll-up 5))
 (defun down-slightly () (interactive) (scroll-down 5))
 (global-set-key (kbd "<mouse-5>") 'up-slightly)
@@ -87,8 +88,8 @@ Replaces three keystroke sequence C-u 0 C-l."
 (require 'cl)
 (require 'rtf-mode)
 (require 'open-next-line)
-(require 'rainbow-delimiters)
-(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
+; (require 'rainbow-delimiters)
+; (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 ; (require 'tramp)
 ; (setq tramp-default-method "ssh")
 
