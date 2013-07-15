@@ -15,7 +15,7 @@
   (c-set-offset 'case-label '+)
   (setq-default indent-tabs-mode nil) ; 't = use tabs; nil = use spaces
   (delete-selection-mode 1) ; Maybe on by default on windows and off by default on solaris?
-  (setq c-basic-offset 2)
+  (setq c-basic-offset 4)
   (show-paren-mode 1)
   ;; (c-set-offset 'topmost-intro '-)
   ;; (c-set-offset 'inline-open '-)
