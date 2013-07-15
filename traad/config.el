@@ -1,7 +1,11 @@
+(require 'python-environment)
+
 (load "traad/elisp/traad")
 
 (set-variable 'traad-server-port 9752)
 (set-variable 'traad-server-args '("-V" "2"))
+(set-variable 'python-environment-root "~/.emacs.d/traad/traad/venv3_http")
+(set-variable 'traad-server-program (python-environment-bin "traad3"))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Autocomplete stuff
@@ -38,11 +42,6 @@
 
 ;; Insert the traad source in python mode.
 (add-hook 'python-mode-hook 'ac-traad-setup)
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Python environment stuff
-(set-variable 'python-environment-root "~/projects/traad/venv3_http")
-(set-variable 'traad-server-program (python-environment-bin "traad3"))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Useful keybindings
