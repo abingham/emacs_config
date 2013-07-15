@@ -1,6 +1,7 @@
 (load "traad/elisp/traad")
 
-(set-variable 'traad-server-args '("-V" "2" "-p" "6543"))
+(set-variable 'traad-server-port 9752)
+(set-variable 'traad-server-args '("-V" "2"))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Autocomplete stuff
