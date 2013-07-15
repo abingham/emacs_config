@@ -3,6 +3,8 @@
 ;; Copyright (C) 2012 Takafumi Arakaki
 
 ;; Author: Takafumi Arakaki <aka.tkf at gmail.com>
+;; Package-Requires: ((deferred "0.3.1") (request "0.2.0"))
+;; Version: 0.2.0
 
 ;; This file is NOT part of GNU Emacs.
 
