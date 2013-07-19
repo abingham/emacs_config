@@ -7,6 +7,11 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; The rest...
 
+(require 'color-theme)
+(color-theme-initialize)
+(load-file "~/.emacs.d/themes/color-theme-cobalt.el")
+(color-theme-cobalt)
+
 (defun line-to-top-of-window ()
   "Scroll current line to top of window. \
 Replaces three keystroke sequence C-u 0 C-l."
