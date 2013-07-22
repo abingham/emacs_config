@@ -9,6 +9,7 @@
     anything 
     auto-complete 
     clojure-mode
+    color-theme
     flymake
     flymake-python-pyflakes
     fuzzy-match

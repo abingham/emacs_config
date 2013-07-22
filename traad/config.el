@@ -4,7 +4,7 @@
 
 (set-variable 'traad-server-port 9752)
 (set-variable 'traad-server-args '("-V" "2"))
-(set-variable 'python-environment-root "~/.emacs.d/traad/traad/venv3_http")
+(set-variable 'python-environment-root "~/.emacs.d/traad/traad/venv3_json")
 (set-variable 'traad-server-program (python-environment-bin "traad3"))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
