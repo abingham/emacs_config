@@ -7,10 +7,9 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; The rest...
 
-(require 'color-theme)
-(color-theme-initialize)
-(load-file "~/.emacs.d/themes/color-theme-cobalt.el")
-(color-theme-cobalt)
+; Themes come from sublime-themes:
+; https://github.com/owainlewis/emacs-color-themes
+(load-theme 'zenburn t)
 
 (require 'smooth-scroll)
 

@@ -10,6 +10,8 @@
     auto-complete 
     clojure-mode
     color-theme
+    color-theme-active
+    color-theme-solarized
     flymake
     flymake-python-pyflakes
     fuzzy-match
@@ -29,6 +31,7 @@
     starter-kit-lisp
     starter-kit-bindings
     starter-kit-eshell
+    sublime-themes
     clojure-mode
     clojure-test-mode
     nrepl)
