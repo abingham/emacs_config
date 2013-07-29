@@ -9,7 +9,9 @@
 
 ; Themes come from sublime-themes:
 ; https://github.com/owainlewis/emacs-color-themes
-(load-theme 'zenburn t)
+                                        ;(load-theme 'zenburn t)
+(load-file (concat (file-name-directory load-file-name) "themes/ropeburn-theme/ropeburn-theme.el"))
+(enable-theme 'ropeburn)
 
 (require 'smooth-scroll)
 
