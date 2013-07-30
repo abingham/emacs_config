@@ -295,21 +295,23 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(flycheck-fringe-error ((t (:foreground ,ropeburn-red-1 :weight bold))))
    `(flycheck-fringe-warning ((t (:foreground ,ropeburn-orange :weight bold))))
 ;;;;; flymake
-   `(flymake-errline
-     ((((supports :underline (:style wave)))
-       (:underline (:style wave :color ,ropeburn-red)
-                   :inherit unspecified :foreground unspecified :background unspecified))
-      (t (:foreground ,ropeburn-red-1 :weight bold :underline t))))
-   `(flymake-warnline
-     ((((supports :underline (:style wave)))
-       (:underline (:style wave :color ,ropeburn-orange)
-                   :inherit unspecified :foreground unspecified :background unspecified))
-      (t (:foreground ,ropeburn-orange :weight bold :underline t))))
-   `(flymake-infoline
-     ((((supports :underline (:style wave)))
-       (:underline (:style wave :color ,ropeburn-green)
-                   :inherit unspecified :foreground unspecified :background unspecified))
-      (t (:foreground ,ropeburn-green-1 :weight bold :underline t))))
+   ;; `(flymake-errline
+   ;;   ((((supports :underline (:style wave)))
+   ;;     (:underline (:style wave :color ,ropeburn-red)
+   ;;                 :inherit unspecified :foreground unspecified :background unspecified))
+   ;;    (t ;(:foreground ,ropeburn-red-1 :weight bold :underline t)
+   ;;     (:foreground "#FF0000")
+   ;;     )))
+   ;; `(flymake-warnline
+   ;;   ((((supports :underline (:style wave)))
+   ;;     (:underline (:style wave :color ,ropeburn-orange)
+   ;;                 :inherit unspecified :foreground unspecified :background unspecified))
+   ;;    (t (:foreground ,ropeburn-orange :weight bold :underline t))))
+   ;; `(flymake-infoline
+   ;;   ((((supports :underline (:style wave)))
+   ;;     (:underline (:style wave :color ,ropeburn-green)
+   ;;                 :inherit unspecified :foreground unspecified :background unspecified))
+   ;;    (t (:foreground ,ropeburn-green-1 :weight bold :underline t))))
 ;;;;; flyspell
    `(flyspell-duplicate
      ((((supports :underline (:style wave)))
