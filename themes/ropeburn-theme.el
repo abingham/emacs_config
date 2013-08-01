@@ -136,7 +136,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(minibuffer-prompt ((t (:foreground ,ropeburn-yellow))))
    `(mode-line
      ((,class (:foreground ,ropeburn-green+1
-                           :background ,ropeburn-bg-1
+                           :background ,ropeburn-bg+2
                            :box (:line-width -1 :style released-button)))
       (t :inverse-video t)))
    `(mode-line-buffer-id ((t (:foreground ,ropeburn-yellow :weight bold))))

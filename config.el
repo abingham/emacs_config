@@ -7,8 +7,8 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; The rest...
 
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
-(load-theme 'ropeburn)
+;(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
+;(load-theme 'ropeburn)
 
 (require 'smooth-scroll)
 
