@@ -2,10 +2,19 @@
 
 (load "traad/elisp/traad")
 
-(set-variable 'traad-server-port 9752)
-(set-variable 'traad-server-args '("-V" "2"))
-(set-variable 'python-environment-root "~/.emacs.d/traad/traad/venv3_json")
-(set-variable 'traad-server-program (python-environment-bin "traad3"))
+(defun activate-traad3 ()
+  (interactive)
+  (set-variable 'traad-server-port 9752)
+  (set-variable 'traad-server-args '("-V" "2"))
+  (set-variable 'python-environment-root "~/.emacs.d/traad/traad/venv3_json")
+  (set-variable 'traad-server-program (python-environment-bin "traad3")))
+
+(defun activate-traad2 ()
+  (interactive)
+  (set-variable 'traad-server-port 9752)
+  (set-variable 'traad-server-args '("-V" "2"))
+  (set-variable 'python-environment-root "~/.emacs.d/traad/traad/venv2")
+  (set-variable 'traad-server-program (python-environment-bin "traad")))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Autocomplete stuff
