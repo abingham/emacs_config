@@ -13,4 +13,4 @@
   )
 
 (global-set-key [(shift return)] 'simple-bookmark-set)
-(global-set-key [(shift down)] 'simple-bookmark-jump)
+(global-set-key [(control shift return)] 'simple-bookmark-jump)

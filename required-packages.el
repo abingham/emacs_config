@@ -15,6 +15,7 @@
     flymake
     flymake-python-pyflakes
     fuzzy-match
+    haskell-mode
     magit
     multi-term
     python
