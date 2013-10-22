@@ -78,7 +78,7 @@ Replaces three keystroke sequence C-u 0 C-l."
 (line-number-mode 1)
 (setq visible-bell t)
 (global-hl-line-mode t)
-(global-linum-mode t)
+; (global-linum-mode t)
 
 ;; Compilation stuff
 (setq-default display-buffer-reuse-frames t)

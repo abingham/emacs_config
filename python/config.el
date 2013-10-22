@@ -11,12 +11,18 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; flymake
 
-; Find a suitable executable
-(let* ((candidates '("~/bin/flymake_python.sh" "pyflakes3" "epylint" "pep8"))
-       (available (remove-if-not 'executable-find candidates)))
-  (if available
-      (setq flymake-python-pyflakes-executable "~/bin/flymake_python.sh")
-    (warn "No python flymake executables available.")))
+; Look for the executable
+(let ((fm-bin "~/bin/flymake_python.sh"))
+  (if (executable-find fm-bin)
+      (setq flymake-python-pyflakes-exe fm-bin)
+    (warn "No python flymake executable found!")))
+
+;;; old, but interesting function
+;; (let* ((candidates '("~/bin/flymake_python.sh" "pyflakes3" "epylint" "pep8"))
+;;        (available (remove-if-not 'executable-find candidates)))
+;;   (if available
+;;       (setq flymake-python-pyflakes-executable "~/bin/flymake_python.sh")
+;;     (warn "No python flymake executables available.")))
 
 (add-hook 'python-mode-hook 'flymake-python-pyflakes-load)
 (add-hook 'python-mode-hook (lambda () (show-paren-mode t)))
