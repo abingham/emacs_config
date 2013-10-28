@@ -14,7 +14,7 @@
 ; Look for the executable
 (let ((fm-bin "~/bin/flymake_python.sh"))
   (if (executable-find fm-bin)
-      (setq flymake-python-pyflakes-exe fm-bin)
+      (setq flymake-python-pyflakes-executable fm-bin)
     (warn "No python flymake executable found!")))
 
 ;;; old, but interesting function
