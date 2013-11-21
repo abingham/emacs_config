@@ -103,7 +103,7 @@ Replaces three keystroke sequence C-u 0 C-l."
 
 ;; Misc. other stuff
 (require 'cl)
-(require 'rtf-mode)
+; (require 'rtf-mode)
 (require 'open-next-line)
 ;(require 'rainbow-delimiters)
 ;(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
