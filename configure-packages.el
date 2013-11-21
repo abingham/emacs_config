@@ -6,8 +6,7 @@
 
 ;; --- mode configurations and such ---
 (setq config_packages
-      '("anything"
-	"autocomplete"
+      '("autocomplete"
 	"bmarks"
 	"cleanup"
         "codesearch"
@@ -15,6 +14,7 @@
 	"dirtree"
         "flymake"
 	"git"
+        "helm"
 	"hg"
  	"html"
 	"ido"

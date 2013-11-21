@@ -10,6 +10,17 @@
 ;(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 ;(load-theme 'ropeburn)
 
+(defun helm-my-buffers ()
+  (interactive)
+  (helm-other-buffer '(
+                       helm-source-files-in-current-dir
+                       helm-source-recentf
+                       helm-c-source-prosjekt-projects
+                       helm-c-source-prosjekt-files
+                       helm-source-buffer-not-found)
+                     "*helm-my-buffers*"))
+(global-set-key "\C-u" 'helm-my-buffers)
+
 (require 'smooth-scroll)
 
 (defun line-to-top-of-window ()

@@ -6,7 +6,6 @@
 
 (defvar required-packages
   '(ahg
-    anything 
     auto-complete 
     clojure-mode
     color-theme
@@ -16,6 +15,7 @@
     flymake-python-pyflakes
     fuzzy-match
     haskell-mode
+    helm
     magit
     multi-term
     python
