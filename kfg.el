@@ -76,14 +76,15 @@ first."
           (load-file config_file)
         (warn (format "No config.el for %s" module_name))))))
 
-(defun kfg:initialize ()
-  (let* ((this_dir (file-name-directory load-file-name))
-         (modules_dir (kfg:join this_dir "modules"))
+(defun kfg:initialize (root_dir)
+  (let* ((modules_dir (kfg:join root_dir "modules"))
          (module_config (kfg:init-modules modules_dir))
          (packages (kfg:find-all-packages module_config)))
-    (add-to-list 'load-path (kfg:join this_dir "elisp"))
+    (add-to-list 'load-path (kfg:join root_dir "elisp"))
     (package-initialize)
     (kfg:install-packages packages)
     (kfg:configure-modules modules_dir module_config)))
 
-(kfg:initialize)
+(provide 'kfg)
+
+
