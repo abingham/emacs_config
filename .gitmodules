@@ -7,3 +7,12 @@
 [submodule "traad/traad"]
 	path = traad/traad
 	url = https://github.com/abingham/traad.git
+[submodule "modules/traad/traad"]
+	path = modules/traad/traad
+	url = http://github.com/abingham/traad
+[submodule "modules/prosjekt/prosjekt"]
+	path = modules/prosjekt/prosjekt
+	url = http://github.com/abingham/prosjekt
+[submodule "modules/codesearch/codesearch"]
+	path = modules/codesearch/codesearch
+	url = http://github.com/abingham/codesearch.el

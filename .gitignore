@@ -1,3 +1,14 @@
 /elpa
-/elpa/yasnippet-0.8.0/snippets/csharp-mode/method
+/elpa
 backups/*
+url/*
+tramp
+request/*
+prosjekt.lst
+places
+eshell/*
+abbrev_defs
+bookmarks
+ac-comphist.dat
+pylookup.db
+local_config.el
