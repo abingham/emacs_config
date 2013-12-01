@@ -13,3 +13,4 @@ ac-comphist.dat
 pylookup.db
 local_config.el
 .smex-items
+*~
