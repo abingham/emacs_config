@@ -5,12 +5,13 @@
 (deftheme zorkon
   "Face colors using the Tango palette (dark background).
 Basic, Font Lock, Isearch, Gnus, Message, Ediff, Flyspell,
-Semantic, and Ansi-Color faces are included.")
+Semantic, and Ansi-Color faces are included.
+
+Color guide: http://tango.freedesktop.org/Tango_Icon_Theme_Guidelines")
 
 (let ((class '((class color) (min-colors 89)))
       ;; Tango palette colors.
       (butter-1 "#fce94f") (butter-2 "#edd400") (butter-3 "#c4a000")
-      (butter-4 "#C4C1B1")
       (orange-1 "#fcaf3e") (orange-2 "#f57900") (orange-3 "#ce5c00")
       (choc-1 "#e9b96e") (choc-2 "#c17d11") (choc-3 "#8f5902")
       (cham-1 "#8ae234") (cham-2 "#73d216") (cham-3 "#4e9a06")
@@ -35,7 +36,7 @@ Semantic, and Ansi-Color faces are included.")
    `(cursor ((,class (:background ,butter-1))))
    ;; Highlighting faces
    `(fringe ((,class (:background ,alum-7))))
-   `(highlight ((,class (:foreground ,alum-6 :background ,butter-4))))
+   `(highlight ((,class (:foreground ,alum-6 :background ,alum-3))))
    `(region ((,class (:background ,alum-5))))
    `(secondary-selection ((,class (:background ,blue-3))))
    `(isearch ((,class (:foreground ,alum-1 :background ,orange-3))))
