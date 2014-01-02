@@ -10,14 +10,14 @@
   (interactive)
   (set-variable 'traad-server-port 9752)
   (set-variable 'traad-server-args '("-V" "2"))
-  (set-variable 'python-environment-root "~/.emacs.d/traad/traad/venv3_json")
+  (set-variable 'python-environment-root "~/.emacs.d/modules/traad/traad/venv3")
   (set-variable 'traad-server-program (python-environment-bin "traad3")))
 
 (defun activate-traad2 ()
   (interactive)
   (set-variable 'traad-server-port 9752)
   (set-variable 'traad-server-args '("-V" "2"))
-  (set-variable 'python-environment-root "~/.emacs.d/traad/traad/venv2")
+  (set-variable 'python-environment-root "~/.emacs.d/modules/traad/traad/venv2")
   (set-variable 'traad-server-program (python-environment-bin "traad")))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -64,3 +64,4 @@
 (global-set-key [(ctrl x) (t) (o)] 'traad-display-doc)
 (global-set-key [(ctrl x) (t) (c)] 'traad-display-calltip)
 (global-set-key [(ctrl x) (t) (f)] 'traad-findit)
+(global-set-key [(ctrl x (t) (p))] 'traad-popup-doc)
