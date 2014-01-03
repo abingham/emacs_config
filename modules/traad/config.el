@@ -64,4 +64,4 @@
 (global-set-key [(ctrl x) (t) (o)] 'traad-display-doc)
 (global-set-key [(ctrl x) (t) (c)] 'traad-display-calltip)
 (global-set-key [(ctrl x) (t) (f)] 'traad-findit)
-(global-set-key [(ctrl x (t) (p))] 'traad-popup-doc)
+(global-set-key [(ctrl x) (t) (p)] 'traad-popup-doc)
