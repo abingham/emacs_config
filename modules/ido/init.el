@@ -1,4 +1,4 @@
 ; ido initialization
 
 '((:enabled . t)
-  (:packages))
+  (:packages ido-vertical-mode))
