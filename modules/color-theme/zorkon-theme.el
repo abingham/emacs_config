@@ -38,7 +38,7 @@ Color guide: http://tango.freedesktop.org/Tango_Icon_Theme_Guidelines")
    `(cursor ((,class (:background ,butter-1))))
    ;; Highlighting faces
    `(fringe ((,class (:background ,alum-7))))
-   `(highlight ((,class (:foreground ,alum-6 :background ,skyblue-1))))
+   `(highlight ((,class (:background ,alum-5.5))))
    `(region ((,class (:background ,alum-5))))
    `(secondary-selection ((,class (:background ,blue-3))))
    `(isearch ((,class (:foreground ,alum-1 :background ,orange-3))))
