@@ -1,3 +1,29 @@
+;;; pylookup.el --- Look up python documents (reference) in Emacs
+
+;; Copyright (C) 2010-2013 Taesoo Kim
+
+;; Author: Taesoo Kim <taesoo@mit.edu>
+;; Maintainer: Taesoo Kim <taesoo@mit.edu>
+;; Created: 19 June 2009
+;; Keywords: python,reference,document,help
+
+;; This file is not part of GNU Emacs.
+
+;; This program is free software: you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation, either version 3 of the License, or
+;; (at your option) any later version.
+
+;; This program is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
+;; 
+;; You should have received a copy of the GNU General Public License
+;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+;;; Code:
+
 (eval-when-compile
   (require 'browse-url)
   (require 'simple)
@@ -10,6 +36,8 @@
 
 (defvar pylookup-db-file "pylookup.db" "Pylookup database file")
 (defvar pylookup-program "pylookup.py" "Pylookup execution file")
+(defvar pylookup-search-options nil
+  "Pylookup search options (see ./pylookup.py -h)")
 
 ;;=================================================================
 ;; internal variables
@@ -70,7 +98,8 @@
   (use-local-map pylookup-mode-map)
   (setq major-mode 'pylookup-mode)
   (setq mode-name "Pylookup")
-  (setq buffer-read-only t))
+  (setq buffer-read-only t)
+  (run-mode-hooks))
 
 (defun pylookup-move-prev-line ()
   "Move to previous entry"
@@ -128,14 +157,15 @@
 (defun pylookup-exec-lookup (search-term)
   "Runs a pylookup process and returns a list of (term, url) pairs."
 
-  (mapcar 
+  (mapcar
    (lambda (x) (split-string x ";"))
    (split-string
      (with-output-to-string
-         (call-process pylookup-program nil standard-output nil 
-                       "-d" (expand-file-name pylookup-db-file) 
-                       "-l" search-term
-                       "-f" "Emacs"))
+         (apply 'call-process pylookup-program nil standard-output nil
+                "-d" (expand-file-name pylookup-db-file)
+                "-l" search-term
+                "-f" "Emacs"
+                pylookup-search-options))
      "\n" t)))
 
 ;;=================================================================
@@ -246,6 +276,14 @@
          (shrink-window-if-larger-than-buffer (get-buffer-window tmpbuf)))))))
 
 ;;;###autoload
+(defun pylookup-set-search-option (option-string)
+  "Set search option interactively"
+  (interactive
+   (list (read-string "Search option: "
+                      (mapconcat 'identity pylookup-search-options " "))))
+  (setq pylookup-search-options (split-string option-string " ")))
+
+;;;###autoload
 (defun pylookup-update (src &optional append)
   "Run pylookup-update and create the database at `pylookup-db-file'."
   (interactive 
@@ -269,6 +307,25 @@
   ;; truncate db file
   (with-temp-buffer (write-file pylookup-db-file))
   (mapc (lambda (s) (pylookup-update s t)) pylookup-html-locations))
+
+;;;###autoload
+(defun pylookup-lookup-at-point ()
+  "Query the for string with help of word read at point and call `pylookup-lookup'"
+  (interactive)
+  (let* ((default-word (thing-at-point 'word))
+         (default-prompt (concat "Lookup Word "
+                                 (if default-word
+                                     (concat "(" default-word ")") nil)
+                                 ": "))
+         (pylookup-query
+          (funcall #'(lambda (str)
+                       "Remove Whitespace from beginning and end of a string."
+                       (replace-regexp-in-string "^[ \n\t]*\\(.*?\\)[ \n\t]*$"
+                                                 "\\1"
+                                                 str))
+                   (read-string default-prompt nil nil default-word))))
+    (if (= (length pylookup-query) 0) nil
+      (pylookup-lookup pylookup-query))))
 
 (provide 'pylookup)
 ;;; pylookup.el ends here
