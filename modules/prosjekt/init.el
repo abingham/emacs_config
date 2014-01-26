@@ -1,4 +1,4 @@
 ; prosjekt initialization
 
 '((:enabled . t)
-  (:packages))
+  (:packages dash))
