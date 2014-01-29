@@ -60,6 +60,7 @@
 (setq visible-bell t)
 (global-hl-line-mode t)
                                         ; (global-linum-mode t)
+(nyan-mode t)
 
 ;; Compilation stuff
 (setq-default display-buffer-reuse-frames t)

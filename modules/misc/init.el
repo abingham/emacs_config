@@ -1,4 +1,4 @@
 ; misc. configuration
 
 '((:enabled . t)
-  (:packages))
+  (:packages nyan-mode))
