@@ -1,3 +1,4 @@
+(require 'jedi)
 (require 'python)
 (require 'python-pep8)
 (require 'flymake-python-pyflakes)
@@ -49,3 +50,22 @@
 
 (autoload 'pylookup-update "pylookup"
   "Run pylookup-update and create the database at `pylookup-db-file'." t)
+
+; jedi stuff
+(defun activate-jedi2 ()
+  (interactive)
+  (setq jedi:server-command
+	(list "python2.7" jedi:server-script))
+)
+
+(defun activate-jedi3 ()
+  (interactive)
+  (setq jedi:server-command
+	(list "python3.3" jedi:server-script))
+)
+
+(add-hook 'python-mode-hook 'jedi:setup)
+(setq jedi:setup-keys t)
+(setq jedi:complete-on-dot t)
+(activate-jedi3)
+
