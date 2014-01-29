@@ -1,6 +1,11 @@
 (add-to-list
  'load-path
  (kfg:join (file-name-directory load-file-name) "prosjekt" "prosjekt"))
+
+(add-to-list
+ 'load-path
+ (kfg:join (file-name-directory load-file-name) "prosjekt" "prosjekt" "ext" "helm"))
+
 (require 'prosjekt)
 (require 'dirtree-prosjekt)
 (require 'helm-prosjekt)
