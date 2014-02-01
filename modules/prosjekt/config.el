@@ -1,10 +1,11 @@
-(add-to-list
- 'load-path
- (kfg:join (file-name-directory load-file-name) "prosjekt" "prosjekt"))
-
-(add-to-list
- 'load-path
- (kfg:join (file-name-directory load-file-name) "prosjekt" "prosjekt" "ext" "helm"))
+; populate load-path appropriately for prosjekt and its extensions.
+(let ((root-path (list (file-name-directory load-file-name) "prosjekt" "prosjekt")))
+  (dolist (path '(("") 
+		  ("ext" "helm")
+		  ( "ext" "dirtree")))
+    (add-to-list
+     'load-path
+     (apply 'kfg:join (append root-path path)))))
 
 (require 'prosjekt)
 (require 'dirtree-prosjekt)
