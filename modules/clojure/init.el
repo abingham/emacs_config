@@ -2,6 +2,4 @@
 
 '((:enabled . t)
   (:packages clojure-mode
-	     ac-nrepl
-	     nrepl
-	     nrepl-discover))
+	     cider))

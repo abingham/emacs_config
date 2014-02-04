@@ -1,4 +1,5 @@
 ; misc. configuration
 
 '((:enabled . t)
-  (:packages nyan-mode))
+  (:packages nyan-mode
+             smart-mode-line))

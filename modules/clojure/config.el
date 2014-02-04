@@ -1,6 +1,6 @@
 (require 'clojure-mode)
-(require 'nrepl)
-(require 'ac-nrepl)
+(require 'cider)
 
 (add-hook 'clojure-mode-hook 'paredit-mode)
-(add-hook 'clojure-mode-hook 'ac-nrepl-setup)
+(add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
+; (add-hook 'clojure-mode-hook 'ac-nrepl-setup)

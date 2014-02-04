@@ -61,6 +61,10 @@
 (global-hl-line-mode t)
                                         ; (global-linum-mode t)
 (nyan-mode t)
+(setq sml/theme 'dark)
+(sml/setup)
+(dolist (m '("Helm" "AC" "Undo-Tree" "Paredit"))
+  (add-to-list 'sml/hidden-modes (concat " " m)))
 
 ;; Compilation stuff
 (setq-default display-buffer-reuse-frames t)
