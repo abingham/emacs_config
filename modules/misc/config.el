@@ -9,8 +9,6 @@
                      "*helm-my-buffers*"))
 (global-set-key "\C-u" 'helm-my-buffers)
 
-(require 'smooth-scroll)
-
 (defun line-to-top-of-window ()
   "Scroll current line to top of window. \
  Replaces three keystroke sequence C-u 0 C-l."
@@ -62,9 +60,6 @@
                                         ; (global-linum-mode t)
 (nyan-mode t)
 (setq sml/theme 'dark)
-(sml/setup)
-(dolist (m '("Helm" "AC" "Undo-Tree" "Paredit"))
-  (add-to-list 'sml/hidden-modes (concat " " m)))
 
 ;; Compilation stuff
 (setq-default display-buffer-reuse-frames t)
@@ -97,6 +92,9 @@
 ;; (condition-case nil
 ;;     (load local_config)
 ;;   (error (message ")))
+
+; Mac keyboard hackery to correctly enable "meta" for the option key
+(setq mac-option-modifier 'meta)
 
 ; bindings
 (global-set-key [(ctrl x) (i)] 'windmove-up)
