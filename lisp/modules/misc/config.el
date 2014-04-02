@@ -94,7 +94,7 @@
 ;;   (error (message ")))
 
 ; Mac keyboard hackery to correctly enable "meta" for the option key
-(setq mac-option-modifier 'meta)
+(setq mac-command-modifier 'meta)
 
 ; bindings
 (global-set-key [(ctrl x) (i)] 'windmove-up)
