@@ -1,5 +1,6 @@
 ; misc. configuration
 
 '((:enabled . t)
-  (:packages nyan-mode
+  (:packages exec-path-from-shell
+	     nyan-mode
              smart-mode-line))

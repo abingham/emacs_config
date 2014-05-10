@@ -1,3 +1,5 @@
+(exec-path-from-shell-initialize)
+
 (defun helm-my-buffers ()
   (interactive)
   (helm-other-buffer '(helm-c-source-prosjekt-projects
