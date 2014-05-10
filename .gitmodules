@@ -10,9 +10,6 @@
 [submodule "lisp/modules/traad/traad"]
 	path = lisp/modules/traad/traad
 	url = https://github.com/abingham/traad.git
-[submodule "lisp/modules/prosjekt/prosjekt"]
-	path = lisp/modules/prosjekt/prosjekt
-	url = https://github.com/abingham/prosjekt.git
 [submodule "lisp/modules/codesearch/codesearch"]
 	path = lisp/modules/codesearch/codesearch
 	url = https://github.com/abingham/codesearch.el.git
