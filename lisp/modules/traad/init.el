@@ -1,4 +1,4 @@
 ; python initialization
 
 '((:enabled . t)
-  (:packages))
+  (:packages traad))
