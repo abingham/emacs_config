@@ -116,4 +116,6 @@
 (global-set-key [f10] 'start-kbd-macro)
 (global-set-key [f11] 'end-kbd-macro)
 (global-set-key [f12] 'call-last-kbd-macro)
+;(global-set-key "\C-t" (transpose-chars -1))
+
 
