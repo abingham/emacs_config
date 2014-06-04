@@ -98,6 +98,9 @@
 ; Mac keyboard hackery to correctly enable "meta" for the option key
 (setq mac-command-modifier 'meta)
 
+; But leave right-option alone.
+(setq ns-right-alternate-modifier nil)
+
 ; bindings
 (global-set-key [(ctrl x) (i)] 'windmove-up)
 (global-set-key [(ctrl x) (m)] 'windmove-down)
