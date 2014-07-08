@@ -61,8 +61,7 @@
 (defun activate-jedi3 ()
   (interactive)
   (setq jedi:server-command
-	(list "/usr/local/bin/python3" jedi:server-script))
-)
+	(list "/usr/local/bin/python3" jedi:server-script)))
 
 (add-hook 'python-mode-hook 'jedi:setup)
 (setq jedi:setup-keys t)
