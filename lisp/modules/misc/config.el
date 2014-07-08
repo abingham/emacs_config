@@ -116,9 +116,10 @@
 (global-set-key (kbd "<mouse-4>") 'down-slightly)
 (global-set-key "\C-l" 'line-to-top-of-window)
 (global-set-key [f9] 'match-paren)
-(global-set-key [f10] 'start-kbd-macro)
-(global-set-key [f11] 'end-kbd-macro)
-(global-set-key [f12] 'call-last-kbd-macro)
-;(global-set-key "\C-t" (transpose-chars -1))
+(global-set-key [(ctrl f10)] 'start-kbd-macro)
+(global-set-key [(meta f10)] 'end-kbd-macro)
+(global-set-key [f10] 'call-last-kbd-macro)
+					;(global-set-key "\C-t" (transpose-chars -1))
+(global-set-key [(ctrl .)] 'comment-or-uncomment-region)
 
 
