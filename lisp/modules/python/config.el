@@ -1,7 +1,12 @@
+(require 'flymake-python-pyflakes)
 (require 'jedi)
 (require 'python)
+(require 'python-environment)
 (require 'python-pep8)
-(require 'flymake-python-pyflakes)
+(require 'traad)
+
+(set-variable 'traad-server-port 0)
+(set-variable 'traad-server-args '("-V" "2"))
 
 (add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
 (add-to-list 'auto-mode-alist '("\\SConscript\\'" . python-mode))
@@ -9,7 +14,6 @@
 (add-to-list 'auto-mode-alist '("\\wscript\\'" . python-mode))
 (setq python-indent-offset 4)
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; flymake
 
 ; Look for the executable
@@ -51,20 +55,42 @@
 (autoload 'pylookup-update "pylookup"
   "Run pylookup-update and create the database at `pylookup-db-file'." t)
 
-; jedi stuff
-(defun activate-jedi2 ()
-  (interactive)
-  (setq jedi:server-command
-	(list "python2.7" jedi:server-script))
-)
+; IPython stuff (python-version independent)
+(setq
+ python-shell-interpreter-args ""
+ python-shell-prompt-regexp "In \\[[0-9]+\\]: "
+ python-shell-prompt-output-regexp "Out\\[[0-9]+\\]: "
+ python-shell-completion-setup-code
+ "from IPython.core.completerlib import module_completion"
+ python-shell-completion-module-string-code
+ "';'.join(module_completion('''%s'''))\n"
+ python-shell-completion-string-code
+ "';'.join(get_ipython().Completer.all_completions('''%s'''))\n")
 
-(defun activate-jedi3 ()
+; python-version specific stuff
+(defun activate-python2 ()
   (interactive)
-  (setq jedi:server-command
-	(list "/usr/local/bin/python3" jedi:server-script)))
+  (setq python-shell-interpreter "ipython"
+	jedi:server-command (list "python2.7" jedi:server-script))
+  (set-variable 'traad-server-program "traad"))
 
+(defun activate-python3 ()
+  (interactive)
+  (setq python-shell-interpreter "ipython3"
+	jedi:server-command (list "/usr/local/bin/python3" jedi:server-script))
+  (set-variable 'traad-server-program "traad3"))
+
+;; traad keybindings
+(global-set-key [(ctrl x) (t) (r)] 'traad-rename)
+(global-set-key [(ctrl x) (t) (u)] 'traad-undo)
+(global-set-key [(ctrl x) (t) (d)] 'traad-goto-definition)
+(global-set-key [(ctrl x) (t) (o)] 'traad-display-doc)
+(global-set-key [(ctrl x) (t) (c)] 'traad-display-calltip)
+
+; Jedi setup
 (add-hook 'python-mode-hook 'jedi:setup)
 (setq jedi:setup-keys t)
 (setq jedi:complete-on-dot t)
-(activate-jedi3)
 
+; default to python3
+(activate-python3)
