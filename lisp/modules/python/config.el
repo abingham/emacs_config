@@ -17,10 +17,10 @@
 ;; flymake
 
 ; Look for the executable
-(let ((fm-bin "~/bin/flymake_python.sh"))
+(let ((fm-bin "flake8"))
   (if (executable-find fm-bin)
       (setq flymake-python-pyflakes-executable fm-bin)
-    (warn "No python flymake executable found!")))
+    (warn "No python flake8 executable found. Flymake will be disabled for Python!")))
 
 ;;; old, but interesting function
 ;; (let* ((candidates '("~/bin/flymake_python.sh" "pyflakes3" "epylint" "pep8"))
@@ -71,14 +71,8 @@
 (defun activate-python2 ()
   (interactive)
   (setq python-shell-interpreter "ipython"
-	jedi:server-command (list "python2.7" jedi:server-script))
+        jedi:server-command (list "python2.7" jedi:server-script))
   (set-variable 'traad-server-program "traad"))
-
-(defun activate-python3 ()
-  (interactive)
-  (setq python-shell-interpreter "ipython3"
-	jedi:server-command (list "/usr/local/bin/python3" jedi:server-script))
-  (set-variable 'traad-server-program "traad3"))
 
 ;; traad keybindings
 (global-set-key [(ctrl x) (t) (r)] 'traad-rename)
