@@ -6,4 +6,5 @@
 	     jedi
              python
              python-pep8
-             python-pylint))
+             python-pylint
+	     request-deferred))
