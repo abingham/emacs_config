@@ -1,6 +1,19 @@
-; Assuming kfg.el is in ~/.emacs.d/
-(setq load-path (cons "~/.emacs.d" load-path))
+; Need package support
+(require 'package)
+
+; Add the necessary package repositories
+(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
+(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
+
+; Initialize the package system
+(package-initialize)
+
+; If kfg is not already installed, install
+(unless (package-installed-p 'kfg)
+  (package-install 'kfg))
+
+; import kfg
 (require 'kfg)
 
-; Assuming your configuration is in ~/.emacs.d/
-(kfg:initialize "~/.emacs.d")
+; initialize kfg with the root of the kfg configuration
+(kfg:initialize "~/.emacs.d/lisp")
