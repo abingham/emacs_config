@@ -75,7 +75,6 @@
 
 ;; Misc. other stuff
 (require 'cl)
-                                        ; (require 'rtf-mode)
 (require 'open-next-line)
                                         ;(require 'rainbow-delimiters)
                                         ;(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)

@@ -74,6 +74,12 @@
         jedi:server-command (list "python2.7" jedi:server-script))
   (set-variable 'traad-server-program "traad"))
 
+(defun activate-python3 ()
+  (interactive)
+  (setq python-shell-interpreter "ipython3"
+        jedi:server-command (list "python3" jedi:server-script))
+  (set-variable 'traad-server-program "traad3"))
+
 ;; traad keybindings
 (global-set-key [(ctrl x) (t) (r)] 'traad-rename)
 (global-set-key [(ctrl x) (t) (u)] 'traad-undo)
