@@ -34,7 +34,7 @@
 
 ;; Pylookup stuff
 ;; add pylookup to your loadpath, ex) ~/.emacs.d/pylookup
-(setq pylookup-dir (kfg:join (file-name-directory load-file-name)
+(setq pylookup-dir (kfg-join (file-name-directory load-file-name)
                              "pylookup"))
 (add-to-list 'load-path pylookup-dir)
 

@@ -12,8 +12,5 @@
 (unless (package-installed-p 'kfg)
   (package-install 'kfg))
 
-; import kfg
-(require 'kfg)
-
 ; initialize kfg with the root of the kfg configuration
-(kfg:initialize "~/.emacs.d/lisp")
+(kfg-initialize "~/.emacs.d/lisp")
