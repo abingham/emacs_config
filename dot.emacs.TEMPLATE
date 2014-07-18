@@ -10,6 +10,8 @@
 
 ; If kfg is not already installed, install
 (unless (package-installed-p 'kfg)
+  (message "kfg not installed. Refreshing package list and installing.")
+  (package-refresh-contents)
   (package-install 'kfg))
 
 ; initialize kfg with the root of the kfg configuration
