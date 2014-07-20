@@ -15,4 +15,4 @@
   (package-install 'kfg))
 
 ; initialize kfg with the root of the kfg configuration
-(kfg-initialize "~/.emacs.d/lisp")
+(kfg-initialize "~/.emacs.d/kfg")
