@@ -1,5 +1,3 @@
-(require 'multiple-cursors)
-
 ; as suggested by the project page.
 (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
 (global-set-key (kbd "C->") 'mc/mark-next-like-this)

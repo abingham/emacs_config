@@ -1,9 +1,4 @@
-(require 'flymake-python-pyflakes)
 (require 'jedi)
-(require 'python)
-(require 'python-environment)
-(require 'python-pep8)
-(require 'traad)
 
 (set-variable 'traad-server-port 0)
 (set-variable 'traad-server-args '("-V" "2"))

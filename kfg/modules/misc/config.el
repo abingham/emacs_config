@@ -74,7 +74,6 @@
 (add-hook 'compilation-mode-hook 'my-compilation-mode-hook)
 
 ;; Misc. other stuff
-(require 'cl)
 (require 'open-next-line)
                                         ;(require 'rainbow-delimiters)
                                         ;(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)

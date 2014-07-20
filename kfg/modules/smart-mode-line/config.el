@@ -1,5 +1,3 @@
-(require 'smart-mode-line)
-
 (sml/setup)
 
 ; TODO: Think about letting the individual modules do this

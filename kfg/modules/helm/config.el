@@ -1,9 +1,5 @@
 ; helm configuration
 
-(require 'helm)
-(require 'helm-elisp)
-(require 'helm-utils)
-
 (helm-mode t)
 
 ; Emulate old describe-* bindings

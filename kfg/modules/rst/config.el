@@ -1,5 +1,3 @@
-; (require 'rst)
-
 (autoload 'rst-mode
   "rst" "Edit Restructured Text documents" t)
 

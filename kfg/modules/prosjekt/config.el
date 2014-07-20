@@ -7,8 +7,6 @@
      'load-path
      (apply 'kfg-join (append root-path path)))))
 
-(require 'prosjekt)
-(require 'dirtree-prosjekt)
 (require 'helm-prosjekt)
 
 (global-set-key [(ctrl x) (p) (s)] 'prosjekt-setup)
