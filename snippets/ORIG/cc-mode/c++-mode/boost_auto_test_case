@@ -1,0 +1,7 @@
+#name: BOOST_AUTO_TEST_CASE
+#key: BATC
+# --
+BOOST_AUTO_TEST_CASE( $1 )
+{
+$0
+}

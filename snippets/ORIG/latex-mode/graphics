@@ -1,0 +1,3 @@
+# name: graphics
+# --
+\includegraphics[]{${1:filename}}

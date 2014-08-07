@@ -1,5 +1,5 @@
 (require 'yasnippet)
 
-(yas-load-directory (concat (file-name-directory load-file-name) "/snippets"))
+(yas-reload-all)
 
 (global-set-key "\C-xyi" 'yas-insert-snippet)
