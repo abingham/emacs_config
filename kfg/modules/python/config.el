@@ -24,8 +24,24 @@
 ;;       (setq flymake-python-pyflakes-executable "~/bin/flymake_python.sh")
 ;;     (warn "No python flymake executables available.")))
 
-(add-hook 'python-mode-hook 'flymake-python-pyflakes-load)
-(add-hook 'python-mode-hook (lambda () (show-paren-mode t)))
+(defun proper-python-electic-indent ()
+  "The default electric-indent behavior for Python is
+stupid. This does the right thing."
+  (interactive)
+  (newline)
+  (indent-according-to-mode))
+
+(defun python-hook ()
+  (flymake-python-pyflakes-load)
+  (show-paren-mode 1)
+  (electric-indent-local-mode -1)
+  (local-set-key (kbd "RET") 'proper-python-electic-indent)
+  (jedi:setup))
+
+(add-hook 'python-mode-hook 'python-hook)
+;; (add-hook 'python-mode-hook 'flymake-python-pyflakes-load)
+;; (add-hook 'python-mode-hook (lambda () (show-paren-mode t)))
+;; (add-hook 'python-mode-hook (lambda () (electric-indent-mode t)))
 
 ;; Pylookup stuff
 ;; add pylookup to your loadpath, ex) ~/.emacs.d/pylookup
@@ -83,7 +99,7 @@
 (global-set-key [(ctrl x) (t) (c)] 'traad-display-calltip)
 
 ; Jedi setup
-(add-hook 'python-mode-hook 'jedi:setup)
+; (add-hook 'python-mode-hook 'jedi:setup)
 (setq jedi:setup-keys t)
 (setq jedi:complete-on-dot t)
 
