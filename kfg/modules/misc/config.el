@@ -74,6 +74,15 @@
   )
 (add-hook 'compilation-mode-hook 'my-compilation-mode-hook)
 
+(defun practical-compilation-buffer (buffer command &rest args)
+  (get-buffer-create buffer)
+  (display-buffer buffer)
+  (with-current-buffer buffer
+    (compilation-mode)
+    (read-only-mode 0)
+    (erase-buffer))
+  (apply 'call-process command nil buffer t args))
+
 ;; Misc. other stuff
 (require 'open-next-line)
                                         ;(require 'rainbow-delimiters)
