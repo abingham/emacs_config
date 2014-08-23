@@ -74,14 +74,26 @@
   )
 (add-hook 'compilation-mode-hook 'my-compilation-mode-hook)
 
-(defun practical-compilation-buffer (buffer command &rest args)
-  (get-buffer-create buffer)
-  (display-buffer buffer)
-  (with-current-buffer buffer
-    (compilation-mode)
-    (read-only-mode 0)
-    (erase-buffer))
-  (apply 'call-process command nil buffer t args))
+(defun practical-compilation-buffer (buffer dir command &rest args)
+  "This function is designed for running external compilation commands in a buffer which 'does the right thing'. This does a few things:
+   - Set DIR as the current directory
+   - Add . to the front of exec-path
+   - Create the buffer BUFFER (if needed)
+   - Display BUFFER
+   - Put it into compilation-mode (so errors are highlighted and clickable)
+   - Make it read-write
+   - Erases it (to remove old compilation output.)
+   - Run external COMMAND with ARGS in that buffer.
+"
+  (let ((default-directory dir)
+        (exec-path (cons nil exec-path)))
+    (get-buffer-create buffer)
+    (display-buffer buffer)
+    (with-current-buffer buffer
+      (compilation-mode)
+      (read-only-mode 0)
+      (erase-buffer))
+    (apply 'call-process command nil buffer t args)))
 
 ;; Misc. other stuff
 (require 'open-next-line)
