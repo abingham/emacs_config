@@ -6,3 +6,5 @@
 
 (setq yas-prompt-functions '(yas-ido-prompt
                              yas-completing-prompt))
+
+(yas-global-mode)
