@@ -1,4 +1,4 @@
 ; python initialization
 
-'((:enabled . t)
+'((:enabled . nil)
   (:packages auto-complete))
