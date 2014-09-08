@@ -45,8 +45,8 @@ stupid. This does the right thing."
 
 ;; Pylookup stuff
 ;; add pylookup to your loadpath, ex) ~/.emacs.d/pylookup
-(setq pylookup-dir (kfg-join (file-name-directory load-file-name)
-                             "pylookup"))
+(setq pylookup-dir (kfg--join (file-name-directory load-file-name)
+                              "pylookup"))
 (add-to-list 'load-path pylookup-dir)
 
 ;; load pylookup when compile time
@@ -98,10 +98,10 @@ stupid. This does the right thing."
 (global-set-key [(ctrl x) (t) (o)] 'traad-display-doc)
 (global-set-key [(ctrl x) (t) (c)] 'traad-display-calltip)
 
-; Jedi setup
-; (add-hook 'python-mode-hook 'jedi:setup)
+;; Jedi setup
+;; (add-hook 'python-mode-hook 'jedi:setup)
 (setq jedi:setup-keys t)
 (setq jedi:complete-on-dot t)
 
-; default to python3
+;; default to python3
 (activate-python3)

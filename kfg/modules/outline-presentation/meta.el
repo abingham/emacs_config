@@ -1,4 +1,4 @@
 ; outline-presentation initialization
 
-'((:enabled . t)
+'((:enabled . nil)
   (:packages))

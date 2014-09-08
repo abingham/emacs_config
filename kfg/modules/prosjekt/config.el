@@ -5,7 +5,7 @@
 		  ( "ext" "dirtree")))
     (add-to-list
      'load-path
-     (apply 'kfg-join (append root-path path)))))
+     (apply 'kfg--join (append root-path path)))))
 
 (require 'helm-prosjekt)
 

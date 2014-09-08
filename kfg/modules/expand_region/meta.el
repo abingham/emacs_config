@@ -1,4 +1,4 @@
 ; expand-region initialization
 
-'((:enabled . t)
+'((:enabled . nil)
   (:packages expand-region))

@@ -1,4 +1,4 @@
 ; html initialization
 
-'((:enabled . t)
+'((:enabled . nil)
   (:packages))
