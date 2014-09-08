@@ -1,10 +1,10 @@
 ; python initialization
 
-'((:enabled . t)
+'((:configurations normal)
   (:packages flymake
              flymake-python-pyflakes
-	     jedi
+             jedi
              python
              python-pep8
              python-pylint
-	     request-deferred))
+             request-deferred))

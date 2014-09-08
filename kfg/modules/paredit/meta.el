@@ -1,4 +1,4 @@
 ; paredit initialization
 
-'((:enabled . t)
+'((:configurations normal)
   (:packages))

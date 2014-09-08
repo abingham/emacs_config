@@ -1,4 +1,4 @@
 ; flymake initialization
 
-'((:enabled . t)
+'((:configurations normal)
   (:packages flymake))

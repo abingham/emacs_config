@@ -1,6 +1,6 @@
 ; misc. configuration
 
-'((:enabled . t)
+'((:configurations normal)
   (:packages exec-path-from-shell
 	     markdown-mode
 	     nyan-mode

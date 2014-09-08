@@ -1,4 +1,4 @@
 ; yasnippet configuration
 
-'((:enabled . t)
+'((:configurations . ())
   (:packages yasnippet))

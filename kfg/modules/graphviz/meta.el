@@ -1,4 +1,4 @@
 ; graphviz initialization
 
-'((:enabled . nil)
+'((:configurations)
   (:packages graphviz-dot-mode))

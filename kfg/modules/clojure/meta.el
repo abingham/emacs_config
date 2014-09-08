@@ -1,6 +1,6 @@
 ; clojure initialization
 
-'((:enabled . nil)
+'((:configurations)
   (:packages clojure-mode
 	     clojure-test-mode
 	     cider

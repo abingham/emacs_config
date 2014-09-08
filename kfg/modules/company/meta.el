@@ -1,4 +1,4 @@
 ;; company-mode initialization
 
-'((:enabled . t)
+'((:configurations normal)
   (:packages company))

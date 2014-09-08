@@ -1,4 +1,4 @@
 ; dirtree initialization
 
-'((:enabled . t)
+'((:configurations normal)
   (:packages tree-mode))

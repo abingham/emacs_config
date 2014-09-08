@@ -1,4 +1,4 @@
 ; p4 initialization
 
-'((:enabled . nil)
+'((:configurations)
   (:packages))

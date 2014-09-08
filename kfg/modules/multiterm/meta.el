@@ -1,4 +1,4 @@
 ; multiterm initialization
 
-'((:enabled . nil)
+'((:configurations)
   (:packages multi-term))

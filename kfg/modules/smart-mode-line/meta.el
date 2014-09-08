@@ -1,4 +1,4 @@
 ; smart-mode-lne initialization
 
-'((:enabled . t)
+'((:configurations normal)
   (:packages smart-mode-line))

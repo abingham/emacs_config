@@ -1,4 +1,4 @@
 ; multiple-cursors initialization
 
-'((:enabled . t)
+'((:configurations normal)
   (:packages multiple-cursors))

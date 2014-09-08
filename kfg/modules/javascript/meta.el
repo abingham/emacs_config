@@ -1,4 +1,4 @@
 ; javascript initialization
 
-'((:enabled . t)
+'((:configurations)
   (:packages flymake-easy))

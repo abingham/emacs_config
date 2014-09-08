@@ -1,4 +1,4 @@
 ; magit initialization
 
-'((:enabled . t)
+'((:configurations normal)
   (:packages magit git-gutter))

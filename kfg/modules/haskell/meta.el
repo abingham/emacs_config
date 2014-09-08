@@ -1,4 +1,4 @@
 ; haskell initialization
 
-'((:enabled . nil)
+'((:configurations)
   (:packages haskell-mode))

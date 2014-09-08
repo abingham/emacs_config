@@ -1,4 +1,4 @@
 ;; ycmd module initialization
 
-'((:enabled . t)
+'((:configurations normal)
   :packages)

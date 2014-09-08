@@ -1,4 +1,4 @@
 ; cpp initialization
 
-'((:enabled . t)
+'((:configurations normal)
   (:packages))

@@ -1,4 +1,4 @@
 ; helm initialization
 
-'((:enabled . t)
+'((:configurations normal)
   (:packages helm))

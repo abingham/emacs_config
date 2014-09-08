@@ -1,6 +1,6 @@
 ; prosjekt initialization
 
-'((:enabled . t)
+'((:configurations normal)
   (:packages dash
 	     dirtree-prosjekt
 	     helm-prosjekt

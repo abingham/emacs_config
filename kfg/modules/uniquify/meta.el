@@ -1,4 +1,4 @@
 ; uniquify configuration
 
-'((:enabled . t)
+'((:configurations normal)
   (:packages))

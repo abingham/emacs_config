@@ -1,4 +1,4 @@
 ; slime initialization
 
-'((:enabled . t)
+'((:configurations)
   (:packages slime))

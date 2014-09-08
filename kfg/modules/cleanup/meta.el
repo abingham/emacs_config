@@ -1,4 +1,4 @@
 ; cleanup initialization
 
-'((:enabled . t)
+'((:configurations normal)
   (:packages))

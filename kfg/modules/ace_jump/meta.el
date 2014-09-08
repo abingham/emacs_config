@@ -1,4 +1,4 @@
 ; python initialization
 
-'((:enabled . t)
+'((:configurations normal)
   (:packages ace-jump-mode))
