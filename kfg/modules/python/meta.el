@@ -1,7 +1,8 @@
 ; python initialization
 
 '((:configurations normal)
-  (:packages flymake
+  (:packages f
+	     flymake
              flymake-python-pyflakes
              jedi
              python

@@ -1,11 +1,13 @@
-; populate load-path appropriately for prosjekt and its extensions.
+(require 'f)
+
+;; populate load-path appropriately for prosjekt and its extensions.
 (let ((root-path (list (file-name-directory load-file-name) "prosjekt" "prosjekt")))
   (dolist (path '(("") 
 		  ("ext" "helm")
 		  ( "ext" "dirtree")))
     (add-to-list
      'load-path
-     (apply 'kfg--join (append root-path path)))))
+     (apply 'f-join (append root-path path)))))
 
 (require 'helm-prosjekt)
 

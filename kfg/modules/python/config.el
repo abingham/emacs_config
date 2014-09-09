@@ -1,3 +1,4 @@
+(require 'f)
 (require 'jedi)
 
 (set-variable 'traad-server-port 0)
@@ -45,8 +46,8 @@ stupid. This does the right thing."
 
 ;; Pylookup stuff
 ;; add pylookup to your loadpath, ex) ~/.emacs.d/pylookup
-(setq pylookup-dir (kfg--join (file-name-directory load-file-name)
-                              "pylookup"))
+(setq pylookup-dir (f-join (file-name-directory load-file-name)
+			   "pylookup"))
 (add-to-list 'load-path pylookup-dir)
 
 ;; load pylookup when compile time
