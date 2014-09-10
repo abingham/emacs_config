@@ -4,7 +4,7 @@
 (require 'company-ycmd)
 
 (setq ycmd--log-enabled t)
-;; (set-variable 'ycmd-extra-conf-whitelist '("~/projects/*"))
+(set-variable 'ycmd-extra-conf-whitelist '("~/projects/*"))
 (set-variable 'ycmd-global-config
               (concat (file-name-directory load-file-name)
                       "ycm_global_conf.py"))
@@ -17,19 +17,21 @@
 (company-ycmd-enable-comprehensive-automatic-completion)
 
 (setq company-backends
-      '(company-bbdb
+      '(company-ycmd-backend
+        company-bbdb
         company-nxml
         company-css
         company-eclim
         company-semantic
-        ;; company-xcode
+        company-xcode
         ;; company-ropemacs
         company-cmake
         company-capf
-        (company-ycmd-backend company-dabbrev-code company-gtags company-etags company-keywords)
+        (company-dabbrev-code company-gtags company-etags company-keywords)
         company-oddmuse
         company-files
-        company-dabbrev))
+        company-dabbrev
+        ))
 
 ;; (setq company-backends (append company-backends '(company-ycmd-backend)))
 

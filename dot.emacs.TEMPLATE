@@ -14,5 +14,17 @@
   (package-refresh-contents)
   (package-install 'kfg))
 
-; initialize kfg with the root of the kfg configuration
-(kfg-initialize "~/.emacs.d/kfg")
+;; import kfg
+(require 'kfg)
+
+
+;; initialize kfg with the root of the kfg configuration
+;; (kfg-initialize "~/.emacs.d/kfg")
+(add-to-list 'load-path (f-join "~/.emacs.d/kfg/elisp"))
+
+(kfg-find-and-activate-modules
+ "~/.emacs.d/kfg/modules"
+ (lambda (m) (memq 'normal
+		   (assoc-default
+		    :configurations
+		    (assoc-default :metadata m)))))

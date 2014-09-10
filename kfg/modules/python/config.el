@@ -1,5 +1,5 @@
 (require 'f)
-(require 'jedi)
+; (require 'jedi)
 
 (set-variable 'traad-server-port 0)
 (set-variable 'traad-server-args '("-V" "2"))
@@ -37,7 +37,8 @@ stupid. This does the right thing."
   (show-paren-mode 1)
   (electric-indent-local-mode -1)
   (local-set-key (kbd "RET") 'proper-python-electic-indent)
-  (jedi:setup))
+  ;;(jedi:setup)
+  )
 
 (add-hook 'python-mode-hook 'python-hook)
 ;; (add-hook 'python-mode-hook 'flymake-python-pyflakes-load)
@@ -83,13 +84,15 @@ stupid. This does the right thing."
 (defun activate-python2 ()
   (interactive)
   (setq python-shell-interpreter "ipython"
-        jedi:server-command (list "python2.7" jedi:server-script))
+        ;;jedi:server-command (list "python2.7" jedi:server-script)
+	)
   (set-variable 'traad-server-program "traad"))
 
 (defun activate-python3 ()
   (interactive)
   (setq python-shell-interpreter "ipython3"
-        jedi:server-command (list "python3" jedi:server-script))
+        ;; jedi:server-command (list "python3" jedi:server-script)
+	)
   (set-variable 'traad-server-program "traad3"))
 
 ;; traad keybindings
@@ -101,8 +104,8 @@ stupid. This does the right thing."
 
 ;; Jedi setup
 ;; (add-hook 'python-mode-hook 'jedi:setup)
-(setq jedi:setup-keys t)
-(setq jedi:complete-on-dot t)
+;; (setq jedi:setup-keys t)
+;; (setq jedi:complete-on-dot t)
 
 ;; default to python3
 (activate-python3)
