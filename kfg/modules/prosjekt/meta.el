@@ -1,6 +1,6 @@
 ; prosjekt initialization
 
-'((:configurations normal)
+'((:configurations)
   (:packages dash
 	     dirtree-prosjekt
 	     f
