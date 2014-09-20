@@ -1,5 +1,5 @@
 (require 'f)
-; (require 'jedi)
+(require 'jedi)
 
 (set-variable 'traad-server-port 0)
 (set-variable 'traad-server-args '("-V" "2"))
@@ -12,10 +12,9 @@
 
 ;; flymake
 
-; Look for the executable
-(let ((fm-bin "flake8"))
-  (if (executable-find fm-bin)
-      (setq flymake-python-pyflakes-executable fm-bin)
+(defun setup-flymake-executable (executable-name)
+  (if (executable-find executable-name)
+      (setq flymake-python-pyflakes-executable executable-name)
     (warn "No python flake8 executable found. Flymake will be disabled for Python!")))
 
 ;;; old, but interesting function
@@ -37,8 +36,7 @@ stupid. This does the right thing."
   (show-paren-mode 1)
   (electric-indent-local-mode -1)
   (local-set-key (kbd "RET") 'proper-python-electic-indent)
-  ;;(jedi:setup)
-  )
+  (jedi:setup))
 
 (add-hook 'python-mode-hook 'python-hook)
 ;; (add-hook 'python-mode-hook 'flymake-python-pyflakes-load)
@@ -48,7 +46,7 @@ stupid. This does the right thing."
 ;; Pylookup stuff
 ;; add pylookup to your loadpath, ex) ~/.emacs.d/pylookup
 (setq pylookup-dir (f-join (file-name-directory load-file-name)
-			   "pylookup"))
+                           "pylookup"))
 (add-to-list 'load-path pylookup-dir)
 
 ;; load pylookup when compile time
@@ -84,16 +82,16 @@ stupid. This does the right thing."
 (defun activate-python2 ()
   (interactive)
   (setq python-shell-interpreter "ipython"
-        ;;jedi:server-command (list "python2.7" jedi:server-script)
-	)
-  (set-variable 'traad-server-program "traad"))
+        jedi:server-command (list "python2.7" jedi:server-script))
+  (set-variable 'traad-server-program '("/usr/local/bin/traad"))
+  (setup-flymake-executable "flake8"))
 
 (defun activate-python3 ()
   (interactive)
   (setq python-shell-interpreter "ipython3"
-        ;; jedi:server-command (list "python3" jedi:server-script)
-	)
-  (set-variable 'traad-server-program "traad3"))
+        jedi:server-command (list "python3" jedi:server-script))
+  (set-variable 'traad-server-program '("/usr/local/bin/traad3"))
+  (setup-flymake-executable "flake8-3"))
 
 ;; traad keybindings
 (global-set-key [(ctrl x) (t) (r)] 'traad-rename)
@@ -103,9 +101,9 @@ stupid. This does the right thing."
 (global-set-key [(ctrl x) (t) (c)] 'traad-display-calltip)
 
 ;; Jedi setup
-;; (add-hook 'python-mode-hook 'jedi:setup)
-;; (setq jedi:setup-keys t)
-;; (setq jedi:complete-on-dot t)
+(add-hook 'python-mode-hook 'jedi:setup)
+(setq jedi:setup-keys t)
+(setq jedi:complete-on-dot t)
 
 ;; default to python3
 (activate-python3)
