@@ -1,5 +1,7 @@
 ; helm configuration
 
+(require 'helm-projectile)
+
 (helm-mode t)
 
 ; Emulate old describe-* bindings
@@ -12,7 +14,9 @@
 
 (defun helm-my-buffers ()
   (interactive)
-  (helm-other-buffer '(helm-c-source-prosjekt-files
+  (helm-other-buffer '(helm-source-projectile-files-list
+		       helm-source-projectile-buffers-list
+		       helm-source-projectile-projects
 		       helm-source-buffers-list
                        helm-source-files-in-current-dir
                        helm-source-recentf

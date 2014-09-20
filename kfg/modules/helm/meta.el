@@ -1,4 +1,5 @@
 ; helm initialization
 
 '((:configurations normal)
-  (:packages helm))
+  (:packages helm
+	     helm-projectile))
