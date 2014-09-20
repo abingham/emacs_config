@@ -42,8 +42,9 @@
 (menu-bar-mode -1)
 (global-font-lock-mode 1)
 (setq inhibit-splash-screen 't)
-(global-auto-revert-mode 't)
-(setq auto-revert-interval 1)
+(custom-set-variables
+ '(auto-revert-interval 1))
+(global-auto-revert-mode 1)
 (show-paren-mode 1)
 (column-number-mode 1)
 (line-number-mode 1)
