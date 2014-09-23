@@ -1,4 +1,4 @@
 ;; ycmd module initialization
 
 '((:configurations normal)
-  :packages)
+  (:packages anaphora))
