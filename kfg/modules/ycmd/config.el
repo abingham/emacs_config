@@ -4,7 +4,7 @@
 (require 'company-ycmd)
 
 (setq ycmd--log-enabled t)
-(set-variable 'ycmd-extra-conf-whitelist '("~/projects/*"))
+(set-variable 'ycmd-extra-conf-whitelist '("~/projects/*" "~/sandbox/*"))
 (set-variable 'ycmd-global-config
               (concat (file-name-directory load-file-name)
                       "ycm_global_conf.py"))
@@ -15,6 +15,8 @@
 
 ;; Enable automatic completion after -> and ::
 (company-ycmd-enable-comprehensive-automatic-completion)
+
+(global-set-key [(ctrl c) (y) (g)] 'ycmd-goto)
 
 (setq company-backends
       '(company-ycmd-backend
