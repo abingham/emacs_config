@@ -55,15 +55,19 @@
 (setq sml/theme 'dark)
 
 ;; hide-show
+(defun hide-level (level)
+  (interactive
+   (list
+    (read-number "Level: ")))
+  (hs-hide-level level))
+
 (add-hook 'prog-mode-hook
           (lambda ()
             (local-set-key (kbd "<backtab>") 'hs-toggle-hiding)
-            (local-set-key (kbd "C-c <right>") 'hs-show-block)
-            (local-set-key (kbd "C-c <left>")  'hs-hide-block)
+            (local-set-key (kbd "C-c <right>") 'hide-level)
             (local-set-key (kbd "C-c <up>")    'hs-hide-all)
             (local-set-key (kbd "C-c <down>")  'hs-show-all)
-            (hs-minor-mode t)
-            (hs-hide-level 1)))
+            (hs-minor-mode t)))
 
 ;; Compilation stuff
 (setq-default display-buffer-reuse-frames t)
