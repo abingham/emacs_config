@@ -1,14 +1,16 @@
 ; helm configuration
 
+(require 'helm-config)
+(helm-mode 1)
+
 (require 'helm-projectile)
 
-(helm-mode t)
 
-; Emulate old describe-* bindings
+;; ; Emulate old describe-* bindings
 (global-set-key [(ctrl h) (f)] 'helm-apropos)
 (global-set-key [(ctrl h) (v)] 'helm-apropos)
 
-; Leave execute-extended-command alone. I like the normal behavior for now.
+;; Leave execute-extended-command alone. I like the normal behavior for now.
 (add-to-list 'helm-completing-read-handlers-alist
              '(execute-extended-command . nil))
 
@@ -27,3 +29,5 @@
     (helm-other-buffer sources "*helm-my-buffers*")))
 
 (global-set-key "\C-u" 'helm-my-buffers)
+
+
