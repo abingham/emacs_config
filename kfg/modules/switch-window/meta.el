@@ -1,4 +1,4 @@
 ; dirtree initialization
 
-'((:configurations normal)
+'((:configurations)
   (:packages switch-window))
