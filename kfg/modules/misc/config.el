@@ -54,6 +54,17 @@
 (nyan-mode t)
 (setq sml/theme 'dark)
 
+;; hide-show
+(add-hook 'prog-mode-hook
+          (lambda ()
+            (local-set-key (kbd "<backtab>") 'hs-toggle-hiding)
+            (local-set-key (kbd "C-c <right>") 'hs-show-block)
+            (local-set-key (kbd "C-c <left>")  'hs-hide-block)
+            (local-set-key (kbd "C-c <up>")    'hs-hide-all)
+            (local-set-key (kbd "C-c <down>")  'hs-show-all)
+            (hs-minor-mode t)
+            (hs-hide-level 1)))
+
 ;; Compilation stuff
 (setq-default display-buffer-reuse-frames t)
 (setq compile-command "scons -u")
@@ -116,6 +127,7 @@
 (global-set-key [(ctrl x) (m)] 'windmove-down)
 (global-set-key [(ctrl x) (j)] 'windmove-left)
 (global-set-key [(ctrl x) (l)] 'windmove-right)
+;; (global-set-key [(ctrl x) (o)] 'other-window)
 (global-set-key "\C-x\C-m" 'execute-extended-command)
 (global-set-key "\C-w" 'backward-kill-word) 
 (global-set-key "\C-x\C-k" 'kill-region)
