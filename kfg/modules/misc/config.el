@@ -61,14 +61,6 @@
     (read-number "Level: ")))
   (hs-hide-level level))
 
-(add-hook 'prog-mode-hook
-          (lambda ()
-            (local-set-key (kbd "<backtab>") 'hs-toggle-hiding)
-            (local-set-key (kbd "C-c <right>") 'hide-level)
-            (local-set-key (kbd "C-c <up>")    'hs-hide-all)
-            (local-set-key (kbd "C-c <down>")  'hs-show-all)
-            (hs-minor-mode t)))
-
 ;; Compilation stuff
 (setq-default display-buffer-reuse-frames t)
 (setq compile-command "scons -u")

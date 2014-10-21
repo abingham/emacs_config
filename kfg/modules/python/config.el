@@ -31,12 +31,24 @@ stupid. This does the right thing."
   (newline)
   (indent-according-to-mode))
 
+(defun python-intelligent-fold ()
+  (interactive)
+  (save-excursion
+    (beginning-of-buffer)
+    (while (re-search-forward "^ *def " nil t)
+      (let ((match-pos (match-beginning 0)))
+        (save-excursion
+          (goto-char match-pos)
+          (hs-hide-block))))))
+
 (defun python-hook ()
   (flymake-python-pyflakes-load)
   (show-paren-mode 1)
   (electric-indent-local-mode -1)
   (local-set-key (kbd "RET") 'proper-python-electic-indent)
-  (jedi:setup))
+  (jedi:setup)
+  (hs-minor-mode)
+  (python-intelligent-fold))
 
 (add-hook 'python-mode-hook 'python-hook)
 ;; (add-hook 'python-mode-hook 'flymake-python-pyflakes-load)
