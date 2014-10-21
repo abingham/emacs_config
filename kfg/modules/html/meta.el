@@ -1,4 +1,4 @@
 ; html initialization
 
-'((:configurations)
+'((:configurations normal)
   (:packages))
