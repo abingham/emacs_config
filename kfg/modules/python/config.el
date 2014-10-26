@@ -47,8 +47,9 @@ stupid. This does the right thing."
   (electric-indent-local-mode -1)
   (local-set-key (kbd "RET") 'proper-python-electic-indent)
   (jedi:setup)
-  (hs-minor-mode)
-  (python-intelligent-fold))
+  ;(hs-minor-mode)
+  ;(python-intelligent-fold)
+  )
 
 (add-hook 'python-mode-hook 'python-hook)
 ;; (add-hook 'python-mode-hook 'flymake-python-pyflakes-load)
