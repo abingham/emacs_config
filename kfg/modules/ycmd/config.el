@@ -3,6 +3,9 @@
 (require 'ycmd)
 (require 'company-ycmd)
 
+(add-hook 'c++-mode-hook 'ycmd-mode)
+(add-hook 'python-mode-hook 'ycmd-mode)
+
 (setq ycmd--log-enabled t)
 (set-variable 'ycmd-server-command '("python" "/Users/sixtynorth/projects/ycmd/ycmd"))
 (set-variable 'ycmd-extra-conf-whitelist '("~/projects/*" "~/sandbox/*"))
@@ -13,9 +16,6 @@
 
 ; We're trying out ycmd. No need for original clang support.
 (setq company-backends (remove 'company-clang company-backends))
-
-;; Enable automatic completion after -> and ::
-(company-ycmd-enable-comprehensive-automatic-completion)
 
 (global-set-key [(ctrl c) (y) (g)] 'ycmd-goto)
 
