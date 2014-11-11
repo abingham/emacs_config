@@ -101,6 +101,13 @@
 
 (fset 'yes-or-no-p 'y-or-n-p)           ; easy answer to stupid question
 
+                                        ; This makes subshells
+                                        ; "interactive" so that
+                                        ; e.g. `shell-command' uses
+                                        ; the same environment as a
+                                        ; normal shell.
+(set-variable 'shell-command-switch "-ic")
+
                                         ; Load any local settings.
 (let* ((this_dir (file-name-directory load-file-name))
        (local_config (concat this_dir "local_config.el")))
