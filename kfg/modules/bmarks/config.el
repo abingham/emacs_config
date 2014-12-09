@@ -11,4 +11,4 @@
   (bookmark-jump "abingham_bookmark"))
 
 (global-set-key [(shift return)] 'simple-bookmark-set)
-(global-set-key [(control shift return)] 'simple-bookmark-jump)
+(global-set-key [(control return)] 'simple-bookmark-jump)
