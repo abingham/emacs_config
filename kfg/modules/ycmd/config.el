@@ -6,7 +6,7 @@
 (add-hook 'c++-mode-hook 'ycmd-mode)
 (add-hook 'python-mode-hook 'ycmd-mode)
 
-(setq ycmd--log-enabled t)
+;; (setq ycmd--log-enabled t)
 (set-variable 'ycmd-server-command '("python" "/Users/sixtynorth/projects/ycmd/ycmd"))
 (set-variable 'ycmd-extra-conf-whitelist '("~/projects/*" "~/sandbox/*"))
 (set-variable 'ycmd-global-config
