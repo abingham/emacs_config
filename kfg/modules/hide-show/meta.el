@@ -1,2 +1,2 @@
-'((:configurations normal)
+'((:configurations)
   (:packages))
