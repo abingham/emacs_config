@@ -97,7 +97,8 @@ stupid. This does the right thing."
   (setq python-shell-interpreter "ipython"
         ; jedi:server-command (list "python2.7" jedi:server-script)
         )
-  (set-variable 'traad-server-program '("/usr/local/bin/traad"))
+  ;; (set-variable 'traad-server-program '("/usr/local/bin/traad"))
+  (set-variable 'traad-environment-root "traad")
   (setup-flymake-executable "flake8"))
 
 (defun activate-python3 ()
@@ -105,7 +106,8 @@ stupid. This does the right thing."
   (setq python-shell-interpreter "ipython3"
         ;jedi:server-command (list "python3" jedi:server-script)
         )
-  (set-variable 'traad-server-program '("/usr/local/bin/traad3"))
+  ;; (set-variable 'traad-server-program '("/usr/local/bin/traad3"))
+  (set-variable 'traad-environment-root "traad3")
   (setup-flymake-executable "flake8-3"))
 
 ;; traad keybindings
