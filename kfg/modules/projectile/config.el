@@ -15,4 +15,29 @@
               (call-interactively cmd)
             (eval cmd)))))))
 
-(global-set-key [f6] 'projectile-run-shell-command-in-root)
+(defun run-command-in-projectile-root (command)
+  "Switch to the `projectile-project-root' and run COMMAND
+interactively."
+  (interactive "C")
+  (let ((default-directory (projectile-project-root)))
+    (call-interactively command)))
+
+(global-set-key
+ [f6]
+ (lambda ()
+   (interactive)
+   (call-interactively
+    (if (projectile-project-p)
+        'projectile-run-async-shell-command-in-root
+      'shell-command))))
+
+(global-set-key [f7]
+                ;; 'projectile-run-command-in-root
+                'run-command-in-projectile-root)
+
+(global-set-key
+ "\C-x\C-n"
+ (lambda ()
+   (interactive)
+   (run-command-in-projectile-root 'compile)))
+
