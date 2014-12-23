@@ -135,7 +135,7 @@
 (global-set-key "\C-w" 'backward-kill-word) 
 (global-set-key "\C-x\C-k" 'kill-region)
 (global-set-key "\C-x\C-j" 'copy-region-as-kill)
-(global-set-key "\C-x\C-n" 'compile)
+; (global-set-key "\C-x\C-n" 'compile)
 ; (global-set-key "\C-cn" 'compilation-mode)
 (global-set-key (kbd "<mouse-5>") 'up-slightly)
 (global-set-key (kbd "<mouse-4>") 'down-slightly)
