@@ -3,9 +3,9 @@
 
 ;; Add the necessary package repositories
 ;; (add-to-list 'package-archives '("local-dir" . "/Users/abingham/projects/melpa/packages/"))
-;; (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
-;; (add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/") t)
+(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
+(add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/") t)
 
 (package-initialize)
 
@@ -15,6 +15,8 @@
   (package-install 'use-package))
 
 (require 'use-package)
+
+(setq use-package-verbose t)
 
 (use-package ace-jump-mode
   :ensure t
