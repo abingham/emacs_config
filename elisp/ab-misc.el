@@ -174,4 +174,4 @@
 					;(global-set-key "\C-t" (transpose-chars -1))
 (global-set-key [(ctrl .)] 'comment-or-uncomment-region)
 
-
+(provide 'ab-misc)

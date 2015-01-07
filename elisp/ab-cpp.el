@@ -20,4 +20,5 @@
 
 (add-hook 'c++-mode-hook 'my-cpp-mode-hook)
 
-;;; cpp.el ends here
+(provide 'ab-cpp)
+;;; ab-cpp.el ends here

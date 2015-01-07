@@ -1,4 +1,5 @@
 (require 'package)
+;; (package-refresh-contents)
 (package-initialize)
 
 (require 'use-package)
@@ -145,14 +146,64 @@
      '(term-default-bg-color "#ffffff")
      '(term-default-fg-color "#000000"))))
 
-(use-package neo-tree)
+(use-package neotree
+  :ensure t)
 
-(load-file "codesearch.el")
-(load-file "color-theme.el")
-(load-file "cpp.el")
-(load-file "helm.el")
-;; (load-file "hide-show.el")
-(load-file "html.el")
-(load-file "javascript.el")
-(load-file "misc.el")
-;;; init.el ends here
+(use-package htmlize)
+
+(use-package org
+  :config
+  (progn
+
+    ;; (use-package ox-reveal
+    ;;   :ensure t)
+    
+    (setq org-src-fontify-natively t)
+    
+    (defface org-block-begin-line
+      '((t (:underline "#A7A6AA" :foreground "#008ED1" :background "#222222")))
+      "Face used for the line delimiting the begin of source blocks.")
+    
+    (defface org-block-background
+      '((t (:background "#000000")))
+      "Face used for the source block background.")
+    
+    (defface org-block-end-line
+      '((t (:overline "#A7A6AA" :foreground "#008ED1" :background "#222222")))
+      "Face used for the line delimiting the end of source blocks.")))
+
+(use-package ab-codesearch
+  :load-path "elisp")
+
+(use-package ab-color-theme
+  :load-path "elisp")
+
+(use-package ab-cpp
+  :load-path "elisp")
+
+(use-package ab-helm
+  :load-path "elisp")
+
+(use-package hideshow
+  :disabled t
+  :config
+  (add-hook 'hs-minor-mode-hook
+            (lambda ()
+              (local-set-key (kbd "C-c e") 'hs-toggle-hiding)
+              (local-set-key (kbd "C-c <right>") 'hide-level)
+              (local-set-key (kbd "C-c <up>")    'hs-hide-all)
+              (local-set-key (kbd "C-c <down>")  'hs-show-all))))
+
+(use-package sgml-mode
+  :config
+  (progn
+    (add-to-list 'auto-mode-alist '("\\.mak" "\\.jinja2" "\\.mustache" . html-mode))
+    (add-to-list 'auto-mode-alist '("\\.html" . web-mode))))
+
+(use-package ab-javascript
+  :load-path "elisp")
+
+(use-package ab-misc
+  :load-path "elisp")
+
+;; ;;; init.el ends here

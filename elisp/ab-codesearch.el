@@ -14,4 +14,5 @@
   (let ((fpatt (concat (projectile-project-root) file-pattern)))
     (codesearch-search pattern fpatt)))
 
-;;; codesearch.el ends here
+(provide 'ab-codesearch)
+;;; ab-codesearch.el ends here

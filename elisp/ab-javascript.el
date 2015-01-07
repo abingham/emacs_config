@@ -21,3 +21,5 @@
                   nil 1 2 3)
                 flymake-err-line-patterns))
     (add-hook 'js-mode-hook 'my-flymake-js-load)))
+
+(provide 'ab-javascript)
