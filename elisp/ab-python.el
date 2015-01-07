@@ -92,6 +92,7 @@ stupid. This does the right thing."
     (use-package flymake :ensure t)
     (use-package flymake-python-pyflakes :ensure t)
     (use-package jedi :ensure t)
+    (use-package python-environment :ensure t)
     (use-package python-pep8 :ensure t)
     (use-package python-pylint :ensure t)
     (use-package request-deferred :ensure t)
