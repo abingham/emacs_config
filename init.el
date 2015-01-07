@@ -226,8 +226,36 @@
   (add-hook 'scheme-mode-hook           #'enable-paredit-mode)
   (add-hook 'clojure-mode-hook          #'enable-paredit-mode))
 
-(use-package ab-projectile)
+(use-package ab-projectile
+  :load-path "elisp")
 
-(use-package ab-python)
+(use-package ab-python
+  :load-path "elisp")
+
+(use-package ab-rst
+  :load-path "elisp")
+
+(use-package slime
+  :config
+  (progn
+    (setq inferior-lisp-program "/usr/bin/sbcl")
+    (slime-setup)))
+
+(use-package smart-mode-line
+  :config
+  (progn
+    (sml/setup)
+    
+    ;; TODO: Think about letting the individual modules do this
+    ;; configuration. It's convenient to have it here for now, though.
+    (dolist (m '("Helm" "AC" "Undo-Tree" "Paredit"))
+      (add-to-list 'sml/hidden-modes (concat " " m)))))
+
+(use-package switch-window
+  :disabled t
+  :bind
+  (("C-x o" . switch-window))
+  :config
+  (custom-set-variables '(switch-window-shortcut-style (quote qwerty))))
 
 ;; ;;; init.el ends here
