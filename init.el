@@ -136,6 +136,15 @@
    ("C-<" . mc/mark-previous-like-this)
    ("C-c C-<" . mc/mark-all-like-this)))
 
+(use-package multi-term
+  :disabled t
+  :config
+  (progn
+    (setq multi-term-program "/bin/zsh")
+    (custom-set-variables
+     '(term-default-bg-color "#ffffff")
+     '(term-default-fg-color "#000000"))))
+
 (load-file "codesearch.el")
 (load-file "color-theme.el")
 (load-file "cpp.el")
