@@ -115,5 +115,6 @@
 (load-file "codesearch.el")
 (load-file "color-theme.el")
 (load-file "cpp.el")
+(load-file "helm.el")
 (load-file "misc.el")
 ;;; init.el ends here
