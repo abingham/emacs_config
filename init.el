@@ -41,22 +41,26 @@
     (add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)))
 
 (use-package company
+  :bind
+  (("M-/" . company-complete))
   :config
-  (setq company-backends
-	'(company-ycmd
-	  company-bbdb
-	  company-nxml
-	  company-css
-	  company-eclim
-	  company-semantic
-	  company-xcode
-	  ;; company-ropemacs
-	  company-cmake
-	  company-capf
-	  (company-dabbrev-code company-gtags company-etags company-keywords)
-	  company-oddmuse
-	  company-files
-	  company-dabbrev)))
+  (progn
+    (setq company-backends
+	  '(company-ycmd
+	    company-bbdb
+	    company-nxml
+	    company-css
+	    company-eclim
+	    company-semantic
+	    company-xcode
+	    ;; company-ropemacs
+	    company-cmake
+	    company-capf
+	    (company-dabbrev-code company-gtags company-etags company-keywords)
+	    company-oddmuse
+	    company-files
+	    company-dabbrev))
+    (add-hook 'after-init-hook 'global-company-mode)))
 
 (use-package ycmd
   :load-path "/Users/sixtynorth/projects/emacs-ycmd"
