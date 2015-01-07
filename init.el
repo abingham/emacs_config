@@ -30,6 +30,16 @@
   :config
   (cleanup-buffer-setup))
 
+(use-package clojure-mode
+  :config
+  (progn
+    (use-package clojure-test-mode)
+    (use-package cider)
+    (use-package paredit)
+    (set-variable 'cider-auto-select-error-buffer nil)
+    (add-hook 'clojure-mode-hook 'paredit-mode)
+    (add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)))
+
 (use-package company
   :config
   (setq company-backends
@@ -46,8 +56,7 @@
 	  (company-dabbrev-code company-gtags company-etags company-keywords)
 	  company-oddmuse
 	  company-files
-	  company-dabbrev
-	  )))
+	  company-dabbrev)))
 
 (use-package ycmd
   :load-path "/Users/sixtynorth/projects/emacs-ycmd"
