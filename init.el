@@ -41,26 +41,37 @@
     (add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)))
 
 (use-package company
+  :init
+  (add-hook 'after-init-hook 'global-company-mode)
   :bind
   (("M-/" . company-complete))
   :config
-  (progn
-    (setq company-backends
-	  '(company-ycmd
-	    company-bbdb
-	    company-nxml
-	    company-css
-	    company-eclim
-	    company-semantic
-	    company-xcode
-	    ;; company-ropemacs
-	    company-cmake
-	    company-capf
-	    (company-dabbrev-code company-gtags company-etags company-keywords)
-	    company-oddmuse
-	    company-files
-	    company-dabbrev))
-    (add-hook 'after-init-hook 'global-company-mode)))
+  (setq company-backends
+        '(company-ycmd
+          company-bbdb
+          company-nxml
+          company-css
+          company-eclim
+          company-semantic
+          company-xcode
+          ;; company-ropemacs
+          company-cmake
+          company-capf
+          (company-dabbrev-code company-gtags company-etags company-keywords)
+          company-oddmuse
+          company-files
+          company-dabbrev)))
+
+(use-package flycheck
+  :init
+  (add-hook 'after-init-hook #'global-flycheck-mode)
+  :config
+  (set-variable 'flycheck-disabled-checkers
+                '(c/c++-clang
+                  c/c++-gcc
+                  c/c++-cppcheck
+                  python-flake8
+                  python-pylint)))
 
 (use-package ycmd
   :load-path "/Users/sixtynorth/projects/emacs-ycmd"
