@@ -258,4 +258,7 @@
   :config
   (custom-set-variables '(switch-window-shortcut-style (quote qwerty))))
 
+(use-package undo-tree
+  :init (global-undo-tree-mode 1))
+
 ;; ;;; init.el ends here
