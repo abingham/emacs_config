@@ -261,4 +261,8 @@
 (use-package undo-tree
   :init (global-undo-tree-mode 1))
 
+(use-package uniquify
+  :config
+  (setq uniquify-buffer-name-style 'forward))
+
 ;; ;;; init.el ends here
