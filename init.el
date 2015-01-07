@@ -112,6 +112,8 @@
   :bind (([(shift return)] . simple-bookmark-set)
 	 ([(control return)] . simple-bookmark-jump)))
 
+(use-package ahg)
+
 (load-file "codesearch.el")
 (load-file "color-theme.el")
 (load-file "cpp.el")
