@@ -85,5 +85,6 @@
   :bind (([(shift return)] . simple-bookmark-set)
 	 ([(control return)] . simple-bookmark-jump)))
 
+(load-file "codesearch.el")
 (load-file "misc.el")
 ;;; init.el ends here
