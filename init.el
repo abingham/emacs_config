@@ -33,7 +33,6 @@
 (use-package clojure-mode
   :config
   (progn
-    (use-package clojure-test-mode)
     (use-package cider)
     (use-package paredit)
     (set-variable 'cider-auto-select-error-buffer nil)
