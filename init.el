@@ -228,4 +228,6 @@
 
 (use-package ab-projectile)
 
+(use-package ab-python)
+
 ;; ;;; init.el ends here
