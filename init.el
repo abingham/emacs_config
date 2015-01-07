@@ -128,5 +128,6 @@
 (load-file "helm.el")
 ;; (load-file "hide-show.el")
 (load-file "html.el")
+(load-file "javascript.el")
 (load-file "misc.el")
 ;;; init.el ends here
