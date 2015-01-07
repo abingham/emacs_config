@@ -16,7 +16,7 @@
   :bind
   (("C-h f" . helm-apropos)
    ("C-h v" . helm-apropos)
-   ("C-u" . hdlm-my-buffers))
+   ("C-u" . helm-my-buffers))
   :config
   (progn
     (use-package helm-config)

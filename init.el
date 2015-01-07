@@ -226,4 +226,6 @@
   (add-hook 'scheme-mode-hook           #'enable-paredit-mode)
   (add-hook 'clojure-mode-hook          #'enable-paredit-mode))
 
+(use-package ab-projectile)
+
 ;; ;;; init.el ends here
