@@ -14,7 +14,16 @@
 	 ("C-c C-u SPC" . ace-jump-char-mode)
 	 ("C-c C-u C-u SPC" . ace-jump-line-mode)))
 
-(use-package anaphora)
+(use-package auto-complete
+  :bind (("M-/" . auto-complete))
+  :config
+  (progn
+    (add-to-list 'ac-dictionary-directories "~/.emacs.d/dict")
+    (use-package auto-complete-config)
+    (setq ac-auto-start 2)
+    (global-auto-complete-mode t)
+    (setq ac-use-quick-help t)
+    (setq ac-quick-help-delay 0.3)))
 
 (use-package company
   :config
@@ -40,6 +49,14 @@
   :bind (("C-c y g" . ycmd-goto))
   :config
   (progn
+    (use-package anaphora)
+    (use-package company-ycmd
+      ;; We're trying out ycmd. No need for original clang support.
+      :config (setq company-backends (remove 'company-clang company-backends)))
+    
+    (use-package flycheck-ycmd
+      :config (flycheck-ycmd-setup))
+        
     (add-hook 'c++-mode-hook 'ycmd-mode)
     (add-hook 'python-mode-hook 'ycmd-mode)
     (setq ycmd--log-enabled t)
@@ -48,16 +65,5 @@
     (set-variable 'ycmd-global-config
 		  (concat (file-name-directory load-file-name)
 			  "ycm_global_conf.py"))))
-
-(use-package company-ycmd
-  :config
-  (progn
-    ;; We're trying out ycmd. No need for original clang support.
-    (setq company-backends (remove 'company-clang company-backends))))
-
-(use-package flycheck-ycmd
-  :config
-  (progn
-    (flycheck-ycmd-setup)))
 
 (load-file "misc.el")
