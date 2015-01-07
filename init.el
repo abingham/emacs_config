@@ -114,6 +114,15 @@
 
 (use-package ahg)
 
+(use-package ido
+  :config
+  (progn
+    (use-package ido-vertical-mode)
+    (setq ido-enable-flex-matching t)
+    (ido-mode 1)
+    (ido-everywhere 1)
+    (ido-vertical-mode 1)))
+
 (load-file "codesearch.el")
 (load-file "color-theme.el")
 (load-file "cpp.el")
