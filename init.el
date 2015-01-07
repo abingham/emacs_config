@@ -145,6 +145,8 @@
      '(term-default-bg-color "#ffffff")
      '(term-default-fg-color "#000000"))))
 
+(use-package neo-tree)
+
 (load-file "codesearch.el")
 (load-file "color-theme.el")
 (load-file "cpp.el")
