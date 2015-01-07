@@ -11,7 +11,7 @@
 (flycheck-ycmd-setup)
 
 (setq ycmd--log-enabled t)
-(set-variable 'ycmd-server-command '("python" "/Users/sixtynorth/projects/ycmd/ycmd"))
+(set-variable 'ycmd-server-command '("/usr/bin/python" "/Users/sixtynorth/projects/ycmd/ycmd"))
 (set-variable 'ycmd-extra-conf-whitelist '("~/projects/*" "~/sandbox/*"))
 (set-variable 'ycmd-global-config
               (concat (file-name-directory load-file-name)

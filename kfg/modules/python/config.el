@@ -1,5 +1,6 @@
 (require 'f)
 ; (require 'jedi)
+(add-to-list 'load-path "/Users/sixtynorth/projects/traad/elisp")
 
 (set-variable 'traad-server-port 0)
 (set-variable 'traad-server-args '("-V" "2"))
@@ -99,6 +100,7 @@ stupid. This does the right thing."
         )
   ;; (set-variable 'traad-server-program '("/usr/local/bin/traad"))
   (set-variable 'traad-environment-root "traad")
+  (set-variable 'traad-environment-virtualenv '("virtualenv"))
   (setup-flymake-executable "flake8"))
 
 (defun activate-python3 ()
@@ -108,6 +110,7 @@ stupid. This does the right thing."
         )
   ;; (set-variable 'traad-server-program '("/usr/local/bin/traad3"))
   (set-variable 'traad-environment-root "traad3")
+  (set-variable 'traad-environment-virtualenv '("pyvenv-3.4"))
   (setup-flymake-executable "flake8-3"))
 
 ;; traad keybindings
