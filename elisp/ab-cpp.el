@@ -16,16 +16,15 @@
 )
 
 (defcustom ab-cpp-patterns
-  '("\\.h\\" "\\.ipp\\")
+  '("\\.h" "\\.ipp")
   "File patterns that get put into C++ mode.")
 
 (use-package cc-mode
   :init
-  (dolist (pattern ab-cpp-patterns)
-    (add-to-list 'auto-mode-alist `(,pattern . c++-mode)))
-
-  :config
-  (add-hook 'c++-mode-hook 'my-cpp-mode-hook))
+  (progn
+    (dolist (pattern ab-cpp-patterns)
+      (add-to-list 'auto-mode-alist `(,pattern . c++-mode)))
+    (add-hook 'c++-mode-hook 'my-cpp-mode-hook)))
 
 (provide 'ab-cpp)
 ;;; ab-cpp.el ends here

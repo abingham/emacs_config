@@ -13,16 +13,18 @@
     (helm-other-buffer sources "*helm-my-buffers*")))
 
 (use-package helm
+  :ensure t
   :bind
   (("C-h f" . helm-apropos)
    ("C-h v" . helm-apropos)
    ("C-u" . helm-my-buffers))
-  :config
+  :init
   (progn
-    (use-package helm-config)
-    (helm-mode 1)
-    (use-package helm-projectile)
-    (add-to-list 'helm-completing-read-handlers-alist
-                 '(execute-extended-command . nil))))
+    (require 'helm-config)
+    (use-package helm-projectile :ensure t)
+    (helm-mode 1))
+  :config
+  (add-to-list 'helm-completing-read-handlers-alist
+               '(execute-extended-command . nil)))
 
 (provide 'ab-helm)

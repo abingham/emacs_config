@@ -1,5 +1,5 @@
 (use-package color-theme
-  :config
+  :init
   (progn
     ;; (use-package color-theme-solarized)
     ;; (use-package zenburn-theme)

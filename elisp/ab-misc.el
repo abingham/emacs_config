@@ -1,5 +1,5 @@
 (use-package exec-path-from-shell
-  :config
+  :idle
   (exec-path-from-shell-initialize))
 
 (use-package markdown-mode)

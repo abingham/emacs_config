@@ -3,9 +3,9 @@
 
 ;; Add the necessary package repositories
 ;; (add-to-list 'package-archives '("local-dir" . "/Users/abingham/projects/melpa/packages/"))
-;; (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
-(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
-;; (add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/") t)
+(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
+;; (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
+(add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/") t)
 
 (package-initialize)
 
@@ -21,6 +21,9 @@
   :bind (("C-c SPC" . ace-jump-mode)
 	 ("C-c C-u SPC" . ace-jump-char-mode)
 	 ("C-c C-u C-u SPC" . ace-jump-line-mode)))
+
+(use-package anaphora
+  :ensure t)
 
 (use-package auto-complete
   :ensure t
@@ -40,21 +43,22 @@
   (cleanup-buffer-setup))
 
 (use-package clojure-mode
+  :ensure t)
+
+(use-package cider
   :ensure t
   :config
   (progn
-    (use-package cider)
-    (use-package paredit)
     (set-variable 'cider-auto-select-error-buffer nil)
-    (add-hook 'clojure-mode-hook 'paredit-mode)
     (add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)))
 
 (use-package company
   :ensure t
-  :init
-  (add-hook 'after-init-hook 'global-company-mode)
+  :defer t
   :bind
   (("M-/" . company-complete))
+  :idle
+  (global-company-mode)
   :config
   (setq company-backends
         '(company-ycmd
@@ -75,7 +79,7 @@
 (use-package flycheck
   :ensure t
   :init
-  (add-hook 'after-init-hook #'global-flycheck-mode)
+  (global-flycheck-mode)
   :config
   (set-variable 'flycheck-disabled-checkers
                 '(c/c++-clang
@@ -102,18 +106,21 @@
 (use-package ycmd
   :load-path "/Users/sixtynorth/projects/emacs-ycmd"
   :bind (("C-c y g" . ycmd-goto))
+  :idle
+  (progn
+    (add-hook 'c++-mode-hook 'ycmd-mode)
+    (add-hook 'python-mode-hook 'ycmd-mode))
   :config
   (progn
-    (use-package anaphora)
     (use-package company-ycmd
+      :load-path "/Users/sixtynorth/projects/emacs-ycmd"
       ;; We're trying out ycmd. No need for original clang support.
-      :config (setq company-backends (remove 'company-clang company-backends)))
+      :init (setq company-backends (remove 'company-clang company-backends)))
     
     (use-package flycheck-ycmd
-      :config (flycheck-ycmd-setup))
-        
-    (add-hook 'c++-mode-hook 'ycmd-mode)
-    (add-hook 'python-mode-hook 'ycmd-mode)
+      :load-path "/Users/sixtynorth/projects/emacs-ycmd"
+      :init (flycheck-ycmd-setup))
+    
     (setq ycmd--log-enabled t)
     (set-variable 'ycmd-server-command '("/usr/bin/python" "/Users/sixtynorth/projects/ycmd/ycmd"))
     (set-variable 'ycmd-extra-conf-whitelist '("~/projects/*" "~/sandbox/*"))
@@ -131,13 +138,18 @@
 
 (use-package ido
   :ensure t
+  :idle
+  (progn
+    (ido-mode 1)
+    (ido-everywhere 1))
   :config
   (progn
-    (use-package ido-vertical-mode)
-    (setq ido-enable-flex-matching t)
-    (ido-mode 1)
-    (ido-everywhere 1)
-    (ido-vertical-mode 1)))
+    (use-package ido-vertical-mode
+      :ensure t
+      :init
+      (ido-vertical-mode 1))
+    
+    (setq ido-enable-flex-matching t)))
 
 (use-package magit
   :ensure t
@@ -145,7 +157,7 @@
 
 (use-package git-gutter
   :ensure t
-  :config
+  :idle
   (global-git-gutter-mode t))
 
 (use-package multiple-cursors
@@ -237,13 +249,9 @@
   (("C-c ." . outline-presentation-next)
    ("C-c ," . outline-presentation-previous)))
 
-(use-package p4
-  :ensure t
-  :disabled t)
-
 (use-package paredit
   :ensure t
-  :config
+  :idle
   (autoload 'enable-paredit-mode "paredit" "Turn on pseudo-structural editing of Lisp code." t)
   (add-hook 'emacs-lisp-mode-hook       #'enable-paredit-mode)
   (add-hook 'eval-expression-minibuffer-setup-hook #'enable-paredit-mode)
@@ -252,6 +260,10 @@
   (add-hook 'lisp-interaction-mode-hook #'enable-paredit-mode)
   (add-hook 'scheme-mode-hook           #'enable-paredit-mode)
   (add-hook 'clojure-mode-hook          #'enable-paredit-mode))
+
+(use-package p4
+  :ensure t
+  :disabled t)
 
 (use-package ab-projectile
   :load-path "elisp")
@@ -290,7 +302,7 @@
 
 (use-package undo-tree
   :ensure t
-  :init (global-undo-tree-mode 1))
+  :idle (global-undo-tree-mode 1))
 
 (use-package uniquify
   :config

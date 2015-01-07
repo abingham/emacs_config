@@ -68,14 +68,6 @@ stupid. This does the right thing."
   '("\\.py" "wscript" "SConstruct" "SConsign")
   "File patterns that get put into Python mode.")
 
-(use-package f)
-(use-package flymake)
-(use-package flymake-python-pyflakes)
-(use-package jedi)
-(use-package python-pep8)
-(use-package python-pylint)
-(use-package request-deferred)
-
 (use-package python
   :init
   (progn
@@ -83,7 +75,9 @@ stupid. This does the right thing."
       :load-path "/Users/sixtynorth/projects/traad/elisp")
 
     (dolist (pattern ab-python-patterns)
-      (add-to-list 'auto-mode-alist `(,pattern . python-mode))))
+      (add-to-list 'auto-mode-alist `(,pattern . python-mode)))
+
+    (activate-python3))
 
   :bind
   (([(ctrl x) (t) (r)] . traad-rename)
@@ -94,13 +88,17 @@ stupid. This does the right thing."
 
   :config
   (progn
+    (use-package f :ensure t)
+    (use-package flymake :ensure t)
+    (use-package flymake-python-pyflakes :ensure t)
+    (use-package jedi :ensure t)
+    (use-package python-pep8 :ensure t)
+    (use-package python-pylint :ensure t)
+    (use-package request-deferred :ensure t)
     (set-variable 'traad-server-port 0)
     (set-variable 'traad-server-args '("-V" "2"))
     (setq python-indent-offset 4)
     (add-hook 'python-mode-hook 'python-hook)
-    (ab-python-ipython-setup)
-    (activate-python3)
-    ))
-
+    (ab-python-ipython-setup)))
 
 (provide 'ab-python)
