@@ -71,6 +71,9 @@ stupid. This does the right thing."
 (use-package python
   :init
   (progn
+    (use-package python-environment :ensure t)
+    (use-package request :ensure t)
+    (use-package request-deferred :ensure t)
     (use-package traad
       :load-path "/Users/sixtynorth/projects/traad/elisp")
 
@@ -92,10 +95,9 @@ stupid. This does the right thing."
     (use-package flymake :ensure t)
     (use-package flymake-python-pyflakes :ensure t)
     (use-package jedi :ensure t)
-    (use-package python-environment :ensure t)
     (use-package python-pep8 :ensure t)
     (use-package python-pylint :ensure t)
-    (use-package request-deferred :ensure t)
+
     (set-variable 'traad-server-port 0)
     (set-variable 'traad-server-args '("-V" "2"))
     (setq python-indent-offset 4)
