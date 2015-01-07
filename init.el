@@ -265,4 +265,28 @@
   :config
   (setq uniquify-buffer-name-style 'forward))
 
+(use-package yafolding-mode
+  :disabled true
+  :config
+  (progn
+    ;; (define-key yafolding-mode-map (kbd "<C-S-return>") nil)
+    ;; (define-key yafolding-mode-map (kbd "<C-M-return>") nil)
+    ;; (define-key yafolding-mode-map (kbd "<C-return>") nil)
+    (define-key yafolding-mode-map (kbd "C-c <right>") 'yafolding-show-element)
+    (define-key yafolding-mode-map (kbd "C-c <left>") 'yafolding-hide-element)
+    
+    (add-hook 'prog-mode-hook
+              (lambda () (yafolding-mode)))))
+
+(use-package yasnippet
+  :bind
+  (("C-x y i" . yas-insert-snippet))
+  :config
+  (progn
+    (yas-reload-all)
+    (setq yas-prompt-functions '(yas-ido-prompt
+                                 yas-completing-prompt))
+    (yas-global-mode)))
+
+
 ;; ;;; init.el ends here
