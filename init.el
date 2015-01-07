@@ -26,7 +26,7 @@
     (setq ac-use-quick-help t)
     (setq ac-quick-help-delay 0.3)))
 
-(use-package cleanup-buffer
+(use-package ab-cleanup-buffer
   :load-path "elisp"
   :config
   (cleanup-buffer-setup))

@@ -24,5 +24,5 @@
 (defun cleanup-buffer-setup ()
   (add-hook 'before-save-hook 'cleanup-buffer))
 
-(provide 'cleanup-buffer)
-;;; cleanup-buffer.el ends here
+(provide 'ab-cleanup-buffer)
+;;; ab-cleanup-buffer.el ends here
