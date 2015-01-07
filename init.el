@@ -73,6 +73,12 @@
                   python-flake8
                   python-pylint)))
 
+(use-package fsharp-mode
+  :config
+  (progn
+    (setq inferior-fsharp-program "/usr/local/bin/fsharpi --readline-")
+    (setq fsharp-compiler "/usr/local/bin/fsharpc")))
+
 (use-package ycmd
   :load-path "/Users/sixtynorth/projects/emacs-ycmd"
   :bind (("C-c y g" . ycmd-goto))
