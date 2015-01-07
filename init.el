@@ -122,6 +122,13 @@
     (ido-everywhere 1)
     (ido-vertical-mode 1)))
 
+(use-package magit
+  :bind (("<f5>" . magit-status)))
+
+(use-package git-gutter
+  :config
+  (global-git-gutter-mode t))
+
 (load-file "codesearch.el")
 (load-file "color-theme.el")
 (load-file "cpp.el")
