@@ -1,3 +1,0 @@
-# name: Hyperlink
-# --
-\`${1:Text} <${2:Address}>\`_$0

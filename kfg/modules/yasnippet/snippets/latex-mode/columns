@@ -1,6 +1,0 @@
-# name: columns
-# --
-\begin{columns}[${1:options}] % c, t
-\column{.5\textwidth} % column designated by a command
-$0
-\end{columns}

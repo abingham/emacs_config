@@ -1,5 +1,0 @@
-# name: beginend
-# --
-\begin{${1:tag}}
-$0
-\end{$1}

@@ -1,6 +1,0 @@
-# name: slide
-# --
-\begin{frame}
-\frametitle{${1:Title}}
-$0
-\end{frame}
