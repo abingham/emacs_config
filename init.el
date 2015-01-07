@@ -79,6 +79,8 @@
     (setq inferior-fsharp-program "/usr/local/bin/fsharpi --readline-")
     (setq fsharp-compiler "/usr/local/bin/fsharpc")))
 
+(use-package graphviz-dot-mode)
+
 (use-package ycmd
   :load-path "/Users/sixtynorth/projects/emacs-ycmd"
   :bind (("C-c y g" . ycmd-goto))
