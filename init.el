@@ -66,4 +66,10 @@
 		  (concat (file-name-directory load-file-name)
 			  "ycm_global_conf.py"))))
 
+(use-package simple-bookmark
+  :load-path "elisp"
+  :bind (([(shift return)] . simple-bookmark-set)
+	 ([(control return)] . simple-bookmark-jump)))
+
 (load-file "misc.el")
+;;; init.el ends here
