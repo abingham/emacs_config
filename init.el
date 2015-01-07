@@ -206,4 +206,24 @@
 (use-package ab-misc
   :load-path "elisp")
 
+(use-package outline-presentation
+  :disabled t
+  :bind
+  (("C-c ." . outline-presentation-next)
+   ("C-c ," . outline-presentation-previous)))
+
+(use-package p4
+  :disabled t)
+
+(use-package paredit
+  :config
+  (autoload 'enable-paredit-mode "paredit" "Turn on pseudo-structural editing of Lisp code." t)
+  (add-hook 'emacs-lisp-mode-hook       #'enable-paredit-mode)
+  (add-hook 'eval-expression-minibuffer-setup-hook #'enable-paredit-mode)
+  (add-hook 'ielm-mode-hook             #'enable-paredit-mode)
+  (add-hook 'lisp-mode-hook             #'enable-paredit-mode)
+  (add-hook 'lisp-interaction-mode-hook #'enable-paredit-mode)
+  (add-hook 'scheme-mode-hook           #'enable-paredit-mode)
+  (add-hook 'clojure-mode-hook          #'enable-paredit-mode))
+
 ;; ;;; init.el ends here
