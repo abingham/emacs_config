@@ -63,6 +63,11 @@ stupid. This does the right thing."
   ; (python-intelligent-fold)
   )
 
+(defcustom
+  ab-python-patterns
+  '("\\.py" "wscript" "SConstruct" "SConsign")
+  "File patterns that get put into Python mode.")
+
 (use-package f)
 (use-package flymake)
 (use-package flymake-python-pyflakes)
@@ -73,8 +78,12 @@ stupid. This does the right thing."
 
 (use-package python
   :init
-  (use-package traad
-    :load-path "/Users/sixtynorth/projects/traad/elisp")
+  (progn
+    (use-package traad
+      :load-path "/Users/sixtynorth/projects/traad/elisp")
+
+    (dolist (pattern ab-python-patterns)
+      (add-to-list 'auto-mode-alist `(,pattern . python-mode))))
 
   :bind
   (([(ctrl x) (t) (r)] . traad-rename)

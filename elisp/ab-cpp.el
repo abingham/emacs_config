@@ -15,10 +15,17 @@
   ;; (c-set-offset 'inline-open '-)
 )
 
-(setq auto-mode-alist (cons '("\\.h\\'" . c++-mode) auto-mode-alist))
-(setq auto-mode-alist (cons '("\\.ipp\\'" . c++-mode) auto-mode-alist))
+(defcustom ab-cpp-patterns
+  '("\\.h\\" "\\.ipp\\")
+  "File patterns that get put into C++ mode.")
 
-(add-hook 'c++-mode-hook 'my-cpp-mode-hook)
+(use-package cc-mode
+  :init
+  (dolist (pattern ab-cpp-patterns)
+    (add-to-list 'auto-mode-alist `(,pattern . c++-mode)))
+
+  :config
+  (add-hook 'c++-mode-hook 'my-cpp-mode-hook))
 
 (provide 'ab-cpp)
 ;;; ab-cpp.el ends here

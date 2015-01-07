@@ -1,21 +1,29 @@
 (require 'package)
-;; (package-refresh-contents)
+(setq package-enable-at-startup nil)
+
+;; Add the necessary package repositories
+;; (add-to-list 'package-archives '("local-dir" . "/Users/abingham/projects/melpa/packages/"))
+;; (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
+(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
+;; (add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/") t)
+
 (package-initialize)
+
+;; Bootstrap `use-package'
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
 
 (require 'use-package)
 
-; Add the necessary package repositories
-(add-to-list 'package-archives '("local-dir" . "/Users/abingham/projects/melpa/packages/"))
-(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
-(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
-(add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/") t)
-
 (use-package ace-jump-mode
+  :ensure t
   :bind (("C-c SPC" . ace-jump-mode)
 	 ("C-c C-u SPC" . ace-jump-char-mode)
 	 ("C-c C-u C-u SPC" . ace-jump-line-mode)))
 
 (use-package auto-complete
+  :ensure t
   :bind (("M-/" . auto-complete))
   :config
   (progn
@@ -32,6 +40,7 @@
   (cleanup-buffer-setup))
 
 (use-package clojure-mode
+  :ensure t
   :config
   (progn
     (use-package cider)
@@ -41,6 +50,7 @@
     (add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)))
 
 (use-package company
+  :ensure t
   :init
   (add-hook 'after-init-hook 'global-company-mode)
   :bind
@@ -63,6 +73,7 @@
           company-dabbrev)))
 
 (use-package flycheck
+  :ensure t
   :init
   (add-hook 'after-init-hook #'global-flycheck-mode)
   :config
@@ -74,14 +85,17 @@
                   python-pylint)))
 
 (use-package fsharp-mode
+  :ensure t
   :config
   (progn
     (setq inferior-fsharp-program "/usr/local/bin/fsharpi --readline-")
     (setq fsharp-compiler "/usr/local/bin/fsharpc")))
 
-(use-package graphviz-dot-mode)
+(use-package graphviz-dot-mode
+  :ensure t)
 
 (use-package haskell-mode
+  :ensure t
   :config
   (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation))
 
@@ -112,9 +126,11 @@
   :bind (([(shift return)] . simple-bookmark-set)
 	 ([(control return)] . simple-bookmark-jump)))
 
-(use-package ahg)
+(use-package ahg
+  :ensure t)
 
 (use-package ido
+  :ensure t
   :config
   (progn
     (use-package ido-vertical-mode)
@@ -124,13 +140,16 @@
     (ido-vertical-mode 1)))
 
 (use-package magit
+  :ensure t
   :bind (("<f5>" . magit-status)))
 
 (use-package git-gutter
+  :ensure t
   :config
   (global-git-gutter-mode t))
 
 (use-package multiple-cursors
+  :ensure t
   :bind
   (("C-S-c C-S-c" . mc/edit-lines)
    ("C->" . mc/mark-next-like-this)
@@ -138,6 +157,7 @@
    ("C-c C-<" . mc/mark-all-like-this)))
 
 (use-package multi-term
+  :ensure t
   :disabled t
   :config
   (progn
@@ -149,9 +169,11 @@
 (use-package neotree
   :ensure t)
 
-(use-package htmlize)
+(use-package htmlize
+  :ensure t)
 
 (use-package org
+  :ensure t
   :config
   (progn
 
@@ -185,6 +207,7 @@
   :load-path "elisp")
 
 (use-package hideshow
+  :ensure t
   :disabled t
   :config
   (add-hook 'hs-minor-mode-hook
@@ -195,6 +218,7 @@
               (local-set-key (kbd "C-c <down>")  'hs-show-all))))
 
 (use-package sgml-mode
+  :ensure t
   :config
   (progn
     (add-to-list 'auto-mode-alist '("\\.mak" "\\.jinja2" "\\.mustache" . html-mode))
@@ -207,15 +231,18 @@
   :load-path "elisp")
 
 (use-package outline-presentation
+  :ensure t
   :disabled t
   :bind
   (("C-c ." . outline-presentation-next)
    ("C-c ," . outline-presentation-previous)))
 
 (use-package p4
+  :ensure t
   :disabled t)
 
 (use-package paredit
+  :ensure t
   :config
   (autoload 'enable-paredit-mode "paredit" "Turn on pseudo-structural editing of Lisp code." t)
   (add-hook 'emacs-lisp-mode-hook       #'enable-paredit-mode)
@@ -236,12 +263,14 @@
   :load-path "elisp")
 
 (use-package slime
+  :ensure t
   :config
   (progn
     (setq inferior-lisp-program "/usr/bin/sbcl")
     (slime-setup)))
 
 (use-package smart-mode-line
+  :ensure t
   :config
   (progn
     (sml/setup)
@@ -252,6 +281,7 @@
       (add-to-list 'sml/hidden-modes (concat " " m)))))
 
 (use-package switch-window
+  :ensure t
   :disabled t
   :bind
   (("C-x o" . switch-window))
@@ -259,6 +289,7 @@
   (custom-set-variables '(switch-window-shortcut-style (quote qwerty))))
 
 (use-package undo-tree
+  :ensure t
   :init (global-undo-tree-mode 1))
 
 (use-package uniquify
@@ -266,6 +297,7 @@
   (setq uniquify-buffer-name-style 'forward))
 
 (use-package yafolding-mode
+  :ensure t
   :disabled true
   :config
   (progn
@@ -279,6 +311,7 @@
               (lambda () (yafolding-mode)))))
 
 (use-package yasnippet
+  :ensure t
   :bind
   (("C-x y i" . yas-insert-snippet))
   :config
