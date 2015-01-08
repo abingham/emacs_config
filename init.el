@@ -16,7 +16,7 @@
 
 (require 'use-package)
 
-(setq use-package-verbose t)
+;; (setq use-package-verbose t)
 
 (use-package ace-jump-mode
   :ensure t
@@ -80,15 +80,16 @@
 
 (use-package flycheck
   :ensure t
-  :init
+  :idle
   (global-flycheck-mode)
-  :config
-  (set-variable 'flycheck-disabled-checkers
-                '(c/c++-clang
-                  c/c++-gcc
-                  c/c++-cppcheck
-                  python-flake8
-                  python-pylint)))
+  :init
+  (progn
+    (set-variable 'flycheck-disabled-checkers
+		  '(c/c++-clang
+		    c/c++-gcc
+		    c/c++-cppcheck
+		    python-flake8
+		    python-pylint))))
 
 (use-package fsharp-mode
   :ensure t
@@ -108,27 +109,25 @@
 (use-package ycmd
   :load-path "/Users/sixtynorth/projects/emacs-ycmd"
   :bind (("C-c y g" . ycmd-goto))
-  :idle
+  :init
   (progn
     (add-hook 'c++-mode-hook 'ycmd-mode)
-    (add-hook 'python-mode-hook 'ycmd-mode))
-  :config
-  (progn
-    (use-package company-ycmd
-      :load-path "/Users/sixtynorth/projects/emacs-ycmd"
-      ;; We're trying out ycmd. No need for original clang support.
-      :init (setq company-backends (remove 'company-clang company-backends)))
-    
-    (use-package flycheck-ycmd
-      :load-path "/Users/sixtynorth/projects/emacs-ycmd"
-      :init (flycheck-ycmd-setup))
-    
+    (add-hook 'python-mode-hook 'ycmd-mode)
     (setq ycmd--log-enabled t)
     (set-variable 'ycmd-server-command '("/usr/bin/python" "/Users/sixtynorth/projects/ycmd/ycmd"))
     (set-variable 'ycmd-extra-conf-whitelist '("~/projects/*" "~/sandbox/*"))
     (set-variable 'ycmd-global-config
 		  (concat (file-name-directory load-file-name)
 			  "ycm_global_conf.py"))))
+
+(use-package company-ycmd
+  :load-path "/Users/sixtynorth/projects/emacs-ycmd"
+  ;; We're trying out ycmd. No need for original clang support.
+  :init (setq company-backends (remove 'company-clang company-backends)))
+
+(use-package flycheck-ycmd
+  :load-path "/Users/sixtynorth/projects/emacs-ycmd"
+  :init (flycheck-ycmd-setup))
 
 (use-package simple-bookmark
   :load-path "elisp"
