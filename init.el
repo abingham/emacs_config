@@ -26,10 +26,12 @@
        deferred
        f
        htmlize
+       markdown-mode
        neotree
        python-environment
        request
-       request-deferred)
+       request-deferred
+       smart-mode-line)
      (use-package package :ensure t)))
 
 (use-package ace-jump-mode
@@ -85,6 +87,11 @@
           company-oddmuse
           company-files
           company-dabbrev)))
+
+(use-package exec-path-from-shell
+  :ensure t
+  :idle
+  (exec-path-from-shell-initialize))
 
 (use-package flycheck
   :ensure t
@@ -182,6 +189,13 @@
     (custom-set-variables
      '(term-default-bg-color "#ffffff")
      '(term-default-fg-color "#000000"))))
+
+(use-package nyan-mode
+  :ensure t
+  :init (nyan-mode t))
+
+(use-package open-next-line
+  :load-path "elisp")
 
 (use-package org
   :ensure t

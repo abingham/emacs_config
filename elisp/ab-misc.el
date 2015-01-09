@@ -1,17 +1,3 @@
-(use-package exec-path-from-shell
-  :idle
-  (exec-path-from-shell-initialize))
-
-(use-package markdown-mode)
-
-(use-package nyan-mode
-  :init (nyan-mode t))
-
-(use-package smart-mode-line)
-
-(use-package open-next-line
-  :load-path "elisp")
-
 (defun line-to-top-of-window ()
   "Scroll current line to top of window. \
  Replaces three keystroke sequence C-u 0 C-l."
