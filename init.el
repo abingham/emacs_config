@@ -18,14 +18,25 @@
 
 ;;(setq use-package-verbose t)
 
+(dolist
+    (package
+     '(ahg
+       anaphora
+       clojure-mode
+       deferred
+       f
+       htmlize
+       neotree
+       python-environment
+       request
+       request-deferred)
+     (use-package package :ensure t)))
+
 (use-package ace-jump-mode
   :ensure t
   :bind (("C-c SPC" . ace-jump-mode)
 	 ("C-c C-u SPC" . ace-jump-char-mode)
 	 ("C-c C-u C-u SPC" . ace-jump-line-mode)))
-
-(use-package anaphora
-  :ensure t)
 
 (use-package auto-complete
   :ensure t
@@ -43,9 +54,6 @@
   :load-path "elisp"
   :config
   (cleanup-buffer-setup))
-
-(use-package clojure-mode
-  :ensure t)
 
 (use-package cider
   :ensure t
@@ -106,16 +114,6 @@
   :config
   (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation))
 
-(use-package deferred :ensure t)
-
-(use-package python-environment :ensure t)
-
-(use-package request :ensure t)
-
-(use-package request-deferred :ensure t)
-
-(use-package f :ensure t)
-
 (use-package ycmd
   :load-path "/Users/sixtynorth/projects/emacs-ycmd"
   :bind (("C-c y g" . ycmd-goto))
@@ -143,9 +141,6 @@
   :load-path "elisp"
   :bind (([(shift return)] . simple-bookmark-set)
 	 ([(control return)] . simple-bookmark-jump)))
-
-(use-package ahg
-  :ensure t)
 
 (use-package ido
   :ensure t
@@ -188,12 +183,6 @@
     (custom-set-variables
      '(term-default-bg-color "#ffffff")
      '(term-default-fg-color "#000000"))))
-
-(use-package neotree
-  :ensure t)
-
-(use-package htmlize
-  :ensure t)
 
 (use-package org
   :ensure t
