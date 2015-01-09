@@ -18,21 +18,18 @@
 
 ;;(setq use-package-verbose t)
 
-(dolist
-    (package
-     '(ahg
-       anaphora
-       clojure-mode
-       deferred
-       f
-       htmlize
-       markdown-mode
-       neotree
-       python-environment
-       request
-       request-deferred
-       smart-mode-line)
-     (use-package package :ensure t)))
+(use-package ahg :ensure t)
+(use-package anaphora :ensure t)
+(use-package clojure-mode :ensure t)
+(use-package deferred :ensure t)
+(use-package f :ensure t)
+(use-package htmlize :ensure t)
+(use-package markdown-mode :ensure t)
+(use-package neotree :ensure t)
+(use-package python-environment :ensure t)
+(use-package request :ensure t)
+(use-package request-deferred :ensure t)
+(use-package smart-mode-line :ensure t)
 
 (use-package ace-jump-mode
   :ensure t
