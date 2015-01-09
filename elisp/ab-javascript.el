@@ -13,6 +13,7 @@
 		       "^W")))
 
 (use-package flymake-easy
+  :ensure t
   :config
   (progn
     (setq my-flymake-js-command (my-flymake-js-command-factory))
