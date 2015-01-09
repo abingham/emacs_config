@@ -33,8 +33,8 @@
 
 (defun setup-flymake-executable (executable-name)
   (if (executable-find executable-name)
-      (setq flymake-python-pyflakes-executable executable-name)
-    (warn "No python flake8 executable found. Flymake will be disabled for Python!")))
+      (setq flycheck-python-pyflakes-executable executable-name)
+    (warn "No python flake8 executable found. Flycheck will be disabled for Python!")))
 
 (defun proper-python-electic-indent ()
   "The default electric-indent behavior for Python is
@@ -58,6 +58,11 @@ stupid. This does the right thing."
   (show-paren-mode 1)
   (electric-indent-local-mode -1)
   (local-set-key (kbd "RET") 'proper-python-electic-indent)
+
+  ;; We're using flycheck-pyflakes
+  (add-to-list 'flycheck-disabled-checkers 'python-flake8)
+  (add-to-list 'flycheck-disabled-checkers 'python-pylint)
+  (add-to-list 'flycheck-disabled-checkers 'ycmd)
   ; (jedi:setup)
   ;(hs-minor-mode)
   ; (python-intelligent-fold)
@@ -76,14 +81,11 @@ stupid. This does the right thing."
 
     (activate-python3))
 
-
-
   :config
   (progn
     (use-package f :ensure t)
-    (use-package flymake :ensure t)
-    (use-package flymake-python-pyflakes :ensure t)
     (use-package jedi :ensure t)
+    (use-package flycheck-pyflakes :ensure t)
     (use-package python-pep8 :ensure t)
     (use-package python-pylint :ensure t)
     (setq python-indent-offset 4)
