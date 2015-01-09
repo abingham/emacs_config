@@ -88,10 +88,9 @@
 
 (use-package flycheck
   :ensure t
-  :idle
-  (global-flycheck-mode)
   :init
   (progn
+    (global-flycheck-mode)
     (set-variable 'flycheck-disabled-checkers
 		  '(c/c++-clang
 		    c/c++-gcc
