@@ -59,9 +59,9 @@ stupid. This does the right thing."
   (local-set-key (kbd "RET") 'proper-python-electic-indent)
 
   ;; We're using flycheck-pyflakes
-  (add-to-list 'flycheck-disabled-checkers 'python-flake8)
-  (add-to-list 'flycheck-disabled-checkers 'python-pylint)
-  (add-to-list 'flycheck-disabled-checkers 'ycmd)
+  (dolist (checker '(python-flake8 python-pylint ycmd))
+    (add-to-list 'flycheck-disabled-checkers checker))
+
   ; (jedi:setup)
   ;(hs-minor-mode)
   ; (python-intelligent-fold)
