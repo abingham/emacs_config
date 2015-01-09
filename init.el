@@ -161,8 +161,7 @@
 
 (use-package git-gutter
   :ensure t
-  :idle
-  (global-git-gutter-mode t))
+  :init (global-git-gutter-mode t))
 
 (use-package multiple-cursors
   :ensure t
