@@ -198,7 +198,7 @@
     (defface org-block-begin-line
       '((t (:underline "#A7A6AA" :foreground "#008ED1" :background "#222222")))
       "Face used for the line delimiting the begin of source blocks.")
-    
+
     (defface org-block-background
       '((t (:background "#000000")))
       "Face used for the source block background.")
@@ -347,5 +347,4 @@
                                  yas-completing-prompt))
     (yas-global-mode)))
 
-
-;; ;;; init.el ends here
+;;; init.el ends here
