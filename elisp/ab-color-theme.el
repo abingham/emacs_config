@@ -1,4 +1,5 @@
 (use-package color-theme
+  :ensure t
   :init
   (progn
     ;; (use-package color-theme-solarized)
