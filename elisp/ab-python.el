@@ -1,4 +1,6 @@
-; python-version specific stuff
+(require 'dash)
+
+;; python-version specific stuff
 (defun activate-python2 ()
   (interactive)
   (setq python-shell-interpreter "ipython"
@@ -59,8 +61,8 @@ stupid. This does the right thing."
   (local-set-key (kbd "RET") 'proper-python-electic-indent)
 
   ;; We're using flycheck-pyflakes
-  (dolist (checker '(python-flake8 python-pylint ycmd))
-    (add-to-list 'flycheck-disabled-checkers checker))
+  (--map (add-to-list 'flycheck-disabled-checkers it)
+         '(python-flake8 python-pylint ycmd))
 
   ; (jedi:setup)
   ;(hs-minor-mode)
