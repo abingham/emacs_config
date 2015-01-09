@@ -71,23 +71,12 @@ stupid. This does the right thing."
 (use-package python
   :init
   (progn
-    (use-package python-environment :ensure t)
-    (use-package request :ensure t)
-    (use-package request-deferred :ensure t)
-    (use-package traad
-      :load-path "/Users/sixtynorth/projects/traad/elisp")
-
     (dolist (pattern ab-python-patterns)
       (add-to-list 'auto-mode-alist `(,pattern . python-mode)))
 
     (activate-python3))
 
-  :bind
-  (([(ctrl x) (t) (r)] . traad-rename)
-   ([(ctrl x) (t) (u)] . traad-undo)
-   ([(ctrl x) (t) (d)] . traad-goto-definition)
-   ([(ctrl x) (t) (o)] . traad-display-doc)
-   ([(ctrl x) (t) (c)] . traad-display-calltip))
+
 
   :config
   (progn
@@ -97,9 +86,6 @@ stupid. This does the right thing."
     (use-package jedi :ensure t)
     (use-package python-pep8 :ensure t)
     (use-package python-pylint :ensure t)
-
-    (set-variable 'traad-server-port 0)
-    (set-variable 'traad-server-args '("-V" "2"))
     (setq python-indent-offset 4)
     (add-hook 'python-mode-hook 'python-hook)
     (ab-python-ipython-setup)))

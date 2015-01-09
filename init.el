@@ -16,7 +16,7 @@
 
 (require 'use-package)
 
-;; (setq use-package-verbose t)
+;;(setq use-package-verbose t)
 
 (use-package ace-jump-mode
   :ensure t
@@ -105,6 +105,16 @@
   :ensure t
   :config
   (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation))
+
+(use-package deferred :ensure t)
+
+(use-package python-environment :ensure t)
+
+(use-package request :ensure t)
+
+(use-package request-deferred :ensure t)
+
+(use-package f :ensure t)
 
 (use-package ycmd
   :load-path "/Users/sixtynorth/projects/emacs-ycmd"
@@ -206,6 +216,19 @@
     (defface org-block-end-line
       '((t (:overline "#A7A6AA" :foreground "#008ED1" :background "#222222")))
       "Face used for the line delimiting the end of source blocks.")))
+
+(use-package traad
+  :bind
+  (([(ctrl x) (t) (r)] . traad-rename)
+   ([(ctrl x) (t) (u)] . traad-undo)
+   ([(ctrl x) (t) (d)] . traad-goto-definition)
+   ([(ctrl x) (t) (o)] . traad-display-doc)
+   ([(ctrl x) (t) (c)] . traad-display-calltip))
+  :config
+  (progn
+    (set-variable 'traad-server-port 0)
+    (set-variable 'traad-server-args '("-V" "2")))
+  :load-path "/Users/sixtynorth/projects/traad/elisp")
 
 (use-package ab-codesearch
   :load-path "elisp")
