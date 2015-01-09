@@ -7,7 +7,7 @@
   ;; (set-variable 'traad-server-program '("/usr/local/bin/traad"))
   (set-variable 'traad-environment-root "traad")
   (set-variable 'traad-environment-virtualenv '("virtualenv"))
-  (setup-flymake-executable "flake8"))
+  (setup-pyflakes-executable "flake8"))
 
 (defun activate-python3 ()
   (interactive)
@@ -17,7 +17,7 @@
   ;; (set-variable 'traad-server-program '("/usr/local/bin/traad3"))
   (set-variable 'traad-environment-root "traad3")
   (set-variable 'traad-environment-virtualenv '("pyvenv-3.4"))
-  (setup-flymake-executable "flake8-3"))
+  (setup-pyflakes-executable "flake8-3"))
 
 (defun ab-python-ipython-setup ()
   (setq
@@ -31,7 +31,7 @@
    python-shell-completion-string-code
    "';'.join(get_ipython().Completer.all_completions('''%s'''))\n"))
 
-(defun setup-flymake-executable (executable-name)
+(defun setup-pyflakes-executable (executable-name)
   (if (executable-find executable-name)
       (setq flycheck-python-pyflakes-executable executable-name)
     (warn "No python flake8 executable found. Flycheck will be disabled for Python!")))
@@ -54,7 +54,6 @@ stupid. This does the right thing."
           (yafolding-hide-element))))))
 
 (defun python-hook ()
-  (flymake-python-pyflakes-load)
   (show-paren-mode 1)
   (electric-indent-local-mode -1)
   (local-set-key (kbd "RET") 'proper-python-electic-indent)
