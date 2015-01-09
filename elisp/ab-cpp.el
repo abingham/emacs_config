@@ -1,3 +1,5 @@
+(require 'dash)
+
 (defun my-cpp-mode-hook ()
   ; (setq c-basic-offset 2)
   (setq tab-width 1)
@@ -11,6 +13,8 @@
   (delete-selection-mode 1) ; Maybe on by default on windows and off by default on solaris?
   (setq c-basic-offset 4)
   (show-paren-mode 1)
+  (--map (add-to-list 'flycheck-disabled-checkers it)
+         '(c/c++-clang c/c++-gcc c/c++-cppcheck))
   ;; (c-set-offset 'topmost-intro '-)
   ;; (c-set-offset 'inline-open '-)
 )

@@ -95,13 +95,7 @@
 
 (use-package flycheck
   :ensure t
-  :init
-  (progn
-    (global-flycheck-mode)
-    (set-variable 'flycheck-disabled-checkers
-		  '(c/c++-clang
-		    c/c++-gcc
-		    c/c++-cppcheck))))
+  :init (global-flycheck-mode))
 
 (use-package fsharp-mode
   :ensure t
