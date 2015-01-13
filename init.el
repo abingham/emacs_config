@@ -115,10 +115,9 @@
   :bind (("C-c y g" . ycmd-goto))
   :init
   (progn
-    (add-hook 'c++-mode-hook 'ycmd-mode)
-    (add-hook 'python-mode-hook 'ycmd-mode)
-    (setq ycmd--log-enabled t)
-    (set-variable 'ycmd-server-command '("/usr/bin/python" "/Users/sixtynorth/projects/ycmd/ycmd"))
+    (add-hook 'prog-mode-hook 'ycmd-mode)
+    ;;(setq ycmd--log-enabled t)
+    (set-variable 'ycmd-server-command '("/usr/local/bin/python" "/Users/sixtynorth/projects/ycmd/ycmd"))
     (set-variable 'ycmd-extra-conf-whitelist '("~/projects/*" "~/sandbox/*"))
     (set-variable 'ycmd-global-config
 		  (concat (file-name-directory load-file-name)
