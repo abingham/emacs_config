@@ -87,7 +87,8 @@
 
 (use-package exec-path-from-shell
   :ensure t
-  :idle
+  :init
+  (setenv "SHELL" "/bin/zsh")
   (exec-path-from-shell-initialize))
 
 (use-package flycheck
