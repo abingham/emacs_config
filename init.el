@@ -85,12 +85,6 @@
           company-files
           company-dabbrev)))
 
-(use-package exec-path-from-shell
-  :ensure t
-  :init
-  (setenv "SHELL" "/bin/zsh")
-  (exec-path-from-shell-initialize))
-
 (use-package flycheck
   :ensure t
   :init (global-flycheck-mode))
