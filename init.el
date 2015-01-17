@@ -194,11 +194,25 @@
    ([(ctrl x) (t) (d)] . traad-goto-definition)
    ([(ctrl x) (t) (o)] . traad-display-doc)
    ([(ctrl x) (t) (c)] . traad-display-calltip))
-  :config
+  :init
   (progn
+    (require 'traad)
     (set-variable 'traad-server-port 0)
-    (set-variable 'traad-server-args '("-V" "2")))
+    (set-variable 'traad-server-args '("-V" "2"))
+    (add-hook
+     'ab-python-python3-hooks
+     (lambda ()
+       (set-variable 'traad-environment-root "traad3")
+       (set-variable 'traad-environment-virtualenv '("pyvenv-3.4"))))
+    (add-hook
+     'ab-python-python2-hooks
+     (lambda ()
+       (set-variable 'traad-environment-root "traad")
+       (set-variable 'traad-environment-virtualenv '("virtualenv")))))
   :load-path "/Users/sixtynorth/projects/traad/elisp")
+
+(use-package ab-python
+  :load-path "elisp")
 
 (use-package ab-codesearch
   :load-path "elisp")
@@ -260,9 +274,6 @@
   :disabled t)
 
 (use-package ab-projectile
-  :load-path "elisp")
-
-(use-package ab-python
   :load-path "elisp")
 
 (use-package ab-rst

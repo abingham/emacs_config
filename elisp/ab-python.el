@@ -29,6 +29,11 @@
   "Find available executables from OPTIONS."
   (delq nil (mapcar 'executable-find options)))
 
+(defun ab-python-setup-pyflakes-executable (executable-name)
+  (if (executable-find executable-name)
+      (setq flycheck-python-pyflakes-executable executable-name)
+    (warn "No python flake8 executable found. Flycheck will be disabled for Python!")))
+
 (defcustom ab-python-python2-hooks nil
   "Hook for when Python 2 is activated."
   :group 'ab-python
@@ -44,8 +49,6 @@
   (message "Activating Python 2 toolset.")
   (set-variable 'python-shell-interpreter (first (ab-python-find-executables '("ipython" "python"))))
   (unless python-shell-interpreter (warn "No Python executable found!"))
-  (set-variable 'traad-environment-root "traad")
-  (set-variable 'traad-environment-virtualenv '("virtualenv"))
   (ab-python-setup-pyflakes-executable "flake8"))
 
 (add-hook
@@ -57,47 +60,11 @@
   (message "Activating Python 3 toolset.")
   (set-variable 'python-shell-interpreter (first (ab-python-find-executables '("ipython3" "python3"))))
   (unless python-shell-interpreter (warn "No Python executable found!"))
-  (set-variable 'traad-environment-root "traad3")
-  (set-variable 'traad-environment-virtualenv '("pyvenv-3.4"))
   (ab-python-setup-pyflakes-executable "flake8-3"))
 
 (add-hook
  'ab-python-python3-hooks
  'ab-python-activate-python3)
-
-;; (defun ab-python-ipython-setup ()
-;;   (setq
-;;    python-shell-interpreter-args ""
-;;    python-shell-prompt-regexp "In \\[[0-9]+\\]: "
-;;    python-shell-prompt-output-regexp "Out\\[[0-9]+\\]: "
-;;    python-shell-completion-setup-code
-;;    "from IPython.core.completerlib import module_completion"
-;;    python-shell-completion-module-string-code
-;;    "';'.join(module_completion('''%s'''))\n"
-;;    python-shell-completion-string-code
-;;    "';'.join(get_ipython().Completer.all_completions('''%s'''))\n"))
-
-(defun ab-python-setup-pyflakes-executable (executable-name)
-  (if (executable-find executable-name)
-      (setq flycheck-python-pyflakes-executable executable-name)
-    (warn "No python flake8 executable found. Flycheck will be disabled for Python!")))
-
-;; (defun proper-python-electic-indent ()
-;;   "The default electric-indent behavior for Python is
-;; stupid. This does the right thing."
-;;   (interactive)
-;;   (newline)
-;;   (indent-according-to-mode))
-
-;; (defun python-intelligent-fold ()
-;;   (interactive)
-;;   (save-excursion
-;;     (beginning-of-buffer)
-;;     (while (re-search-forward "^ *def " nil t)
-;;       (let ((match-pos (match-beginning 0)))
-;;         (save-excursion
-;;           (goto-char match-pos)
-;;           (yafolding-hide-element))))))
 
 (defun ab-python-hook ()
   (show-paren-mode 1)
