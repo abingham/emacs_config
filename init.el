@@ -6,6 +6,7 @@
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
 (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
 (add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/") t)
+(add-to-list 'package-archives '("elpy" . "http://jorgenschaefer.github.io/packages/"))
 
 (package-initialize)
 
@@ -37,17 +38,17 @@
 	 ("C-c C-u SPC" . ace-jump-char-mode)
 	 ("C-c C-u C-u SPC" . ace-jump-line-mode)))
 
-(use-package auto-complete
-  :ensure t
-  :bind (("M-/" . auto-complete))
-  :config
-  (progn
-    (add-to-list 'ac-dictionary-directories "~/.emacs.d/dict")
-    (use-package auto-complete-config)
-    (setq ac-auto-start 2)
-    (global-auto-complete-mode t)
-    (setq ac-use-quick-help t)
-    (setq ac-quick-help-delay 0.3)))
+;; (use-package auto-complete
+;;   :ensure t
+;;   :bind (("M-/" . auto-complete))
+;;   :config
+;;   (progn
+;;     (add-to-list 'ac-dictionary-directories "~/.emacs.d/dict")
+;;     (use-package auto-complete-config)
+;;     (setq ac-auto-start 2)
+;;     (global-auto-complete-mode t)
+;;     (setq ac-use-quick-help t)
+;;     (setq ac-quick-help-delay 0.3)))
 
 (use-package ab-cleanup-buffer
   :load-path "elisp"
@@ -130,21 +131,6 @@
   :load-path "elisp"
   :bind (([(shift return)] . simple-bookmark-set)
 	 ([(control return)] . simple-bookmark-jump)))
-
-(use-package ido
-  :ensure t
-  :idle
-  (progn
-    (ido-mode 1)
-    (ido-everywhere 1))
-  :config
-  (progn
-    (use-package ido-vertical-mode
-      :ensure t
-      :init
-      (ido-vertical-mode 1))
-    
-    (setq ido-enable-flex-matching t)))
 
 (use-package magit
   :ensure t
