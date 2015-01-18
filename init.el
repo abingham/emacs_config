@@ -110,7 +110,10 @@
   :bind (("C-c y g" . ycmd-goto))
   :init
   (progn
-    (add-hook 'prog-mode-hook 'ycmd-mode)
+    (add-hook 'prog-mode-hook
+	      (lambda ()
+		(if (not (eq major-mode 'emacs-lisp-mode))
+		    (ycmd-mode))))
     ;;(setq ycmd--log-enabled t)
     (set-variable 'ycmd-server-command '("/usr/local/bin/python" "/Users/sixtynorth/projects/ycmd/ycmd"))
     (set-variable 'ycmd-extra-conf-whitelist '("~/projects/*" "~/sandbox/*"))
