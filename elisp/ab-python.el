@@ -16,14 +16,10 @@
 
 ;;; Code:
 
-(require 'dash)
-
-(defun ab-python-major-version ()
-  "Find major version of current Python interpreter."
-  (substring
-   (shell-command-to-string
-    (format "%s -c \"import sys; print(sys.version_info.major)\"" python-shell-interpreter))
-   0 1))
+(use-package dash :ensure t)
+(use-package flycheck :ensure t)
+(use-package python :ensure t)
+(use-package therapy)
 
 (defun ab-python-find-executables (options)
   "Find available executables from OPTIONS."
@@ -34,16 +30,6 @@
       (setq flycheck-python-pyflakes-executable executable-name)
     (warn "No python flake8 executable found. Flycheck will be disabled for Python!")))
 
-(defcustom ab-python-python2-hooks nil
-  "Hook for when Python 2 is activated."
-  :group 'ab-python
-  :type 'hook)
-
-(defcustom ab-python-python3-hooks nil
-  "Hook for when Python 3 is activated."
-  :group 'ab-python
-  :type 'hook)
-
 (defun ab-python-activate-python2 ()
   "Hook run when entering python2 environment."
   (message "Activating Python 2 toolset.")
@@ -52,21 +38,22 @@
   (ab-python-setup-pyflakes-executable "flake8"))
 
 (add-hook
- 'ab-python-python2-hooks
+ 'therapy-python2-hooks
  'ab-python-activate-python2)
 
 (defun ab-python-activate-python3 ()
   "Hook run when entering python3 environment."
   (message "Activating Python 3 toolset.")
-  (set-variable 'python-shell-interpreter (first (ab-python-find-executables '("ipython3" "python3"))))
+  (set-variable 'python-shell-interpreter (first (ab-python-find-executables '("ipython3" "python3" "python"))))
   (unless python-shell-interpreter (warn "No Python executable found!"))
   (ab-python-setup-pyflakes-executable "flake8-3"))
 
 (add-hook
- 'ab-python-python3-hooks
+ 'therapy-python3-hooks
  'ab-python-activate-python3)
 
 (defun ab-python-hook ()
+  "Called when a buffer enters python mode."
   (show-paren-mode 1)
   ;; (electric-indent-local-mode -1)
   ;; (local-set-key (kbd "RET") 'proper-python-electic-indent)
@@ -80,32 +67,14 @@
   '("\\.py" "wscript" "SConstruct" "SConsign")
   "File patterns that get put into Python mode.")
 
-;; (use-package python
-;;   :init
-;;   (progn
-;;     (dolist (pattern ab-python-patterns)
-;;       (add-to-list 'auto-mode-alist `(,pattern . python-mode)))
-
-;;     (activate-python3))
-
-;;   :config
-;;   (progn
-;;     (use-package f :ensure t)
-;;     (use-package jedi :ensure t)
-;;     (use-package flycheck-pyflakes :ensure t)
-;;     (use-package python-pep8 :ensure t)
-;;     (use-package python-pylint :ensure t)
-;;     (setq python-indent-offset 4)
-;;     (add-hook 'python-mode-hook 'python-hook)
-;;     (ab-python-ipython-setup)))
-
 (use-package python
   :init
   (progn
     (dolist (pattern ab-python-patterns)
       (add-to-list 'auto-mode-alist `(,pattern . python-mode)))
     (setq python-indent-offset 4)
-    (run-hooks 'ab-python-python3-hooks))
+    (set-variable 'python-shell-interpreter "ipython3")
+    (therapy-interpreter-changed))
 
   :config
   (progn
@@ -123,9 +92,7 @@
   (pyvenv-restart-python)
 
   ;; Activate the right toolset based on the detected major version.
-  (if (string-equal "3" (ab-python-major-version))
-      (run-hooks 'ab-python-python3-hooks)
-    (run-hooks 'ab-python-python2-hooks)))
+  (therapy-interpreter-changed))
 
 (use-package pyvenv
   :ensure t
