@@ -19,6 +19,7 @@
 (use-package dash :ensure t)
 (use-package flycheck :ensure t)
 (use-package python :ensure t)
+(use-package pyvenv :ensure t)
 (use-package therapy)
 
 (defun ab-python-find-executables (options)
@@ -30,11 +31,20 @@
       (setq flycheck-python-pyflakes-executable executable-name)
     (warn "No python flake8 executable found. Flycheck will be disabled for Python!")))
 
+(defun ab-setup-therapy-tests ()
+  "Set the therapy-test-command based on the current environment."
+  (let ((python-command (if pyvenv-virtual-env
+                            (f-join pyvenv-virtual-env "bin" "python")
+                          python-shell-interpreter)))
+    (set-variable 'therapy-test-command
+                  (format "%s -m nose" python-command))))
+
 (defun ab-python-activate-python2 ()
   "Hook run when entering python2 environment."
   (message "Activating Python 2 toolset.")
   (set-variable 'python-shell-interpreter (first (ab-python-find-executables '("ipython" "python"))))
   (unless python-shell-interpreter (warn "No Python executable found!"))
+  (ab-setup-therapy-tests)
   (ab-python-setup-pyflakes-executable "flake8"))
 
 (add-hook
@@ -46,6 +56,7 @@
   (message "Activating Python 3 toolset.")
   (set-variable 'python-shell-interpreter (first (ab-python-find-executables '("ipython3" "python3" "python"))))
   (unless python-shell-interpreter (warn "No Python executable found!"))
+  (ab-setup-therapy-tests)
   (ab-python-setup-pyflakes-executable "flake8-3"))
 
 (add-hook
