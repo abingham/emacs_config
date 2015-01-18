@@ -20,7 +20,7 @@
 (use-package flycheck :ensure t)
 (use-package python :ensure t)
 (use-package pyvenv :ensure t)
-(use-package therapy)
+(use-package therapy :load-path "~/projects/therapy")
 
 (defun ab-python-find-executables (options)
   "Find available executables from OPTIONS."
@@ -73,10 +73,16 @@
   (--map (add-to-list 'flycheck-disabled-checkers it)
          '(python-flake8 python-pylint ycmd)))
 
-(defcustom
-  ab-python-patterns
+(defgroup ab-python nil
+  "Python-related emacs config stuff."
+  :group 'tools
+  :group 'programming)
+
+(defcustom ab-python-patterns
   '("\\.py" "wscript" "SConstruct" "SConsign")
-  "File patterns that get put into Python mode.")
+  "File patterns that get put into Python mode."
+  :group 'ab-python
+  :type '(repeat string))
 
 (use-package python
   :init
@@ -84,7 +90,7 @@
     (dolist (pattern ab-python-patterns)
       (add-to-list 'auto-mode-alist `(,pattern . python-mode)))
     (setq python-indent-offset 4)
-    (set-variable 'python-shell-interpreter "ipython3")
+    (set-variable 'python-shell-interpreter "/usr/local/bin/ipython3")
     (therapy-interpreter-changed))
 
   :config
@@ -99,8 +105,6 @@
 
   ;; Do this so that we're sure to pick up the venv's interpreter.
   (set-variable 'python-shell-interpreter (executable-find "python"))
-
-  (pyvenv-restart-python)
 
   ;; Activate the right toolset based on the detected major version.
   (therapy-interpreter-changed))
