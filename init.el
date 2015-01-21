@@ -6,7 +6,7 @@
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
 (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
 (add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/") t)
-(add-to-list 'package-archives '("elpy" . "http://jorgenschaefer.github.io/packages/"))
+;; (add-to-list 'package-archives '("elpy" . "http://jorgenschaefer.github.io/packages/"))
 
 (package-initialize)
 
@@ -170,6 +170,12 @@
 
 (use-package org
   :ensure t
+  :bind (("C-c l" . org-store-link)
+	 ("C-c a" . org-agenda))
+  :init
+  (setq org-log-done t)
+  (add-hook 'org-mode-hook 'auto-fill-mode)
+  
   :config
   (progn
 
@@ -240,13 +246,6 @@
               (local-set-key (kbd "C-c <up>")    'hs-hide-all)
               (local-set-key (kbd "C-c <down>")  'hs-show-all))))
 
-(use-package sgml-mode
-  :ensure t
-  :config
-  (progn
-    (add-to-list 'auto-mode-alist '("\\.mak" "\\.jinja2" "\\.mustache" . html-mode))
-    (add-to-list 'auto-mode-alist '("\\.html" . web-mode))))
-
 (use-package ab-javascript
   :load-path "elisp")
 
@@ -315,6 +314,11 @@
 (use-package uniquify
   :config
   (setq uniquify-buffer-name-style 'forward))
+
+(use-package web-mode
+  :ensure t
+  :config
+  (add-to-list 'auto-mode-alist '("\\.mak" "\\.jinja2" "\\.mustache" . web-mode)))
 
 (use-package yafolding-mode
   :ensure t
