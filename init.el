@@ -318,7 +318,9 @@
 (use-package web-mode
   :ensure t
   :config
-  (add-to-list 'auto-mode-alist '("\\.mak" "\\.jinja2" "\\.mustache" . web-mode)))
+  (add-to-list 'auto-mode-alist '("\\.mustache" . web-))
+  (add-to-list 'auto-mode-alist '("\\.jinja2" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.mak" . web-mode)))
 
 (use-package yafolding-mode
   :ensure t
