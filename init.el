@@ -24,6 +24,11 @@
 (use-package clojure-mode :ensure t)
 (use-package deferred :ensure t)
 (use-package f :ensure t)
+(use-package fsharp-mode
+  :ensure t
+  :init
+  (setq inferior-fsharp-program "/usr/local/bin/fsharpi --readline-")
+  (setq fsharp-compiler "/usr/local/bin/fsharpc"))
 (use-package htmlize :ensure t)
 (use-package markdown-mode :ensure t)
 (use-package neotree :ensure t)
