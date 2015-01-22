@@ -27,6 +27,7 @@
 (use-package fsharp-mode
   :ensure t
   :init
+  (add-to-list 'auto-mode-alist '("\\.fs[iylx]?$" . fsharp-mode)
   (setq inferior-fsharp-program "/usr/local/bin/fsharpi --readline-")
   (setq fsharp-compiler "/usr/local/bin/fsharpc"))
 (use-package htmlize :ensure t)
