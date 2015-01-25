@@ -27,9 +27,10 @@
 (use-package fsharp-mode
   :ensure t
   :init
-  (add-to-list 'auto-mode-alist '("\\.fs[iylx]?$" . fsharp-mode)
-  (setq inferior-fsharp-program "/usr/local/bin/fsharpi --readline-")
-  (setq fsharp-compiler "/usr/local/bin/fsharpc"))
+  (progn
+    (add-to-list 'auto-mode-alist '("\\.fs[iylx]?$" . fsharp-mode))
+    (setq inferior-fsharp-program "/usr/local/bin/fsharpi --readline-")
+    (setq fsharp-compiler "/usr/local/bin/fsharpc")))
 (use-package htmlize :ensure t)
 (use-package markdown-mode :ensure t)
 (use-package neotree :ensure t)
