@@ -185,9 +185,6 @@
   
   :config
   (progn
-
-    ;; (use-package ox-reveal
-    ;;   :ensure t)
     
     (setq org-src-fontify-natively t)
     
@@ -203,6 +200,9 @@
       '((t (:overline "#A7A6AA" :foreground "#008ED1" :background "#222222")))
       "Face used for the line delimiting the end of source blocks.")))
 
+(use-package ox-reveal
+  :ensure t)
+
 (use-package traad
   :bind
   (([(ctrl x) (t) (r)] . traad-rename)
@@ -216,12 +216,12 @@
     (set-variable 'traad-server-port 0)
     (set-variable 'traad-server-args '("-V" "2"))
     (add-hook
-     'ab-python-python3-hooks
+     'therapy-python3-hooks
      (lambda ()
        (set-variable 'traad-environment-root "traad3")
        (set-variable 'traad-environment-virtualenv '("pyvenv-3.4"))))
     (add-hook
-     'ab-python-python2-hooks
+     'therapy-python2-hooks
      (lambda ()
        (set-variable 'traad-environment-root "traad")
        (set-variable 'traad-environment-virtualenv '("virtualenv")))))
