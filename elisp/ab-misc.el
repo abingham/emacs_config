@@ -11,6 +11,14 @@
         ((looking-at "\\s\)") (forward-char 1) (backward-list 1))
         (t (self-insert-command (or arg 1)))))
 
+(defun clear-comint-buffer ()
+  (interactive)
+  (let ((comint-buffer-maximum-size 0))
+    (comint-truncate-buffer)))
+
+(add-hook 'comint-mode-hook
+	  (lambda () (local-set-key (kbd "C-x C-l") 'clear-comint-buffer)))
+
 ;; Revert all open buffers
 (defun revert-all-buffers ()
   "Refreshes all open buffers from their respective files."
@@ -159,5 +167,6 @@
 (global-set-key [f10] 'call-last-kbd-macro)
 					;(global-set-key "\C-t" (transpose-chars -1))
 (global-set-key [(ctrl .)] 'comment-or-uncomment-region)
+
 
 (provide 'ab-misc)
