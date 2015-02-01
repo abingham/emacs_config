@@ -90,8 +90,7 @@
     (dolist (pattern ab-python-patterns)
       (add-to-list 'auto-mode-alist `(,pattern . python-mode)))
     (setq python-indent-offset 4)
-    (set-variable 'python-shell-interpreter "/usr/local/bin/ipython3")
-    (therapy-interpreter-changed))
+    (therapy-set-python-interpreter "/usr/local/bin/ipython3"))
 
   :config
   (progn
@@ -104,7 +103,7 @@
   "Hook for when we change virtual environments."
 
   ;; Do this so that we're sure to pick up the venv's interpreter.
-  (set-variable 'python-shell-interpreter (executable-find "python"))
+  (therapy-set-python-interpreter (executable-find "python"))
 
   ;; Activate the right toolset based on the detected major version.
   (therapy-interpreter-changed))
