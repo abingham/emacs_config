@@ -32,7 +32,10 @@
     (setq inferior-fsharp-program "/usr/local/bin/fsharpi --readline-")
     (setq fsharp-compiler "/usr/local/bin/fsharpc")))
 (use-package htmlize :ensure t)
-(use-package markdown-mode :ensure t)
+(use-package markdown-mode
+  :ensure t
+  :init
+  (add-hook 'markdown-mode-hook 'auto-fill-mode))
 (use-package neotree :ensure t)
 (use-package python-environment :ensure t)
 (use-package request :ensure t)
