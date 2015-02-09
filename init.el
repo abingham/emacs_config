@@ -36,7 +36,10 @@
   :ensure t
   :init
   (add-hook 'markdown-mode-hook 'auto-fill-mode))
-(use-package neotree :ensure t)
+(use-package neotree
+  :ensure t
+  :config
+  (setq projectile-switch-project-action 'neotree-projectile-action))
 (use-package python-environment :ensure t)
 (use-package request :ensure t)
 (use-package request-deferred :ensure t)
