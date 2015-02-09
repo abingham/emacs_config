@@ -1,0 +1,8 @@
+# contributor : Austin Bingham <austin.bingham@gmail.com>
+# name: bootstrap-panel
+# key: p
+# --
+<div class="panel panel-default">
+  <div class="panel-heading">$1</div>
+  <div class="panel-body">$0</div>
+</div>
