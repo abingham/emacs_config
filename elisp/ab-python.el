@@ -90,6 +90,8 @@
     (dolist (pattern ab-python-patterns)
       (add-to-list 'auto-mode-alist `(,pattern . python-mode)))
     (setq python-indent-offset 4)
+    ;; This makes TAB behave sensibly in repls
+    (add-hook 'inferior-python-mode-hook (lambda () (setq tab-width 4 indent-tabs-mode nil)))
     (therapy-set-python-interpreter "/usr/local/bin/ipython3"))
 
   :config
