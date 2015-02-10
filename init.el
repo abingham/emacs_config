@@ -331,9 +331,10 @@
 (use-package web-mode
   :ensure t
   :config
-  (add-to-list 'auto-mode-alist '("\\.mustache" . web-))
-  (add-to-list 'auto-mode-alist '("\\.jinja2" . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.mak" . web-mode)))
+  (add-to-list 'auto-mode-alist '("\\.mustache$" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.jinja2$" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.mak$" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.html$" . web-mode)))
 
 (use-package yafolding-mode
   :ensure t
