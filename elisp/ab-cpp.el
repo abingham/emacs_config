@@ -20,7 +20,7 @@
 )
 
 (defcustom ab-cpp-patterns
-  '("\\.h" "\\.ipp")
+  '("\\.h$" "\\.ipp$")
   "File patterns that get put into C++ mode.")
 
 (use-package cc-mode
