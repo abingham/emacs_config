@@ -38,12 +38,22 @@
   (add-hook 'markdown-mode-hook 'auto-fill-mode))
 (use-package neotree
   :ensure t
+  :disabled t
   :config
   (setq projectile-switch-project-action 'neotree-projectile-action))
 (use-package python-environment :ensure t)
 (use-package request :ensure t)
 (use-package request-deferred :ensure t)
 (use-package smart-mode-line :ensure t)
+(use-package speedbar
+  :init
+  (set-variable 'speedbar-use-images nil))
+  
+(use-package sr-speedbar
+  :ensure t
+  :init
+  (set-variable 'sr-speedbar-right-side nil))
+(use-package projectile-speedbar :ensure t)
 
 (use-package ace-jump-mode
   :ensure t
