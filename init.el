@@ -127,8 +127,25 @@
 
 (use-package haskell-mode
   :ensure t
+  :bind
+  (("C-c C-l" . haskell-process-load-or-reload)
+   ("C-`" . haskell-interactive-bring)
+   ("C-c C-t" . haskell-process-do-type)
+   ("C-c C-i" . haskell-process-do-info)
+   ("C-c C-c" . haskell-process-cabal-build)
+   ("C-c C-k" . haskell-interactive-mode-clear)
+   ("C-c c" . haskell-process-cabal)
+   ("SPC" . haskell-mode-contextual-space))
   :config
-  (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation))
+  (progn
+    (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
+    (add-hook 'haskell-mode-hook 'interactive-haskell-mode)
+    (custom-set-variables
+     '(haskell-process-suggest-remove-import-lines t)
+     '(haskell-process-auto-import-loaded-modules t)
+     '(haskell-process-log t))
+    (speedbar-add-supported-extension ".hs")
+    ))
 
 (use-package ycmd
   :load-path "/Users/sixtynorth/projects/emacs-ycmd"
