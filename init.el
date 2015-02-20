@@ -47,7 +47,9 @@
 (use-package smart-mode-line :ensure t)
 (use-package speedbar
   :init
-  (set-variable 'speedbar-use-images nil))
+  (progn
+    (set-variable 'speedbar-use-images nil)
+    (speedbar-add-supported-extension ".rst")))
   
 (use-package sr-speedbar
   :ensure t
