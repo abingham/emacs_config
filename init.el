@@ -306,7 +306,18 @@
               (local-set-key (kbd "C-c <down>")  'hs-show-all))))
 
 (use-package ab-javascript
-  :load-path "elisp")
+  :load-path "elisp"
+  :disabled t)
+
+(use-package js2-mode
+  :ensure t
+  :init
+  (progn
+    (add-hook 'js-mode-hook 'js2-minor-mode)
+    (add-hook 'js2-mode-hook 'ac-js2-mode)
+    (add-hook 'js-mode-hook
+	      (lambda () (flycheck-mode t)))
+    (setq js2-highlight-level 3)))
 
 (use-package ab-misc
   :load-path "elisp")
