@@ -148,7 +148,7 @@
     ))
 
 (use-package ycmd
-  :load-path "/Users/sixtynorth/projects/emacs-ycmd"
+  :load-path "~/projects/emacs-ycmd"
   :bind (("C-c y g" . ycmd-goto))
   :init
   (progn
@@ -157,19 +157,15 @@
 		(if (not (eq major-mode 'emacs-lisp-mode))
 		    (ycmd-mode))))
     ;;(setq ycmd--log-enabled t)
-    (set-variable 'ycmd-server-command '("/usr/local/bin/python" "/Users/sixtynorth/projects/ycmd/ycmd"))
-    (set-variable 'ycmd-extra-conf-whitelist '("~/projects/*" "~/sandbox/*"))
-    (set-variable 'ycmd-global-config
-		  (concat (file-name-directory load-file-name)
-			  "ycm_global_conf.py"))))
+))
 
 (use-package company-ycmd
-  :load-path "/Users/sixtynorth/projects/emacs-ycmd"
+  :load-path "~/projects/emacs-ycmd"
   ;; We're trying out ycmd. No need for original clang support.
   :init (setq company-backends (remove 'company-clang company-backends)))
 
 (use-package flycheck-ycmd
-  :load-path "/Users/sixtynorth/projects/emacs-ycmd"
+  :load-path "~/projects/emacs-ycmd"
   :init (flycheck-ycmd-setup))
 
 (use-package simple-bookmark
@@ -260,7 +256,7 @@
      (lambda ()
        (set-variable 'traad-environment-root "traad")
        (set-variable 'traad-environment-virtualenv '("virtualenv")))))
-  :load-path "/Users/sixtynorth/projects/traad/elisp")
+  :load-path "~/projects/traad/elisp")
 
 (use-package ab-python
   :load-path "elisp")
