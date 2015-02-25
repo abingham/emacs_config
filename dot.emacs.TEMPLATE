@@ -1,4 +1,5 @@
 ;; Configure these values to match your system
+(setq emacs-ycmd-root "~/projects/emacs-ycmd")
 (set-variable 'ycmd-server-command '("/usr/local/bin/python" "/Users/sixtynorth/projects/ycmd/ycmd"))
 (set-variable 'ycmd-extra-conf-whitelist '("~/projects/*" "~/sandbox/*"))
 (set-variable 'ycmd-global-config "~/.emacs.d/ycm_global_conf.py")

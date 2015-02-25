@@ -148,7 +148,7 @@
     ))
 
 (use-package ycmd
-  :load-path "~/projects/emacs-ycmd"
+  :load-path ,emacs-ycmd-root
   :bind (("C-c y g" . ycmd-goto))
   :init
   (progn
@@ -160,12 +160,12 @@
 ))
 
 (use-package company-ycmd
-  :load-path "~/projects/emacs-ycmd"
+  :load-path ,emacs-ycmd-root
   ;; We're trying out ycmd. No need for original clang support.
   :init (setq company-backends (remove 'company-clang company-backends)))
 
 (use-package flycheck-ycmd
-  :load-path "~/projects/emacs-ycmd"
+  :load-path ,emacs-ycmd-root
   :init (flycheck-ycmd-setup))
 
 (use-package simple-bookmark
