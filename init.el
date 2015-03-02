@@ -406,7 +406,9 @@
   (add-to-list 'auto-mode-alist '("\\.mustache$" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.jinja2$" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.mak$" . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.html$" . web-mode)))
+  (add-to-list 'auto-mode-alist '("\\.html$" . web-mode))
+  (add-hook 'web-mode-hook (lambda () (setq web-mode-markup-indent-offset 4)))
+  )
 
 (use-package yafolding-mode
   :ensure t
