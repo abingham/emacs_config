@@ -46,7 +46,7 @@
 (use-package request-deferred :ensure t)
 (use-package smart-mode-line :ensure t)
 (use-package speedbar
-  :init
+  :config
   (progn
     (set-variable 'speedbar-use-images nil)
     (speedbar-add-supported-extension ".rst")))
