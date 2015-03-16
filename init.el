@@ -134,8 +134,7 @@
    ("C-c C-i" . haskell-process-do-info)
    ("C-c C-c" . haskell-process-cabal-build)
    ("C-c C-k" . haskell-interactive-mode-clear)
-   ("C-c c" . haskell-process-cabal)
-   ("SPC" . haskell-mode-contextual-space))
+   ("C-c c" . haskell-process-cabal))
   :config
   (progn
     (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
