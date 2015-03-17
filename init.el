@@ -22,6 +22,12 @@
 (use-package ahg :ensure t)
 (use-package anaphora :ensure t)
 (use-package clojure-mode :ensure t)
+(use-package color-theme
+  :ensure t
+  :init
+  (progn
+    (use-package leuven-theme)
+    (load-theme 'leuven t)))
 (use-package deferred :ensure t)
 (use-package f :ensure t)
 (use-package fsharp-mode
@@ -261,9 +267,6 @@
   :load-path "elisp")
 
 (use-package ab-codesearch
-  :load-path "elisp")
-
-(use-package ab-color-theme
   :load-path "elisp")
 
 (use-package ab-cpp
