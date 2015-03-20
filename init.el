@@ -61,7 +61,10 @@
   :ensure t
   :init
   (set-variable 'sr-speedbar-right-side nil))
-(use-package projectile-speedbar :ensure t)
+
+(use-package projectile-speedbar
+  :ensure t
+  :disabled t)
 
 (use-package ace-jump-mode
   :ensure t
