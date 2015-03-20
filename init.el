@@ -120,6 +120,9 @@
           company-files
           company-dabbrev)))
 
+(use-package csharp-mode
+  :ensure t)
+
 (use-package flycheck
   :ensure t
   :init (global-flycheck-mode))
