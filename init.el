@@ -101,7 +101,7 @@
   :defer t
   :bind
   (("M-/" . company-complete))
-  :idle
+  :init
   (global-company-mode)
   :config
   (setq company-backends
@@ -159,7 +159,7 @@
     ))
 
 (use-package ycmd
-  :load-path ,emacs-ycmd-root
+  :load-path emacs-ycmd-root
   :bind (("C-c y g" . ycmd-goto))
   :init
   (progn
@@ -171,13 +171,13 @@
 ))
 
 (use-package company-ycmd
-  :load-path ,emacs-ycmd-root
+  :load-path emacs-ycmd-root
   ;; We're trying out ycmd. No need for original clang support.
   :init (setq company-backends (remove 'company-clang company-backends)))
 
 (use-package flycheck-ycmd
-  :load-path ,emacs-ycmd-root
-  :init (flycheck-ycmd-setup))
+  :load-path emacs-ycmd-root
+  :config (flycheck-ycmd-setup))
 
 (use-package simple-bookmark
   :load-path "elisp"
@@ -402,7 +402,7 @@
 
 (use-package undo-tree
   :ensure t
-  :idle (global-undo-tree-mode 1))
+  :init (global-undo-tree-mode 1))
 
 (use-package uniquify
   :config
