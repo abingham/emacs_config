@@ -104,21 +104,23 @@
   :init
   (global-company-mode)
   :config
-  (setq company-backends
-        '(company-ycmd
-          company-bbdb
-          company-nxml
-          company-css
-          company-eclim
-          company-semantic
-          company-xcode
-          ;; company-ropemacs
-          company-cmake
-          company-capf
-          (company-dabbrev-code company-gtags company-etags company-keywords)
-          company-oddmuse
-          company-files
-          company-dabbrev)))
+  (progn
+    (setq company-backends
+          '(company-ycmd
+            company-bbdb
+            company-nxml
+            company-css
+            company-eclim
+            company-semantic
+            company-xcode
+            ;; company-ropemacs
+            company-cmake
+            company-capf
+            (company-dabbrev-code company-gtags company-etags company-keywords)
+            company-oddmuse
+            company-files
+            company-dabbrev))
+    (set-variable 'company-idle-delay 0.1)))
 
 (use-package csharp-mode
   :ensure t)
@@ -167,6 +169,7 @@
 	      (lambda ()
 		(if (not (eq major-mode 'emacs-lisp-mode))
 		    (ycmd-mode))))
+    (set-variable 'ycmd-idle-change-delay 0.1)
     ;;(setq ycmd--log-enabled t)
 ))
 
