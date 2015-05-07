@@ -37,6 +37,12 @@
     (add-to-list 'auto-mode-alist '("\\.fs[iylx]?$" . fsharp-mode))
     (setq inferior-fsharp-program "/usr/local/bin/fsharpi --readline-")
     (setq fsharp-compiler "/usr/local/bin/fsharpc")))
+
+(use-package grunt
+  :ensure t
+  :config
+  (setq grunt-base-command "/usr/local/bin/node /usr/local/bin/grunt"))
+
 (use-package htmlize :ensure t)
 (use-package markdown-mode
   :ensure t
@@ -367,6 +373,16 @@
   (add-hook 'scheme-mode-hook           #'enable-paredit-mode)
   (add-hook 'clojure-mode-hook          #'enable-paredit-mode))
 
+(use-package ponylang-mode
+  :ensure t
+  :config
+  (progn
+    (add-hook
+     'ponylang-mode-hook
+     (lambda ()
+       (set-variable 'indent-tabs-mode nil)
+       (set-variable 'tab-width 2)))))
+
 (use-package p4
   :ensure t
   :disabled t)
@@ -397,7 +413,6 @@
 
 (use-package switch-window
   :ensure t
-  :disabled t
   :bind
   (("C-x o" . switch-window))
   :config
