@@ -29,6 +29,7 @@
     (use-package leuven-theme)
     (load-theme 'leuven t)))
 (use-package deferred :ensure t)
+(use-package dockerfile-mode :ensure t)
 (use-package f :ensure t)
 (use-package fsharp-mode
   :ensure t
