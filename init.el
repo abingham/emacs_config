@@ -10,6 +10,8 @@
 
 (package-initialize)
 
+(desktop-save-mode 1)
+
 ;; Bootstrap `use-package'
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
@@ -41,7 +43,9 @@
 (use-package markdown-mode
   :ensure t
   :init
-  (add-hook 'markdown-mode-hook 'auto-fill-mode))
+  (progn
+    (add-hook 'markdown-mode-hook 'auto-fill-mode)
+    (add-hook 'markdown-mode-hook 'flyspell-mode)))
 (use-package neotree
   :ensure t
   :disabled t
@@ -169,7 +173,10 @@
 	      (lambda ()
 		(if (not (eq major-mode 'emacs-lisp-mode))
 		    (ycmd-mode))))
+    (set-variable 'ycmd-parse-conditions '(first-focus))
     (set-variable 'ycmd-idle-change-delay 0.1)
+    (set-variable 'url-show-status nil)
+    (set-variable 'ycmd-request-message-level -1)
     ;;(setq ycmd--log-enabled t)
 ))
 
@@ -248,6 +255,10 @@
 (use-package ox-reveal
   :ensure t)
 
+(use-package ab-python)
+
+(use-package ab-python :load-path "elisp")
+
 (use-package traad
   :bind
   (([(ctrl x) (t) (r)] . traad-rename)
@@ -272,11 +283,13 @@
        (set-variable 'traad-environment-virtualenv '("virtualenv")))))
   :load-path "~/projects/traad/elisp")
 
-(use-package ab-python
-  :load-path "elisp")
-
-(use-package ab-codesearch
-  :load-path "elisp")
+(use-package codesearch
+  :ensure t
+  :bind
+  (("M-'" . codesearch-search)
+   ("M-." . projectile-codesearch-search))
+  :config
+  (set-variable 'codesearch-cindex-flags '("-exclude" "~/.csearch_excludes")))
 
 (use-package ab-cpp
   :load-path "elisp")
