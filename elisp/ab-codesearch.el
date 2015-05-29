@@ -1,4 +1,5 @@
 (use-package codesearch
+  :load-path codesearch-root
   :bind
   (("\M-'" . codesearch-search)
    ("\M-." . projectile-codesearch-search))
