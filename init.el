@@ -146,6 +146,15 @@
 (use-package graphviz-dot-mode
   :ensure t)
 
+(use-package go-mode
+  :ensure t
+  :config
+  (add-to-list 'auto-mode-alist '("\\.go$" . go-mode))
+  (add-hook 'before-save-hook 'gofmt-before-save))
+
+(use-package go-flycheck
+  :load-path "elisp")
+
 (use-package haskell-mode
   :ensure t
   :bind
