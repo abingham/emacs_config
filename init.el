@@ -185,6 +185,7 @@
 	      (lambda ()
 		(if (not (eq major-mode 'emacs-lisp-mode))
 		    (ycmd-mode))))
+    (set-variable 'ycmd-parse-conditions '(save new-line buffer-focus))
     (set-variable 'ycmd-idle-change-delay 0.1)
     ;;(setq ycmd--log-enabled t)
 ))
