@@ -61,7 +61,7 @@
 ;; display and behavior
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
-(menu-bar-mode -1)
+(menu-bar-mode nil)
 (global-font-lock-mode 1)
 (setq inhibit-splash-screen 't)
 (custom-set-variables

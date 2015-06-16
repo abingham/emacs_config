@@ -31,6 +31,7 @@
     (use-package leuven-theme)
     (load-theme 'leuven t)))
 (use-package deferred :ensure t)
+(use-package dockerfile-mode :ensure t)
 (use-package f :ensure t)
 (use-package fsharp-mode
   :ensure t
@@ -149,6 +150,15 @@
 (use-package graphviz-dot-mode
   :ensure t)
 
+(use-package go-mode
+  :ensure t
+  :config
+  (add-to-list 'auto-mode-alist '("\\.go$" . go-mode))
+  (add-hook 'before-save-hook 'gofmt-before-save))
+
+(use-package go-flycheck
+  :load-path "elisp")
+
 (use-package haskell-mode
   :ensure t
   :bind
@@ -179,7 +189,7 @@
 	      (lambda ()
 		(if (not (eq major-mode 'emacs-lisp-mode))
 		    (ycmd-mode))))
-    (set-variable 'ycmd-parse-conditions '(first-focus))
+    (set-variable 'ycmd-parse-conditions '(save new-line buffer-focus))
     (set-variable 'ycmd-idle-change-delay 0.1)
     (set-variable 'url-show-status nil)
     (set-variable 'ycmd-request-message-level -1)
