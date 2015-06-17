@@ -14,15 +14,6 @@
 
 (use-package helm
   :ensure t
-  :bind
-  (("C-h f" . helm-apropos)
-   ("C-h v" . helm-apropos)
-   ("C-c h" . helm-command-prefix)
-   ("C-x C-f" . helm-find-files)
-   ("C-x b" . helm-mini)
-   ("C-c h o" . helm-occur)
-   ("M-x" . helm-M-x)
-   ("C-u" . helm-my-buffers))
   :init
   (progn
     (require 'helm-config)
@@ -37,7 +28,11 @@
      ;; scroll 8 lines other window using M-<next>/M-<prior>
      helm-scroll-amount 8
      helm-ff-file-name-history-use-recentf t)
-
+    (evil-leader/set-key "h u" 'helm-my-buffers)
+    (evil-leader/set-key "h b" 'helm-mini)
+    (evil-leader/set-key ":" 'helm-M-x)
+    (evil-leader/set-key "h a" 'helm-apropo)
+    (evil-leader/set-key "f f" 'helm-find-files)
     (helm-mode 1))
   :config
   (add-to-list 'helm-completing-read-handlers-alist
