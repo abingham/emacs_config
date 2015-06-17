@@ -31,6 +31,11 @@
 (use-package deferred :ensure t)
 (use-package dockerfile-mode :ensure t)
 (use-package f :ensure t)
+(use-package evil-leader
+  :ensure t
+  :init
+  (progn (global-evil-leader-mode)
+	 (evil-leader/set-leader "<SPC>")))
 (use-package evil
   :ensure t
   :init (evil-mode 1))
