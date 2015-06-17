@@ -33,11 +33,10 @@ interactively."
 
 (use-package projectile
   :init
-  (projectile-global-mode)
-  
-  :bind
-  (("<f7>" . run-command-in-projectile-root)
-   ("C-x C-n" . run-compile-in-projectile-root)
-   ("<f6>" . shell-command-at-root)))
+  (progn
+    (projectile-global-mode)
+    (evil-leader/set-key "p r" 'run-command-in-projectile-root)
+    (evil-leader/set-key "p c" 'run-compile-in-projectile-root)
+    (evil-leader/set-key "p s" 'shell-command-at-root)))
 
 (provide 'ab-projectile)
