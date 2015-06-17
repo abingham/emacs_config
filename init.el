@@ -313,6 +313,11 @@
 (use-package ab-cpp
   :load-path "elisp")
 
+(use-package golden-ratio
+  :ensure t
+  :config
+  (evil-leader/set-key "w g" 'golden-ratio))
+
 (use-package ab-helm
   :load-path "elisp")
 
