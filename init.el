@@ -362,6 +362,11 @@
               (local-set-key (kbd "C-c <up>")    'hs-hide-all)
               (local-set-key (kbd "C-c <down>")  'hs-show-all))))
 
+(use-package highlight-parentheses
+  :ensure t
+  :config
+  (add-hook 'prog-mode-hook 'highlight-parentheses-mode))
+
 (use-package ab-javascript
   :load-path "elisp"
   :disabled t)
