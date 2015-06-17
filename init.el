@@ -35,7 +35,8 @@
   :ensure t
   :init
   (progn (global-evil-leader-mode)
-	 (evil-leader/set-leader "<SPC>")))
+	 (evil-leader/set-leader "<SPC>")
+	 (setq evil-leader/no-prefix-mode-rx '("magit-.*-mode"))))
 (use-package evil
   :ensure t
   :init (evil-mode 1))
