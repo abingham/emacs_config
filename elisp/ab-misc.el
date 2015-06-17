@@ -151,6 +151,8 @@
 (evil-leader/set-key "w j" 'windmove-down)
 (evil-leader/set-key "w h" 'windmove-left)
 (evil-leader/set-key "w l" 'windmove-right)
+(evil-leader/set-key "w |" 'split-window-horizontally)
+(evil-leader/set-key "w \\" 'split-window-vertically)
 ;; (global-set-key [(ctrl x) (o)] 'other-window)
 (global-set-key "\C-x\C-m" 'execute-extended-command)
 (global-set-key "\C-w" 'backward-kill-word) 
