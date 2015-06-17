@@ -147,10 +147,10 @@
 (setq ns-right-alternate-modifier nil)
 
 ; bindings
-(global-set-key [(ctrl x) (i)] 'windmove-up)
-(global-set-key [(ctrl x) (m)] 'windmove-down)
-(global-set-key [(ctrl x) (j)] 'windmove-left)
-(global-set-key [(ctrl x) (l)] 'windmove-right)
+(evil-leader/set-key "w k" 'windmove-up)
+(evil-leader/set-key "w j" 'windmove-down)
+(evil-leader/set-key "w h" 'windmove-left)
+(evil-leader/set-key "w l" 'windmove-right)
 ;; (global-set-key [(ctrl x) (o)] 'other-window)
 (global-set-key "\C-x\C-m" 'execute-extended-command)
 (global-set-key "\C-w" 'backward-kill-word) 
