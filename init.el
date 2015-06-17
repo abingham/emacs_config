@@ -76,7 +76,6 @@
 (use-package python-environment :ensure t)
 (use-package request :ensure t)
 (use-package request-deferred :ensure t)
-(use-package smart-mode-line :ensure t)
 (use-package speedbar
   :config
   (progn
@@ -448,12 +447,17 @@
   :ensure t
   :config
   (progn
-    (sml/setup)
-    
+    (sml/setup)))
+
+(use-package rich-minority
+  :ensure t
+  :config
+  (progn
+    (rich-minority-mode 1)
     ;; TODO: Think about letting the individual modules do this
     ;; configuration. It's convenient to have it here for now, though.
-    (dolist (m '("Helm" "AC" "Undo-Tree" "Paredit"))
-      (add-to-list 'sml/hidden-modes (concat " " m)))))
+    (dolist (m '("Helm" "AC" "Undo-Tree" "Paredit" "GitGutter" "Guide" "SP" "MRev"))
+      (add-to-list 'rm-blacklist (concat " "  m)))))
 
 (use-package switch-window
   :ensure t
