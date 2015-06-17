@@ -37,9 +37,14 @@
   (progn (global-evil-leader-mode)
 	 (evil-leader/set-leader "<SPC>")
 	 (setq evil-leader/no-prefix-mode-rx '("magit-.*-mode"))))
+
 (use-package evil
   :ensure t
   :init (evil-mode 1))
+
+(use-package evil-lisp-state
+ :ensure t)
+
 (use-package fsharp-mode
   :ensure t
   :init
@@ -401,6 +406,7 @@
 
 (use-package paredit
   :ensure t
+  :disabled t
   :init
   (autoload 'enable-paredit-mode "paredit" "Turn on pseudo-structural editing of Lisp code." t)
   (add-hook 'emacs-lisp-mode-hook       #'enable-paredit-mode)
