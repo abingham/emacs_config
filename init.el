@@ -52,9 +52,11 @@
   :config
   (setq grunt-base-command "/usr/local/bin/node /usr/local/bin/grunt"))
 (use-package guide-key
-  (setq guide-key/guide-key-sequence t) 
-  (guide-key-mode 1)
-  (setq guide-key/popup-window-position 'bottom))
+  :init
+  (progn
+    (setq guide-key/guide-key-sequence t) 
+    (guide-key-mode 1)
+    (setq guide-key/popup-window-position 'bottom)))
 (use-package htmlize :ensure t)
 (use-package markdown-mode
   :ensure t
