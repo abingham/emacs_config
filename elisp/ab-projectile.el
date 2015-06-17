@@ -35,6 +35,7 @@ interactively."
   :init
   (progn
     (projectile-global-mode)
+    (evil-leader/set-key "p g" 'projectile-grep)
     (evil-leader/set-key "p r" 'run-command-in-projectile-root)
     (evil-leader/set-key "p c" 'run-compile-in-projectile-root)
     (evil-leader/set-key "p s" 'shell-command-at-root)))
