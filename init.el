@@ -31,6 +31,9 @@
 (use-package deferred :ensure t)
 (use-package dockerfile-mode :ensure t)
 (use-package f :ensure t)
+(use-package evil
+  :ensure t
+  :init (evil-mode 1))
 (use-package fsharp-mode
   :ensure t
   :init
