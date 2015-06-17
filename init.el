@@ -217,7 +217,8 @@
 
 (use-package magit
   :ensure t
-  :bind (("<f5>" . magit-status)))
+  :config
+  (evil-leader/set-key "g s" 'magit-status))
 
 (use-package git-gutter
   :ensure t
