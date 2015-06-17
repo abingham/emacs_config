@@ -164,6 +164,7 @@
 (global-set-key (kbd "<mouse-4>") 'down-slightly)
 (global-set-key "\C-l" 'line-to-top-of-window)
 (global-set-key [f9] 'match-paren)
+(evil-leader/set-key "s p" 'match-paren)
 (global-set-key [(ctrl f10)] 'start-kbd-macro)
 (global-set-key [(meta f10)] 'end-kbd-macro)
 (global-set-key [f10] 'call-last-kbd-macro)
