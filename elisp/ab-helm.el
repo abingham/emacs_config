@@ -31,7 +31,7 @@
     (evil-leader/set-key "h u" 'helm-my-buffers)
     (evil-leader/set-key "h b" 'helm-mini)
     (evil-leader/set-key ":" 'helm-M-x)
-    (evil-leader/set-key "h a" 'helm-apropo)
+    (evil-leader/set-key "h a" 'helm-apropos)
     (evil-leader/set-key "f f" 'helm-find-files)
     (helm-mode 1))
   :config
