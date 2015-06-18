@@ -159,6 +159,11 @@
 (evil-leader/set-key "w [" 'evil-window-decrease-width)
 (evil-leader/set-key "w }" 'evil-window-increase-height)
 (evil-leader/set-key "w {" 'evil-window-decrease-height)
+(evil-leader/set-key "t f" 'fill-paragraph)
+(evil-leader/set-key "t l" 'line-to-top-of-window)
+(evil-leader/set-key "t b" 'beginning-of-line)
+(evil-leader/set-key "t e" 'end-of-line) ; Also, 0 will do this.
+
 ;; (global-set-key [(ctrl x) (o)] 'other-window)
 (global-set-key "\C-x\C-m" 'execute-extended-command)
 (global-set-key "\C-w" 'backward-kill-word) 
