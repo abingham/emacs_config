@@ -36,7 +36,7 @@
   :init
   (progn (global-evil-leader-mode)
 	 (evil-leader/set-leader "<SPC>")
-	 (setq evil-leader/no-prefix-mode-rx '("magit-.*-mode"))))
+	 (setq evil-leader/no-prefix-mode-rx '("magit-.*-mode" "package-.*-mode"))))
 
 (use-package evil
   :ensure t
@@ -429,6 +429,15 @@
 (use-package p4
   :ensure t
   :disabled t)
+
+(use-package package
+  :config
+  (progn
+    (evil-leader/set-key-for-mode 'package-menu-mode "p i" 'package-menu-mark-install)
+    (evil-leader/set-key-for-mode 'package-menu-mode "p d" 'package-menu-mark-delete)
+    (evil-leader/set-key-for-mode 'package-menu-mode "p U" 'package-menu-mark-upgrades)
+    (evil-leader/set-key-for-mode 'package-menu-mode "p u" 'package-menu-mark-unmark)
+    (evil-leader/set-key-for-mode 'package-menu-mode "p x" 'package-menu-execute)))
 
 (use-package ab-projectile
   :load-path "elisp")
