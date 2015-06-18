@@ -453,7 +453,6 @@
   :ensure t
   :config
   (progn
-    (rich-minority-mode 1)
     ;; TODO: Think about letting the individual modules do this
     ;; configuration. It's convenient to have it here for now, though.
     (dolist (m '("Helm" "AC" "Undo-Tree" "Paredit" "GitGutter" "Guide" "SP" "MRev"))
