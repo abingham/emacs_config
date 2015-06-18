@@ -182,5 +182,17 @@
 					;(global-set-key "\C-t" (transpose-chars -1))
 (global-set-key [(ctrl .)] 'comment-or-uncomment-region)
 
+;; Make the active modeline black and the others a light gray. This
+;; makes is easier to find the active window.
+(set-face-attribute  'mode-line
+                 nil 
+                 :foreground "white"
+                 :background "black" 
+                 :box '(:line-width 1 :style released-button))
+(set-face-attribute  'mode-line-inactive
+                 nil 
+                 :foreground "gray30"
+                 :background "gray80" 
+                 :box '(:line-width 1 :style released-button))
 
 (provide 'ab-misc)
