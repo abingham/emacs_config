@@ -71,7 +71,6 @@
 (use-package neotree
   :ensure t
   :config
-  (setq projectile-switch-project-action 'neotree-projectile-action)
   (evil-leader/set-key "n n" 'neotree-toggle)
   (evil-leader/set-key "p n" 'neotree-projectile-action))
 (use-package python-environment :ensure t)
