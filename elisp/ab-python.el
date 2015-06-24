@@ -66,7 +66,6 @@
 (defun ab-python-hook ()
   "Called when a buffer enters python mode."
   (show-paren-mode 1)
-  (eldoc-mode 1)
   ;; (electric-indent-local-mode -1)
   ;; (local-set-key (kbd "RET") 'proper-python-electic-indent)
 
