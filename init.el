@@ -32,6 +32,12 @@
     (load-theme 'leuven t)))
 (use-package deferred :ensure t)
 (use-package dockerfile-mode :ensure t)
+
+;; Elixir stuff
+(use-package elixir-mode :ensure t)
+(use-package elixir-mix :ensure t)
+(use-package alchemist :ensure t)
+
 (use-package f :ensure t)
 (use-package fsharp-mode
   :ensure t
@@ -245,6 +251,7 @@
 
 (use-package org
   :ensure t
+  :disabled t
   :bind (("C-c l" . org-store-link)
 	 ("C-c a" . org-agenda))
   :init
