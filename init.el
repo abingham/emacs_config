@@ -101,10 +101,15 @@
 ;;     (setq ac-use-quick-help t)
 ;;     (setq ac-quick-help-delay 0.3)))
 
+(setq local-elisp-dir (concat (file-name-as-directory (file-name-directory load-file-name)) "elisp"))
+
 (use-package ab-cleanup-buffer
-  :load-path "elisp"
+  :load-path local-elisp-dir
   :config
   (cleanup-buffer-setup))
+
+(use-package alchemist
+  :ensure t)
 
 (use-package cider
   :ensure t
@@ -123,7 +128,7 @@
   :config
   (progn
     (setq company-backends
-          '(company-ycmd
+          '(;;company-ycmd
             company-bbdb
             company-nxml
             company-css
@@ -141,6 +146,21 @@
 
 (use-package csharp-mode
   :ensure t)
+
+(use-package elixir-mode
+  :ensure t)
+
+(use-package elixir-mix
+  :ensure t)
+
+(use-package elixir-yasnippets
+  :ensure t)
+
+(use-package feature-mode
+  :ensure t
+  :config
+  (progn
+    (add-to-list 'auto-mode-alist '("\.feature$" . feature-mode))))
 
 (use-package flycheck
   :ensure t
@@ -163,7 +183,7 @@
   (add-hook 'before-save-hook 'gofmt-before-save))
 
 (use-package go-flycheck
-  :load-path "elisp")
+  :load-path local-elisp-dir)
 
 (use-package haskell-mode
   :ensure t
@@ -186,33 +206,33 @@
     (speedbar-add-supported-extension ".hs")
     ))
 
-(use-package ycmd
-  :load-path emacs-ycmd-root
-  :bind (("C-c y g" . ycmd-goto))
-  :init
-  (progn
-    (add-hook 'prog-mode-hook
-	      (lambda ()
-		(if (not (eq major-mode 'emacs-lisp-mode))
-		    (ycmd-mode))))
-    (set-variable 'ycmd-parse-conditions '(save new-line buffer-focus))
-    (set-variable 'ycmd-idle-change-delay 0.1)
-    (set-variable 'url-show-status nil)
-    (set-variable 'ycmd-request-message-level -1)
-    ;;(setq ycmd--log-enabled t)
-))
+;; (use-package ycmd
+;;   :load-path emacs-ycmd-root
+;;   :bind (("C-c y g" . ycmd-goto))
+;;   :init
+;;   (progn
+;;     (add-hook 'prog-mode-hook
+;; 	      (lambda ()
+;; 		(if (not (eq major-mode 'emacs-lisp-mode))
+;; 		    (ycmd-mode))))
+;;     (set-variable 'ycmd-parse-conditions '(save new-line buffer-focus))
+;;     (set-variable 'ycmd-idle-change-delay 0.1)
+;;     (set-variable 'url-show-status nil)
+;;     (set-variable 'ycmd-request-message-level -1)
+;;     ;;(setq ycmd--log-enabled t)
+;; ))
 
-(use-package company-ycmd
-  :load-path emacs-ycmd-root
-  ;; We're trying out ycmd. No need for original clang support.
-  :init (setq company-backends (remove 'company-clang company-backends)))
+;; (use-package company-ycmd
+;;   :load-path emacs-ycmd-root
+;;   ;; We're trying out ycmd. No need for original clang support.
+;;   :init (setq company-backends (remove 'company-clang company-backends)))
 
-(use-package flycheck-ycmd
-  :load-path emacs-ycmd-root
-  :config (flycheck-ycmd-setup))
+;; (use-package flycheck-ycmd
+;;   :load-path emacs-ycmd-root
+;;   :config (flycheck-ycmd-setup))
 
 (use-package simple-bookmark
-  :load-path "elisp"
+  :load-path local-elisp-dir
   :bind (([(shift return)] . simple-bookmark-set)
 	 ([(control return)] . simple-bookmark-jump)))
 
@@ -247,7 +267,7 @@
   :init (nyan-mode t))
 
 (use-package open-next-line
-  :load-path "elisp")
+  :load-path local-elisp-dir)
 
 (use-package org
   :ensure t
@@ -278,47 +298,45 @@
 (use-package ox-reveal
   :ensure t)
 
-(use-package ab-python)
+;; (use-package ab-python :load-path local-elisp-dir)
 
-(use-package ab-python :load-path "elisp")
+;; (use-package traad
+;;   :bind
+;;   (([(ctrl x) (t) (r)] . traad-rename)
+;;    ([(ctrl x) (t) (u)] . traad-undo)
+;;    ([(ctrl x) (t) (d)] . traad-goto-definition)
+;;    ([(ctrl x) (t) (o)] . traad-display-doc)
+;;    ([(ctrl x) (t) (c)] . traad-display-calltip))
+;;   :init
+;;   (progn
+;;     (require 'traad)
+;;     (set-variable 'traad-server-port 0)
+;;     (set-variable 'traad-server-args '("-V" "2"))
+;;     (add-hook
+;;      'therapy-python3-hooks
+;;      (lambda ()
+;;        (set-variable 'traad-environment-root "traad3")
+;;        (set-variable 'traad-environment-virtualenv '("pyvenv-3.4"))))
+;;     (add-hook
+;;      'therapy-python2-hooks
+;;      (lambda ()
+;;        (set-variable 'traad-environment-root "traad")
+;;        (set-variable 'traad-environment-virtualenv '("virtualenv")))))
+;;   :load-path "~/projects/traad/elisp")
 
-(use-package traad
-  :bind
-  (([(ctrl x) (t) (r)] . traad-rename)
-   ([(ctrl x) (t) (u)] . traad-undo)
-   ([(ctrl x) (t) (d)] . traad-goto-definition)
-   ([(ctrl x) (t) (o)] . traad-display-doc)
-   ([(ctrl x) (t) (c)] . traad-display-calltip))
-  :init
-  (progn
-    (require 'traad)
-    (set-variable 'traad-server-port 0)
-    (set-variable 'traad-server-args '("-V" "2"))
-    (add-hook
-     'therapy-python3-hooks
-     (lambda ()
-       (set-variable 'traad-environment-root "traad3")
-       (set-variable 'traad-environment-virtualenv '("pyvenv-3.4"))))
-    (add-hook
-     'therapy-python2-hooks
-     (lambda ()
-       (set-variable 'traad-environment-root "traad")
-       (set-variable 'traad-environment-virtualenv '("virtualenv")))))
-  :load-path "~/projects/traad/elisp")
-
-(use-package codesearch
-  :ensure t
-  :bind
-  (("M-'" . codesearch-search)
-   ("M-." . projectile-codesearch-search))
-  :config
-  (set-variable 'codesearch-cindex-flags '("-exclude" "~/.csearch_excludes")))
+;; (use-package codesearch
+;;   :ensure t
+;;   :bind
+;;   (("M-'" . codesearch-search)
+;;    ("M-." . projectile-codesearch-search))
+;;   :config
+;;   (set-variable 'codesearch-cindex-flags '("-exclude" "~/.csearch_excludes")))
 
 (use-package ab-cpp
-  :load-path "elisp")
+  :load-path local-elisp-dir)
 
 (use-package ab-helm
-  :load-path "elisp")
+  :load-path local-elisp-dir)
 
 (use-package helm-swoop
   :ensure t
@@ -368,7 +386,7 @@
               (local-set-key (kbd "C-c <down>")  'hs-show-all))))
 
 (use-package ab-javascript
-  :load-path "elisp"
+  :load-path local-elisp-dir
   :disabled t)
 
 (use-package js2-mode
@@ -382,7 +400,7 @@
     (setq js2-highlight-level 3)))
 
 (use-package ab-misc
-  :load-path "elisp")
+  :load-path local-elisp-dir)
 
 (use-package outline-presentation
   :ensure t
@@ -418,10 +436,10 @@
   :disabled t)
 
 (use-package ab-projectile
-  :load-path "elisp")
+  :load-path local-elisp-dir)
 
 (use-package ab-rst
-  :load-path "elisp")
+  :load-path local-elisp-dir)
 
 (use-package slime
   :ensure t
