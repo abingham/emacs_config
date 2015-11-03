@@ -242,7 +242,8 @@
 
 (use-package magit
   :ensure t
-  :bind (("<f5>" . magit-status)))
+  :bind (("<f5>" . magit-status))
+  :config (diminish 'magit-auto-revert-mode))
 
 (use-package git-gutter
   :ensure t
