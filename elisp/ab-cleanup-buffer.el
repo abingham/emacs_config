@@ -10,7 +10,8 @@
             "SConscript"
             ".*\.rst"
 	    ".*\.js"
-	    ".*\.jinja2"))
+	    ".*\.jinja2"
+            ".*\.ts"))
 
 ;;;###autoload
 (defun cleanup-buffer ()

@@ -142,7 +142,8 @@
             company-oddmuse
             company-files
             company-dabbrev))
-    (set-variable 'company-idle-delay 0.1)))
+    (set-variable 'company-idle-delay 0.1)
+    (diminish 'company-mode "co")))
 
 (use-package csharp-mode
   :ensure t)
@@ -164,7 +165,10 @@
 
 (use-package flycheck
   :ensure t
-  :init (global-flycheck-mode))
+  :init
+  (progn
+    (global-flycheck-mode)
+    (diminish 'flycheck-mode "fc")))
 
 (use-package fsharp-mode
   :ensure t
@@ -238,11 +242,15 @@
 
 (use-package magit
   :ensure t
-  :bind (("<f5>" . magit-status)))
+  :bind (("<f5>" . magit-status))
+  :init (diminish 'magit-auto-revert-mode))
 
 (use-package git-gutter
   :ensure t
-  :init (global-git-gutter-mode t))
+  :init
+  (progn
+    (global-git-gutter-mode t)
+    (diminish 'git-gutter-mode)))
 
 (use-package multiple-cursors
   :ensure t

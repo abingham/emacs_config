@@ -33,7 +33,9 @@ interactively."
 
 (use-package projectile
   :init
-  (projectile-global-mode)
+  (progn
+    (projectile-global-mode)
+    (diminish 'projectile-mode))
   
   :bind
   (("<f7>" . run-command-in-projectile-root)
