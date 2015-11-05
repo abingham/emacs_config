@@ -128,7 +128,7 @@
   :config
   (progn
     (setq company-backends
-          '(;;company-ycmd
+          '(company-ycmd
             company-bbdb
             company-nxml
             company-css
@@ -210,30 +210,30 @@
     (speedbar-add-supported-extension ".hs")
     ))
 
-;; (use-package ycmd
-;;   :load-path emacs-ycmd-root
-;;   :bind (("C-c y g" . ycmd-goto))
-;;   :init
-;;   (progn
-;;     (add-hook 'prog-mode-hook
-;; 	      (lambda ()
-;; 		(if (not (eq major-mode 'emacs-lisp-mode))
-;; 		    (ycmd-mode))))
-;;     (set-variable 'ycmd-parse-conditions '(save new-line buffer-focus))
-;;     (set-variable 'ycmd-idle-change-delay 0.1)
-;;     (set-variable 'url-show-status nil)
-;;     (set-variable 'ycmd-request-message-level -1)
-;;     ;;(setq ycmd--log-enabled t)
-;; ))
+(use-package ycmd
+  :load-path emacs-ycmd-root
+  :bind (("C-c y g" . ycmd-goto))
+  :init
+  (progn
+    (add-hook 'prog-mode-hook
+	      (lambda ()
+		(if (not (eq major-mode 'emacs-lisp-mode))
+		    (ycmd-mode))))
+    (set-variable 'ycmd-parse-conditions '(save new-line buffer-focus))
+    (set-variable 'ycmd-idle-change-delay 0.1)
+    (set-variable 'url-show-status nil)
+    (set-variable 'ycmd-request-message-level -1)
+    ;;(setq ycmd--log-enabled t)
+))
 
-;; (use-package company-ycmd
-;;   :load-path emacs-ycmd-root
-;;   ;; We're trying out ycmd. No need for original clang support.
-;;   :init (setq company-backends (remove 'company-clang company-backends)))
+(use-package company-ycmd
+  :load-path emacs-ycmd-root
+  ;; We're trying out ycmd. No need for original clang support.
+  :init (setq company-backends (remove 'company-clang company-backends)))
 
-;; (use-package flycheck-ycmd
-;;   :load-path emacs-ycmd-root
-;;   :config (flycheck-ycmd-setup))
+(use-package flycheck-ycmd
+  :load-path emacs-ycmd-root
+  :config (flycheck-ycmd-setup))
 
 (use-package simple-bookmark
   :load-path local-elisp-dir
@@ -508,15 +508,16 @@
     (add-hook 'prog-mode-hook
               (lambda () (yafolding-mode)))))
 
-(use-package yasnippet
-  :ensure t
-  :bind
-  (("C-x y i" . yas-insert-snippet))
-  :config
-  (progn
-    (yas-reload-all)
-    (setq yas-prompt-functions '(yas-ido-prompt
-                                 yas-completing-prompt))
-    (yas-global-mode)))
+;; (use-package yasnippet
+;;   :ensure t
+;;   :disabled t
+;;   :bind
+;;   (("C-x y i" . yas-insert-snippet))
+;;   :config
+;;   (progn
+;;     (yas-reload-all)
+;;     (setq yas-prompt-functions '(yas-ido-prompt
+;;                                yas-completing-prompt))
+;;     (yas-global-mode)))
 
 ;;; init.el ends here
